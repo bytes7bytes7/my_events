@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
 
 import '../../../../../utils/mapper.dart';
 import '../../../domain/repositories/onboarding_repository.dart';
@@ -14,6 +15,7 @@ part 'onboarding_state.dart';
 
 part 'onboarding_bloc.freezed.dart';
 
+@injectable
 class OnboardingBloc extends Bloc<OnboardingEvent, OnboardingState> {
   OnboardingBloc(
     this._onboardingRepository,

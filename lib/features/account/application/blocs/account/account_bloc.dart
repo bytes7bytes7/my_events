@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
 
 import '../../../../../utils/mapper.dart';
 import '../../../../common/application/view_models/user_vm.dart';
@@ -13,6 +14,7 @@ part 'account_state.dart';
 
 part 'account_bloc.freezed.dart';
 
+@injectable
 class AccountBloc extends Bloc<AccountEvent, AccountState> {
   AccountBloc(
     this._userRepository,

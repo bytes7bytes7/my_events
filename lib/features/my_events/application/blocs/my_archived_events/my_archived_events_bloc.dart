@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
 
 import '../../../../../utils/mapper.dart';
 import '../../../../common/application/view_models/ticket_vm.dart';
@@ -15,6 +16,7 @@ part 'my_archived_events_bloc.freezed.dart';
 
 const _limit = 10;
 
+@injectable
 class MyArchivedEventsBloc
     extends Bloc<MyArchivedEventsEvent, MyArchivedEventsState> {
   MyArchivedEventsBloc(

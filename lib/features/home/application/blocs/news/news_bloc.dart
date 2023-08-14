@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
 
 import '../../../../../utils/mapper.dart';
 import '../../../domain/entities/news.dart';
@@ -14,6 +15,7 @@ part 'news_state.dart';
 
 part 'news_bloc.freezed.dart';
 
+@injectable
 class NewsBloc extends Bloc<NewsEvent, NewsState> {
   NewsBloc(
     this._newsRepository,

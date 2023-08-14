@@ -1,6 +1,7 @@
 import 'package:collection/collection.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
 
 import '../../../../../utils/mapper.dart';
 import '../../../domain/entities/news.dart';
@@ -18,6 +19,7 @@ part 'news_list_bloc.freezed.dart';
 
 const _limit = 10;
 
+@injectable
 class NewsListBloc extends Bloc<NewsListEvent, NewsListState> {
   NewsListBloc(
     this._newsRepository,
