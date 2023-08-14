@@ -14,10 +14,20 @@ class AuthScreen extends StatelessWidget {
     final theme = Theme.of(context);
     final elevatedButtonTX = theme.extension<ElevatedButtonTX>()!;
     final bloc = context.read<AuthBloc>();
+    final scaffoldMsg = ScaffoldMessenger.of(context);
 
     return Scaffold(
       body: SafeArea(
-        child: BlocBuilder<AuthBloc, AuthState>(
+        child: BlocConsumer<AuthBloc, AuthState>(
+          listener: (context, state) {
+            if (state.error.isNotEmpty) {
+              scaffoldMsg.showSnackBar(
+                SnackBar(
+                  content: Text(state.error),
+                ),
+              );
+            }
+          },
           builder: (context, state) {
             return Stack(
               alignment: Alignment.center,

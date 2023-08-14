@@ -15,7 +15,8 @@ class App extends StatelessWidget {
         ..add(const AuthEvent.checkIfIsLoggedIn()),
       child: MaterialApp(
         theme: lightTheme,
-        home: const AuthScreen(),
+        debugShowCheckedModeBanner: false,
+        home: const OnboardingScreen(),
       ),
     );
   }

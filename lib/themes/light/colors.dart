@@ -4,6 +4,7 @@ class _Colors {
   const _Colors._();
 
   static const white = Color(0xFFFFFFFF);
+  static const black = Color(0xFF000000);
   static const monza = Color(0xFFC60033);
   static const wispPink = Color(0xFFFDF0F4);
   static const shark = Color(0xFF212122);
@@ -11,4 +12,5 @@ class _Colors {
   static const paleSlate = Color(0xFFD3D2D3);
   static const slateGray = Color(0xFF778A9B);
   static const wildSand = Color(0xFFF5F5F5);
+  static const alabaster = Color(0xFFF9F9F9);
 }
