@@ -4,6 +4,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../../../../utils/mapper.dart';
 import '../../../domain/repositories/onboarding_repository.dart';
 import '../../../domain/value_objects/onboarding_tip.dart';
+import '../../coordinators/onboarding_coordinator.dart';
 import '../../providers/onboarding_string_provider.dart';
 import '../../view_models/onboarding_tip_vm.dart';
 
@@ -18,6 +19,7 @@ class OnboardingBloc extends Bloc<OnboardingEvent, OnboardingState> {
     this._onboardingRepository,
     this._onboardingTipMapper,
     this._onboardingStringProvider,
+    this._coordinator,
   ) : super(const OnboardingState()) {
     on<_LoadEvent>(_load);
     on<_NextEvent>(_next);
@@ -27,6 +29,7 @@ class OnboardingBloc extends Bloc<OnboardingEvent, OnboardingState> {
   final OnboardingRepository _onboardingRepository;
   final Mapper<OnboardingTip, OnboardingTipVM> _onboardingTipMapper;
   final OnboardingStringProvider _onboardingStringProvider;
+  final OnboardingCoordinator _coordinator;
 
   Future<void> _load(
     _LoadEvent event,
@@ -55,11 +58,17 @@ class OnboardingBloc extends Bloc<OnboardingEvent, OnboardingState> {
     _NextEvent event,
     Emitter<OnboardingState> emit,
   ) async {
+    if (state.isLastIndex) {
+      return _coordinator.onDone();
+    }
 
+    emit(state.copyWith(currentIndex: state.currentIndex + 1));
   }
 
   Future<void> _close(
     _CloseEvent event,
     Emitter<OnboardingState> emit,
-  ) async {}
+  ) async {
+    _coordinator.onClose();
+  }
 }
