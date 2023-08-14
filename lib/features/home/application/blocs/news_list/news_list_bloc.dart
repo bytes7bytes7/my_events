@@ -6,7 +6,7 @@ import '../../../../../utils/mapper.dart';
 import '../../../domain/entities/news.dart';
 import '../../../domain/entities/news_category.dart';
 import '../../../domain/repositories/news_repository.dart';
-import '../../providers/news_string_provider.dart';
+import '../../providers/news_list_string_provider.dart';
 import '../../view_models/news_category_vm.dart';
 import '../../view_models/news_vm.dart';
 
@@ -35,7 +35,7 @@ class NewsListBloc extends Bloc<NewsListEvent, NewsListState> {
   }
 
   final NewsRepository _newsRepository;
-  final NewsStringProvider _stringProvider;
+  final NewsListStringProvider _stringProvider;
   final Mapper<NewsCategory, NewsCategoryVM> _newsCategoryMapper;
   final Mapper<News, NewsVM> _newsMapper;
 

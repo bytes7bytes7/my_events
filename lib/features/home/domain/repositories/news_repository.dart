@@ -12,4 +12,6 @@ abstract class NewsRepository {
     required int offset,
     required int limit,
   });
+
+  Future<News> getByID(String id);
 }
