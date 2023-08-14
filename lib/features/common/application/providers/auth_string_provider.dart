@@ -1,5 +1,5 @@
 abstract class AuthStringProvider {
   const AuthStringProvider();
 
-  String get canNotLogIn;
+  String get cannotLogIn;
 }

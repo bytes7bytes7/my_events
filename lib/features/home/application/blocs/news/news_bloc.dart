@@ -71,7 +71,7 @@ class NewsBloc extends Bloc<NewsEvent, NewsState> {
 
       add(const _LoadNewsEvent());
     } catch (e) {
-      emit(state.copyWith(error: _stringProvider.canNotLoadCategories));
+      emit(state.copyWith(error: _stringProvider.cannotLoadCategories));
     } finally {
       emit(state.copyWith(isLoadingCategories: false));
     }
@@ -119,7 +119,7 @@ class NewsBloc extends Bloc<NewsEvent, NewsState> {
         ),
       );
     } catch (e) {
-      emit(state.copyWith(error: _stringProvider.canNotLoadNews));
+      emit(state.copyWith(error: _stringProvider.cannotLoadNews));
     } finally {
       emit(state.copyWith(isLoadingMore: false));
     }
@@ -183,7 +183,7 @@ class NewsBloc extends Bloc<NewsEvent, NewsState> {
         ),
       );
     } catch (e) {
-      emit(state.copyWith(error: _stringProvider.canNotLoadNews));
+      emit(state.copyWith(error: _stringProvider.cannotLoadNews));
     } finally {
       emit(state.copyWith(isLoadingNews: false));
     }

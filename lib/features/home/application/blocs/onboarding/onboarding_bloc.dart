@@ -48,7 +48,7 @@ class OnboardingBloc extends Bloc<OnboardingEvent, OnboardingState> {
         ),
       );
     } catch (e) {
-      emit(state.copyWith(error: _stringProvider.canNotLoad));
+      emit(state.copyWith(error: _stringProvider.cannotLoad));
     } finally {
       emit(state.copyWith(isLoading: false));
     }

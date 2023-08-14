@@ -1,7 +1,7 @@
 abstract class NewsStringProvider {
   const NewsStringProvider();
 
-  String get canNotLoadCategories;
+  String get cannotLoadCategories;
 
-  String get canNotLoadNews;
+  String get cannotLoadNews;
 }

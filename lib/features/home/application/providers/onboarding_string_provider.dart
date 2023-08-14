@@ -1,5 +1,5 @@
 abstract class OnboardingStringProvider {
   const OnboardingStringProvider();
 
-  String get canNotLoad;
+  String get cannotLoad;
 }

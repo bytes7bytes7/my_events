@@ -40,7 +40,7 @@ class UpcomingEventsBloc
 
       emit(state.copyWith(events: events));
     } catch (e) {
-      emit(state.copyWith(error: _stringProvider.canNotLoad));
+      emit(state.copyWith(error: _stringProvider.cannotLoad));
     } finally {
       emit(state.copyWith(isLoading: false));
     }

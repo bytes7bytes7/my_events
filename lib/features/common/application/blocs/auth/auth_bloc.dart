@@ -44,7 +44,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     try {
       await _authService.logInToAccount();
     } catch (e) {
-      emit(state.copyWith(error: _authStringProvider.canNotLogIn));
+      emit(state.copyWith(error: _authStringProvider.cannotLogIn));
     }
   }
 
@@ -55,7 +55,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     try {
       await _authService.logInAnonymously();
     } catch (e) {
-      emit(state.copyWith(error: _authStringProvider.canNotLogIn));
+      emit(state.copyWith(error: _authStringProvider.cannotLogIn));
     }
   }
 

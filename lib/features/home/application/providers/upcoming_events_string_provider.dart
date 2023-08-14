@@ -1,5 +1,5 @@
 abstract class UpcomingEventsStringProvider {
   const UpcomingEventsStringProvider();
 
-  String get canNotLoad;
+  String get cannotLoad;
 }
