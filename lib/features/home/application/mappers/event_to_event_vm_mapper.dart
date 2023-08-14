@@ -16,6 +16,7 @@ class EventToEventVMMapper extends Mapper<Event, EventVM> {
     return EventVM(
       id: item.id,
       title: item.title,
+      city: item.city,
       place: item.place,
       period: _dateTimeBeautifyProvider.range(item.startsAt, item.endsAt),
       image: item.image,

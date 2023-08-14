@@ -16,7 +16,8 @@ class TestEventRepository implements EventRepository {
         Event(
           id: '1',
           title: 'Восточный экономический форум 2023',
-          place: 'Владивосток, Россия',
+          city: 'Владивосток, Россия',
+          place: 'ДФУ',
           startsAt: DateTime(2023, 9, 5),
           endsAt: DateTime(2023, 9, 8),
           image: Uint8List.sublistView(
@@ -24,6 +25,34 @@ class TestEventRepository implements EventRepository {
           ),
           icon: Uint8List.sublistView(
             await rootBundle.load(Assets.mock.icons.eventCardIcon1),
+          ),
+        ),
+        Event(
+          id: '2',
+          title: 'Петербургский международный юридический форум 2023',
+          city: 'Санкт-Петербург, Россия',
+          place: 'Экспофорум',
+          startsAt: DateTime(2024, 5, 11),
+          endsAt: DateTime(2024, 5, 13),
+          image: Uint8List.sublistView(
+            await rootBundle.load(Assets.mock.images.eventCardBg2.path),
+          ),
+          icon: Uint8List.sublistView(
+            await rootBundle.load(Assets.mock.icons.eventCardIcon2),
+          ),
+        ),
+        Event(
+          id: '2',
+          title: 'Санкт-Петербургский международный экономический форум 2023',
+          city: 'Санкт-Петербург, Россия',
+          place: 'Экспофорум',
+          startsAt: DateTime(2024, 6, 14),
+          endsAt: DateTime(2024, 6, 17),
+          image: Uint8List.sublistView(
+            await rootBundle.load(Assets.mock.images.eventCardBg3.path),
+          ),
+          icon: Uint8List.sublistView(
+            await rootBundle.load(Assets.mock.icons.eventCardIcon3),
           ),
         ),
       ];

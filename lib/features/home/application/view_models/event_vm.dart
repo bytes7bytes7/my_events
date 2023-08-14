@@ -4,6 +4,7 @@ class EventVM {
   const EventVM({
     required this.id,
     required this.title,
+    required this.city,
     required this.place,
     required this.period,
     required this.image,
@@ -12,6 +13,7 @@ class EventVM {
 
   final String id;
   final String title;
+  final String city;
   final String place;
   final String period;
   final Uint8List image;

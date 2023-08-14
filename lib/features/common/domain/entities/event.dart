@@ -4,6 +4,7 @@ class Event {
   const Event({
     required this.id,
     required this.title,
+    required this.city,
     required this.place,
     required this.startsAt,
     required this.endsAt,
@@ -13,6 +14,7 @@ class Event {
 
   final String id;
   final String title;
+  final String city;
   final String place;
   final DateTime startsAt;
   final DateTime endsAt;
