@@ -1,13 +1,15 @@
+import '../../../../utils/paginated.dart';
 import '../entities/news.dart';
+import '../entities/news_category.dart';
 
 abstract class NewsRepository {
   const NewsRepository();
 
-  Future<List<String>> getCategories();
+  Future<List<NewsCategory>> getCategories();
 
-  Future<List<News>> get({
+  Future<Paginated<List<News>>> get({
+    required String categoryID,
     required int offset,
     required int limit,
-    String? onlyCategory,
   });
 }
