@@ -9,20 +9,120 @@
 
 import 'package:flutter/widgets.dart';
 
-class $AssetsPngGen {
-  const $AssetsPngGen();
+class $AssetsIconsGen {
+  const $AssetsIconsGen();
 
-  /// File path: assets/png/logo.png
-  AssetGenImage get logo => const AssetGenImage('assets/png/logo.png');
+  /// File path: assets/icons/account.svg
+  String get account => 'assets/icons/account.svg';
+
+  /// File path: assets/icons/chat.svg
+  String get chat => 'assets/icons/chat.svg';
+
+  /// File path: assets/icons/events.svg
+  String get events => 'assets/icons/events.svg';
+
+  /// File path: assets/icons/home.svg
+  String get home => 'assets/icons/home.svg';
+
+  /// File path: assets/icons/my_event.svg
+  String get myEvent => 'assets/icons/my_event.svg';
+
+  /// List of all assets
+  List<String> get values => [account, chat, events, home, myEvent];
+}
+
+class $AssetsImagesGen {
+  const $AssetsImagesGen();
+
+  /// File path: assets/images/logo.png
+  AssetGenImage get logo => const AssetGenImage('assets/images/logo.png');
 
   /// List of all assets
   List<AssetGenImage> get values => [logo];
 }
 
+class $AssetsMockGen {
+  const $AssetsMockGen();
+
+  $AssetsMockIconsGen get icons => const $AssetsMockIconsGen();
+  $AssetsMockImagesGen get images => const $AssetsMockImagesGen();
+}
+
+class $AssetsMockIconsGen {
+  const $AssetsMockIconsGen();
+
+  /// File path: assets/mock/icons/event_card_icon1.svg
+  String get eventCardIcon1 => 'assets/mock/icons/event_card_icon1.svg';
+
+  /// File path: assets/mock/icons/event_card_icon2.svg
+  String get eventCardIcon2 => 'assets/mock/icons/event_card_icon2.svg';
+
+  /// File path: assets/mock/icons/event_card_icon3.svg
+  String get eventCardIcon3 => 'assets/mock/icons/event_card_icon3.svg';
+
+  /// List of all assets
+  List<String> get values => [eventCardIcon1, eventCardIcon2, eventCardIcon3];
+}
+
+class $AssetsMockImagesGen {
+  const $AssetsMockImagesGen();
+
+  /// File path: assets/mock/images/account.jpg
+  AssetGenImage get account =>
+      const AssetGenImage('assets/mock/images/account.jpg');
+
+  /// File path: assets/mock/images/event_card_bg1.png
+  AssetGenImage get eventCardBg1 =>
+      const AssetGenImage('assets/mock/images/event_card_bg1.png');
+
+  /// File path: assets/mock/images/event_card_bg2.png
+  AssetGenImage get eventCardBg2 =>
+      const AssetGenImage('assets/mock/images/event_card_bg2.png');
+
+  /// File path: assets/mock/images/event_card_bg3.png
+  AssetGenImage get eventCardBg3 =>
+      const AssetGenImage('assets/mock/images/event_card_bg3.png');
+
+  /// File path: assets/mock/images/news1.png
+  AssetGenImage get news1 =>
+      const AssetGenImage('assets/mock/images/news1.png');
+
+  /// File path: assets/mock/images/news2.png
+  AssetGenImage get news2 =>
+      const AssetGenImage('assets/mock/images/news2.png');
+
+  /// File path: assets/mock/images/onboarding1.png
+  AssetGenImage get onboarding1 =>
+      const AssetGenImage('assets/mock/images/onboarding1.png');
+
+  /// File path: assets/mock/images/onboarding2.png
+  AssetGenImage get onboarding2 =>
+      const AssetGenImage('assets/mock/images/onboarding2.png');
+
+  /// File path: assets/mock/images/onboarding3.png
+  AssetGenImage get onboarding3 =>
+      const AssetGenImage('assets/mock/images/onboarding3.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [
+        account,
+        eventCardBg1,
+        eventCardBg2,
+        eventCardBg3,
+        news1,
+        news2,
+        onboarding1,
+        onboarding2,
+        onboarding3
+      ];
+}
+
 class Assets {
   Assets._();
 
-  static const $AssetsPngGen png = $AssetsPngGen();
+  static const $AssetsIconsGen icons = $AssetsIconsGen();
+  static const $AssetsImagesGen images = $AssetsImagesGen();
+  static const $AssetsMockGen mock = $AssetsMockGen();
 }
 
 class AssetGenImage {
