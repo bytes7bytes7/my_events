@@ -1,14 +1,15 @@
+import '../../../../utils/paginated.dart';
 import '../entities/ticket.dart';
 
 abstract class TicketRepository {
   const TicketRepository();
 
-  Future<List<Ticket>> getMy({
+  Future<Paginated<List<Ticket>>> getMy({
     required int offset,
     required int limit,
   });
 
-  Future<List<Ticket>> getArchived({
+  Future<Paginated<List<Ticket>>> getArchived({
     required int offset,
     required int limit,
   });
