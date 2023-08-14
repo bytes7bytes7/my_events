@@ -18,7 +18,7 @@ class OnboardingBloc extends Bloc<OnboardingEvent, OnboardingState> {
   OnboardingBloc(
     this._onboardingRepository,
     this._onboardingTipMapper,
-    this._onboardingStringProvider,
+    this._stringProvider,
     this._coordinator,
   ) : super(const OnboardingState()) {
     on<_LoadEvent>(_load);
@@ -28,7 +28,7 @@ class OnboardingBloc extends Bloc<OnboardingEvent, OnboardingState> {
 
   final OnboardingRepository _onboardingRepository;
   final Mapper<OnboardingTip, OnboardingTipVM> _onboardingTipMapper;
-  final OnboardingStringProvider _onboardingStringProvider;
+  final OnboardingStringProvider _stringProvider;
   final OnboardingCoordinator _coordinator;
 
   Future<void> _load(
@@ -48,7 +48,7 @@ class OnboardingBloc extends Bloc<OnboardingEvent, OnboardingState> {
         ),
       );
     } catch (e) {
-      emit(state.copyWith(error: _onboardingStringProvider.canNotLoad));
+      emit(state.copyWith(error: _stringProvider.canNotLoad));
     } finally {
       emit(state.copyWith(isLoading: false));
     }
