@@ -43,7 +43,7 @@ class OnboardingScreen extends StatelessWidget {
                 const Padding(
                   padding: EdgeInsets.symmetric(
                     horizontal: 20,
-                    vertical: 30,
+                    vertical: 15,
                   ),
                   child: _Body(),
                 ),
@@ -123,7 +123,7 @@ class _Body extends StatelessWidget {
           children: [
             if (!state.isLastIndex)
               Padding(
-                padding: const EdgeInsets.only(top: 13),
+                padding: const EdgeInsets.only(top: 20),
                 child: Align(
                   alignment: Alignment.topRight,
                   child: ElevatedButton(
@@ -164,6 +164,10 @@ class _Body extends StatelessWidget {
               child: Text(
                 state.isLastIndex ? 'Начать работу' : 'Далее',
               ),
+            ),
+            DotIndicator(
+              currentIndex: state.currentIndex,
+              amount: state.tips.length,
             ),
           ],
         );
