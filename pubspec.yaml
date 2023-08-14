@@ -38,3 +38,13 @@ flutter:
     - assets/icons/
     - assets/mock/icons/
     - assets/mock/images/
+
+  fonts:
+    - family: Sansation
+      fonts:
+        - asset: assets/fonts/sansation/Sansation-Bold.ttf
+        - asset: assets/fonts/sansation/Sansation-BoldItalic.ttf
+        - asset: assets/fonts/sansation/Sansation-Italic.ttf
+        - asset: assets/fonts/sansation/Sansation-Light.ttf
+        - asset: assets/fonts/sansation/Sansation-LightItalic.ttf
+        - asset: assets/fonts/sansation/Sansation-Regular.ttf
