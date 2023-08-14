@@ -19,9 +19,10 @@ import '../../../features/account/application/providers/account_string_provider.
     as _i3;
 import '../../../features/account/infrastructure/providers/account_string_provider.dart'
     as _i4;
-import '../../../features/common/application/blocs/auth/auth_bloc.dart' as _i5;
+import '../../../features/common/application/application.dart' as _i5;
+import '../../../features/common/application/blocs/auth/auth_bloc.dart' as _i48;
 import '../../../features/common/application/coordinators/auth_coordinator.dart'
-    as _i8;
+    as _i50;
 import '../../../features/common/application/mappers/user_to_user_vm_mapper.dart'
     as _i14;
 import '../../../features/common/application/providers/auth_string_provider.dart'
@@ -34,16 +35,18 @@ import '../../../features/common/application/view_models/user_vm.dart' as _i13;
 import '../../../features/common/domain/entities/event.dart' as _i15;
 import '../../../features/common/domain/entities/user.dart' as _i12;
 import '../../../features/common/domain/repositories/auth_repository.dart'
-    as _i48;
+    as _i51;
 import '../../../features/common/domain/repositories/event_repository.dart'
     as _i9;
 import '../../../features/common/domain/repositories/ticket_repository.dart'
     as _i41;
 import '../../../features/common/domain/repositories/user_repository.dart'
     as _i45;
-import '../../../features/common/domain/services/auth_service.dart' as _i6;
+import '../../../features/common/domain/services/auth_service.dart' as _i49;
+import '../../../features/common/infrastructure/providers/auth_string_provider.dart'
+    as _i8;
 import '../../../features/common/infrastructure/repositories/auth_repository.dart'
-    as _i49;
+    as _i52;
 import '../../../features/common/infrastructure/repositories/event_repository.dart'
     as _i10;
 import '../../../features/common/infrastructure/repositories/ticket_repository.dart'
@@ -93,15 +96,16 @@ import '../../../features/home/domain/value_objects/onboarding_tip.dart'
     as _i37;
 import '../../../features/home/domain/value_objects/value_objects.dart' as _i26;
 import '../../../features/my_events/application/blocs/my_archived_events/my_archived_events_bloc.dart'
-    as _i50;
-import '../../../features/my_events/application/blocs/my_events/my_events_bloc.dart'
-    as _i52;
-import '../../../features/my_events/application/providers/my_archived_events_string_provider.dart'
-    as _i51;
-import '../../../features/my_events/application/providers/my_events_string_provider.dart'
     as _i53;
+import '../../../features/my_events/application/blocs/my_events/my_events_bloc.dart'
+    as _i55;
+import '../../../features/my_events/application/providers/my_archived_events_string_provider.dart'
+    as _i54;
+import '../../../features/my_events/application/providers/my_events_string_provider.dart'
+    as _i56;
 import '../../../utils/mapper.dart' as _i11;
-import '../modules/shared_prefs_module.dart' as _i54;
+import '../../coordinators/auth_coordinator.dart' as _i6;
+import '../modules/shared_prefs_module.dart' as _i57;
 
 // ignore_for_file: unnecessary_lambdas
 // ignore_for_file: lines_longer_than_80_chars
@@ -119,11 +123,8 @@ Future<_i1.GetIt> init(
   final sharedPrefsModule = _$SharedPrefsModule();
   gh.lazySingleton<_i3.AccountStringProvider>(
       () => _i4.ProdAccountStringProvider());
-  gh.factory<_i5.AuthBloc>(() => _i5.AuthBloc(
-        gh<_i6.AuthService>(),
-        gh<_i7.AuthStringProvider>(),
-        gh<_i8.AuthCoordinator>(),
-      ));
+  gh.lazySingleton<_i5.AuthCoordinator>(() => _i6.ProdAuthCoordinator());
+  gh.lazySingleton<_i7.AuthStringProvider>(() => _i8.ProdAuthStringProvider());
   gh.lazySingleton<_i9.EventRepository>(() => _i10.TestEventRepository());
   gh.lazySingleton<_i11.Mapper<_i12.User, _i13.UserVM>>(
       () => _i14.UserToUserVMMapper());
@@ -172,21 +173,26 @@ Future<_i1.GetIt> init(
         gh<_i3.AccountStringProvider>(),
         gh<_i11.Mapper<_i12.User, _i13.UserVM>>(),
       ));
-  gh.lazySingleton<_i48.AuthRepository>(
-      () => _i49.TestAuthRepository(gh<_i40.SharedPreferences>()));
-  gh.factory<_i50.MyArchivedEventsBloc>(() => _i50.MyArchivedEventsBloc(
+  gh.factory<_i48.AuthBloc>(() => _i48.AuthBloc(
+        gh<_i49.AuthService>(),
+        gh<_i7.AuthStringProvider>(),
+        gh<_i50.AuthCoordinator>(),
+      ));
+  gh.lazySingleton<_i51.AuthRepository>(
+      () => _i52.TestAuthRepository(gh<_i40.SharedPreferences>()));
+  gh.factory<_i53.MyArchivedEventsBloc>(() => _i53.MyArchivedEventsBloc(
         gh<_i41.TicketRepository>(),
         gh<_i9.EventRepository>(),
-        gh<_i51.MyArchivedEventsStringProvider>(),
+        gh<_i54.MyArchivedEventsStringProvider>(),
         gh<_i11.Mapper<_i15.Event, _i16.EventVM>>(),
       ));
-  gh.factory<_i52.MyEventsBloc>(() => _i52.MyEventsBloc(
+  gh.factory<_i55.MyEventsBloc>(() => _i55.MyEventsBloc(
         gh<_i41.TicketRepository>(),
         gh<_i9.EventRepository>(),
-        gh<_i53.MyEventsStringProvider>(),
+        gh<_i56.MyEventsStringProvider>(),
         gh<_i11.Mapper<_i15.Event, _i16.EventVM>>(),
       ));
   return getIt;
 }
 
-class _$SharedPrefsModule extends _i54.SharedPrefsModule {}
+class _$SharedPrefsModule extends _i57.SharedPrefsModule {}
