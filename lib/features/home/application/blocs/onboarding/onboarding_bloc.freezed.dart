@@ -18,33 +18,45 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$OnboardingEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
+    required TResult Function() load,
+    required TResult Function() next,
+    required TResult Function() close,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
+    TResult? Function()? load,
+    TResult? Function()? next,
+    TResult? Function()? close,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function()? load,
+    TResult Function()? next,
+    TResult Function()? close,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(_LoadEvent value) load,
+    required TResult Function(_NextEvent value) next,
+    required TResult Function(_CloseEvent value) close,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
+    TResult? Function(_LoadEvent value)? load,
+    TResult? Function(_NextEvent value)? next,
+    TResult? Function(_CloseEvent value)? close,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(_LoadEvent value)? load,
+    TResult Function(_NextEvent value)? next,
+    TResult Function(_CloseEvent value)? close,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -69,34 +81,35 @@ class _$OnboardingEventCopyWithImpl<$Res, $Val extends OnboardingEvent>
 }
 
 /// @nodoc
-abstract class _$$_StartedCopyWith<$Res> {
-  factory _$$_StartedCopyWith(
-          _$_Started value, $Res Function(_$_Started) then) =
-      __$$_StartedCopyWithImpl<$Res>;
+abstract class _$$_LoadEventCopyWith<$Res> {
+  factory _$$_LoadEventCopyWith(
+          _$_LoadEvent value, $Res Function(_$_LoadEvent) then) =
+      __$$_LoadEventCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_StartedCopyWithImpl<$Res>
-    extends _$OnboardingEventCopyWithImpl<$Res, _$_Started>
-    implements _$$_StartedCopyWith<$Res> {
-  __$$_StartedCopyWithImpl(_$_Started _value, $Res Function(_$_Started) _then)
+class __$$_LoadEventCopyWithImpl<$Res>
+    extends _$OnboardingEventCopyWithImpl<$Res, _$_LoadEvent>
+    implements _$$_LoadEventCopyWith<$Res> {
+  __$$_LoadEventCopyWithImpl(
+      _$_LoadEvent _value, $Res Function(_$_LoadEvent) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Started implements _Started {
-  const _$_Started();
+class _$_LoadEvent implements _LoadEvent {
+  const _$_LoadEvent();
 
   @override
   String toString() {
-    return 'OnboardingEvent.started()';
+    return 'OnboardingEvent.load()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Started);
+        (other.runtimeType == runtimeType && other is _$_LoadEvent);
   }
 
   @override
@@ -105,27 +118,33 @@ class _$_Started implements _Started {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
+    required TResult Function() load,
+    required TResult Function() next,
+    required TResult Function() close,
   }) {
-    return started();
+    return load();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
+    TResult? Function()? load,
+    TResult? Function()? next,
+    TResult? Function()? close,
   }) {
-    return started?.call();
+    return load?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function()? load,
+    TResult Function()? next,
+    TResult Function()? close,
     required TResult orElse(),
   }) {
-    if (started != null) {
-      return started();
+    if (load != null) {
+      return load();
     }
     return orElse();
   }
@@ -133,34 +152,256 @@ class _$_Started implements _Started {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(_LoadEvent value) load,
+    required TResult Function(_NextEvent value) next,
+    required TResult Function(_CloseEvent value) close,
   }) {
-    return started(this);
+    return load(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
+    TResult? Function(_LoadEvent value)? load,
+    TResult? Function(_NextEvent value)? next,
+    TResult? Function(_CloseEvent value)? close,
   }) {
-    return started?.call(this);
+    return load?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(_LoadEvent value)? load,
+    TResult Function(_NextEvent value)? next,
+    TResult Function(_CloseEvent value)? close,
     required TResult orElse(),
   }) {
-    if (started != null) {
-      return started(this);
+    if (load != null) {
+      return load(this);
     }
     return orElse();
   }
 }
 
-abstract class _Started implements OnboardingEvent {
-  const factory _Started() = _$_Started;
+abstract class _LoadEvent implements OnboardingEvent {
+  const factory _LoadEvent() = _$_LoadEvent;
+}
+
+/// @nodoc
+abstract class _$$_NextEventCopyWith<$Res> {
+  factory _$$_NextEventCopyWith(
+          _$_NextEvent value, $Res Function(_$_NextEvent) then) =
+      __$$_NextEventCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_NextEventCopyWithImpl<$Res>
+    extends _$OnboardingEventCopyWithImpl<$Res, _$_NextEvent>
+    implements _$$_NextEventCopyWith<$Res> {
+  __$$_NextEventCopyWithImpl(
+      _$_NextEvent _value, $Res Function(_$_NextEvent) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_NextEvent implements _NextEvent {
+  const _$_NextEvent();
+
+  @override
+  String toString() {
+    return 'OnboardingEvent.next()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_NextEvent);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() load,
+    required TResult Function() next,
+    required TResult Function() close,
+  }) {
+    return next();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? load,
+    TResult? Function()? next,
+    TResult? Function()? close,
+  }) {
+    return next?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? load,
+    TResult Function()? next,
+    TResult Function()? close,
+    required TResult orElse(),
+  }) {
+    if (next != null) {
+      return next();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadEvent value) load,
+    required TResult Function(_NextEvent value) next,
+    required TResult Function(_CloseEvent value) close,
+  }) {
+    return next(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadEvent value)? load,
+    TResult? Function(_NextEvent value)? next,
+    TResult? Function(_CloseEvent value)? close,
+  }) {
+    return next?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadEvent value)? load,
+    TResult Function(_NextEvent value)? next,
+    TResult Function(_CloseEvent value)? close,
+    required TResult orElse(),
+  }) {
+    if (next != null) {
+      return next(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _NextEvent implements OnboardingEvent {
+  const factory _NextEvent() = _$_NextEvent;
+}
+
+/// @nodoc
+abstract class _$$_CloseEventCopyWith<$Res> {
+  factory _$$_CloseEventCopyWith(
+          _$_CloseEvent value, $Res Function(_$_CloseEvent) then) =
+      __$$_CloseEventCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_CloseEventCopyWithImpl<$Res>
+    extends _$OnboardingEventCopyWithImpl<$Res, _$_CloseEvent>
+    implements _$$_CloseEventCopyWith<$Res> {
+  __$$_CloseEventCopyWithImpl(
+      _$_CloseEvent _value, $Res Function(_$_CloseEvent) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_CloseEvent implements _CloseEvent {
+  const _$_CloseEvent();
+
+  @override
+  String toString() {
+    return 'OnboardingEvent.close()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_CloseEvent);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() load,
+    required TResult Function() next,
+    required TResult Function() close,
+  }) {
+    return close();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? load,
+    TResult? Function()? next,
+    TResult? Function()? close,
+  }) {
+    return close?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? load,
+    TResult Function()? next,
+    TResult Function()? close,
+    required TResult orElse(),
+  }) {
+    if (close != null) {
+      return close();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadEvent value) load,
+    required TResult Function(_NextEvent value) next,
+    required TResult Function(_CloseEvent value) close,
+  }) {
+    return close(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadEvent value)? load,
+    TResult? Function(_NextEvent value)? next,
+    TResult? Function(_CloseEvent value)? close,
+  }) {
+    return close?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadEvent value)? load,
+    TResult Function(_NextEvent value)? next,
+    TResult Function(_CloseEvent value)? close,
+    required TResult orElse(),
+  }) {
+    if (close != null) {
+      return close(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CloseEvent implements OnboardingEvent {
+  const factory _CloseEvent() = _$_CloseEvent;
 }
 
 /// @nodoc
