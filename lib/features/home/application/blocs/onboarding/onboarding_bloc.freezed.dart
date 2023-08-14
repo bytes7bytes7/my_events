@@ -168,7 +168,7 @@ mixin _$OnboardingState {
   dynamic get isLoading => throw _privateConstructorUsedError;
   String get error => throw _privateConstructorUsedError;
   int get currentIndex => throw _privateConstructorUsedError;
-  int get amount => throw _privateConstructorUsedError;
+  List<OnboardingTipVM> get tips => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $OnboardingStateCopyWith<OnboardingState> get copyWith =>
@@ -181,7 +181,11 @@ abstract class $OnboardingStateCopyWith<$Res> {
           OnboardingState value, $Res Function(OnboardingState) then) =
       _$OnboardingStateCopyWithImpl<$Res, OnboardingState>;
   @useResult
-  $Res call({dynamic isLoading, String error, int currentIndex, int amount});
+  $Res call(
+      {dynamic isLoading,
+      String error,
+      int currentIndex,
+      List<OnboardingTipVM> tips});
 }
 
 /// @nodoc
@@ -200,7 +204,7 @@ class _$OnboardingStateCopyWithImpl<$Res, $Val extends OnboardingState>
     Object? isLoading = freezed,
     Object? error = null,
     Object? currentIndex = null,
-    Object? amount = null,
+    Object? tips = null,
   }) {
     return _then(_value.copyWith(
       isLoading: freezed == isLoading
@@ -215,10 +219,10 @@ class _$OnboardingStateCopyWithImpl<$Res, $Val extends OnboardingState>
           ? _value.currentIndex
           : currentIndex // ignore: cast_nullable_to_non_nullable
               as int,
-      amount: null == amount
-          ? _value.amount
-          : amount // ignore: cast_nullable_to_non_nullable
-              as int,
+      tips: null == tips
+          ? _value.tips
+          : tips // ignore: cast_nullable_to_non_nullable
+              as List<OnboardingTipVM>,
     ) as $Val);
   }
 }
@@ -231,7 +235,11 @@ abstract class _$$_OnboardingStateCopyWith<$Res>
       __$$_OnboardingStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({dynamic isLoading, String error, int currentIndex, int amount});
+  $Res call(
+      {dynamic isLoading,
+      String error,
+      int currentIndex,
+      List<OnboardingTipVM> tips});
 }
 
 /// @nodoc
@@ -248,7 +256,7 @@ class __$$_OnboardingStateCopyWithImpl<$Res>
     Object? isLoading = freezed,
     Object? error = null,
     Object? currentIndex = null,
-    Object? amount = null,
+    Object? tips = null,
   }) {
     return _then(_$_OnboardingState(
       isLoading: freezed == isLoading ? _value.isLoading! : isLoading,
@@ -260,10 +268,10 @@ class __$$_OnboardingStateCopyWithImpl<$Res>
           ? _value.currentIndex
           : currentIndex // ignore: cast_nullable_to_non_nullable
               as int,
-      amount: null == amount
-          ? _value.amount
-          : amount // ignore: cast_nullable_to_non_nullable
-              as int,
+      tips: null == tips
+          ? _value._tips
+          : tips // ignore: cast_nullable_to_non_nullable
+              as List<OnboardingTipVM>,
     ));
   }
 }
@@ -275,8 +283,9 @@ class _$_OnboardingState extends _OnboardingState {
       {this.isLoading = false,
       this.error = '',
       this.currentIndex = 0,
-      this.amount = 0})
-      : super._();
+      final List<OnboardingTipVM> tips = const []})
+      : _tips = tips,
+        super._();
 
   @override
   @JsonKey()
@@ -287,13 +296,18 @@ class _$_OnboardingState extends _OnboardingState {
   @override
   @JsonKey()
   final int currentIndex;
+  final List<OnboardingTipVM> _tips;
   @override
   @JsonKey()
-  final int amount;
+  List<OnboardingTipVM> get tips {
+    if (_tips is EqualUnmodifiableListView) return _tips;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_tips);
+  }
 
   @override
   String toString() {
-    return 'OnboardingState(isLoading: $isLoading, error: $error, currentIndex: $currentIndex, amount: $amount)';
+    return 'OnboardingState(isLoading: $isLoading, error: $error, currentIndex: $currentIndex, tips: $tips)';
   }
 
   @override
@@ -305,7 +319,7 @@ class _$_OnboardingState extends _OnboardingState {
             (identical(other.error, error) || other.error == error) &&
             (identical(other.currentIndex, currentIndex) ||
                 other.currentIndex == currentIndex) &&
-            (identical(other.amount, amount) || other.amount == amount));
+            const DeepCollectionEquality().equals(other._tips, _tips));
   }
 
   @override
@@ -314,7 +328,7 @@ class _$_OnboardingState extends _OnboardingState {
       const DeepCollectionEquality().hash(isLoading),
       error,
       currentIndex,
-      amount);
+      const DeepCollectionEquality().hash(_tips));
 
   @JsonKey(ignore: true)
   @override
@@ -328,7 +342,7 @@ abstract class _OnboardingState extends OnboardingState {
       {final dynamic isLoading,
       final String error,
       final int currentIndex,
-      final int amount}) = _$_OnboardingState;
+      final List<OnboardingTipVM> tips}) = _$_OnboardingState;
   const _OnboardingState._() : super._();
 
   @override
@@ -338,7 +352,7 @@ abstract class _OnboardingState extends OnboardingState {
   @override
   int get currentIndex;
   @override
-  int get amount;
+  List<OnboardingTipVM> get tips;
   @override
   @JsonKey(ignore: true)
   _$$_OnboardingStateCopyWith<_$_OnboardingState> get copyWith =>

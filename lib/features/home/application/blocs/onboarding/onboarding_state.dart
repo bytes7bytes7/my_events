@@ -6,12 +6,12 @@ class OnboardingState with _$OnboardingState {
     @Default(false) isLoading,
     @Default('') String error,
     @Default(0) int currentIndex,
-    @Default(0) int amount,
+    @Default([]) List<OnboardingTipVM> tips,
   }) = _OnboardingState;
 
   const OnboardingState._();
 
   bool get isLastIndex {
-    return currentIndex == amount - 1;
+    return currentIndex == tips.length - 1;
   }
 }
