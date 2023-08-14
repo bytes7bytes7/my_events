@@ -1,4 +1,5 @@
 import 'package:duration/duration.dart';
+import 'package:duration/locale.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../application/providers/duration_beautify_provider.dart';
@@ -10,13 +11,25 @@ class ProdDurationBeautifyProvider implements DurationBeautifyProvider {
   @override
   String long(Duration duration) {
     if (duration.inHours > 0) {
-      return prettyDuration(duration, tersity: DurationTersity.hour);
+      return prettyDuration(
+        duration,
+        tersity: DurationTersity.hour,
+        locale: const RussianDurationLanguage(),
+      );
     }
 
     if (duration.inMinutes > 0) {
-      return prettyDuration(duration, tersity: DurationTersity.minute);
+      return prettyDuration(
+        duration,
+        tersity: DurationTersity.minute,
+        locale: const RussianDurationLanguage(),
+      );
     }
 
-    return prettyDuration(duration, tersity: DurationTersity.second);
+    return prettyDuration(
+      duration,
+      tersity: DurationTersity.second,
+      locale: const RussianDurationLanguage(),
+    );
   }
 }

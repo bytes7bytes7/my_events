@@ -5,6 +5,9 @@ import 'package:get_it/get_it.dart';
 import '../../../../themes/extensions/extensions.dart';
 import '../../../common/presentation/widgets/widgets.dart';
 import '../../application/blocs/news_list/news_list_bloc.dart';
+import '../../application/view_models/news_vm.dart';
+
+const _newsImageSize = 96.0;
 
 class NewsList extends StatelessWidget {
   const NewsList({super.key});
@@ -72,8 +75,16 @@ class _Body extends StatelessWidget {
               ),
             ),
             Expanded(
-              child: ListView.builder(
+              child: ListView.separated(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 24,
+                ),
                 itemCount: itemCount,
+                separatorBuilder: (context, index) {
+                  return const SizedBox(
+                    height: 8,
+                  );
+                },
                 itemBuilder: (context, index) {
                   if (index == itemCount - 1) {
                     if (state.isLoadingMore) {
@@ -85,7 +96,7 @@ class _Body extends StatelessWidget {
 
                   final news = state.news[index];
 
-                  return Text(news.title);
+                  return _NewsCard(news);
                 },
               ),
             ),
@@ -159,6 +170,67 @@ class _UnselectedCategory extends StatelessWidget {
               title,
               style: textThemeTX.labelBig,
             ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _NewsCard extends StatelessWidget {
+  const _NewsCard(this.news);
+
+  final NewsVM news;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
+    return Card(
+      elevation: 0,
+      color: theme.colorScheme.tertiary,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: SizedBox(
+          height: _newsImageSize,
+          child: Row(
+            children: [
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      news.title,
+                      maxLines: 3,
+                      overflow: TextOverflow.ellipsis,
+                      style: theme.textTheme.titleSmall,
+                    ),
+                    const Spacer(),
+                    Text(
+                      '${news.publishedAt} • ${news.readTime}',
+                      style: theme.textTheme.labelSmall,
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(
+                width: 20,
+              ),
+              ClipRRect(
+                clipBehavior: Clip.hardEdge,
+                borderRadius: BorderRadius.circular(12),
+                child: SizedBox.square(
+                  dimension: _newsImageSize,
+                  child: Image.memory(
+                    news.image,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
       ),

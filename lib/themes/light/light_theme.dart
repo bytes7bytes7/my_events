@@ -58,6 +58,7 @@ final lightTheme = ThemeData.light().copyWith(
       fontWeight: FontWeight.bold,
       fontFamily: FontFamily.sansation,
       color: _Colors.shark,
+      height: 1.4,
     ),
     labelLarge: TextStyle(
       fontSize: 14,

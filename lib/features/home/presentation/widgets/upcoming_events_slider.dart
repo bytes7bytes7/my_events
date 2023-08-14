@@ -36,6 +36,10 @@ class _Body extends HookWidget {
 
     return BlocBuilder<UpcomingEventsBloc, UpcomingEventsState>(
       builder: (context, state) {
+        if (state.isLoading) {
+          return const LoadingIndicator();
+        }
+
         return Column(
           children: [
             Expanded(
@@ -60,9 +64,24 @@ class _Body extends HookWidget {
                     child: Stack(
                       children: [
                         Positioned.fill(
-                          child: Image.memory(
-                            event.image,
-                            fit: BoxFit.cover,
+                          child: DecoratedBox(
+                            position: DecorationPosition.foreground,
+                            decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                colors: [
+                                  theme.colorScheme.onBackground,
+                                  theme.colorScheme.onBackground
+                                      .withOpacity(0.1),
+                                  theme.colorScheme.onBackground.withOpacity(0),
+                                ],
+                                begin: Alignment.bottomCenter,
+                                end: Alignment.topCenter,
+                              ),
+                            ),
+                            child: Image.memory(
+                              event.image,
+                              fit: BoxFit.cover,
+                            ),
                           ),
                         ),
                         Padding(
