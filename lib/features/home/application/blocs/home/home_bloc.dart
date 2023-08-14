@@ -18,6 +18,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     this._stringProvider,
   ) : super(const HomeState()) {
     on<_LoadNotificationsAmountEvent>(_loadNotificationsAmount);
+    on<_SelectTabEvent>(_selectTab);
   }
 
   final NotificationRepository _notificationRepository;
@@ -32,7 +33,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     try {
       final amount = await _notificationRepository.getUnreadAmount();
 
-      emit(state.copyWith(notificationsAmount: amount));
+      emit(state.copyWith(notificationsAmount: amount.toString()));
     } catch (e) {
       emit(
         state.copyWith(error: _stringProvider.cannotLoadNotificationsAmount),
@@ -40,5 +41,12 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     } finally {
       emit(state.copyWith(isLoading: false));
     }
+  }
+
+  void _selectTab(
+    _SelectTabEvent event,
+    Emitter<HomeState> emit,
+  ) {
+    emit(state.copyWith(selectedTabIndex: event.index));
   }
 }

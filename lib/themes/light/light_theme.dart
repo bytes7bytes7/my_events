@@ -14,7 +14,7 @@ final lightTheme = ThemeData.light().copyWith(
     onSecondary: _Colors.monza,
     error: _Colors.monza,
     onError: _Colors.white,
-    background: _Colors.white,
+    background: _Colors.athensGray,
     onBackground: _Colors.black,
     surface: _Colors.alabaster,
     onSurface: _Colors.shark,
@@ -93,6 +93,10 @@ final lightTheme = ThemeData.light().copyWith(
       fontFamily: FontFamily.sansation,
       color: _Colors.slateGray,
     ),
+  ),
+  appBarTheme: const AppBarTheme(
+    color: _Colors.white,
+    shadowColor: Colors.transparent,
   ),
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ButtonStyle(
@@ -176,6 +180,39 @@ final lightTheme = ThemeData.light().copyWith(
             fontFamily: FontFamily.sansation,
           ),
         ),
+      ),
+      quaternary: ButtonStyle(
+        elevation: MaterialStateProperty.all(0),
+        shape: MaterialStateProperty.all(
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+            side: BorderSide.none,
+          ),
+        ),
+        backgroundColor: MaterialStateProperty.all(
+          _Colors.wildSand,
+        ),
+        foregroundColor: MaterialStateProperty.resolveWith((states) {
+          if (states.contains(MaterialState.disabled)) {
+            return _Colors.shark.withOpacity(0.5);
+          }
+
+          return _Colors.shark;
+        }),
+        padding: MaterialStateProperty.all(
+          const EdgeInsets.all(8),
+        ),
+        textStyle: MaterialStateProperty.all(
+          const TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+            fontFamily: FontFamily.sansation,
+          ),
+        ),
+        overlayColor: MaterialStateProperty.all(
+          _Colors.paleSlate.withOpacity(0.3),
+        ),
+        minimumSize: MaterialStateProperty.all(Size.zero),
       ),
     ),
   ],

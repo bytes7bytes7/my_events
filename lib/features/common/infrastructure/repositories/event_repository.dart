@@ -24,7 +24,7 @@ class TestEventRepository implements EventRepository {
             await rootBundle.load(Assets.mock.images.eventCardBg1.path),
           ),
           icon: Uint8List.sublistView(
-            await rootBundle.load(Assets.mock.icons.eventCardIcon1),
+            await rootBundle.load(Assets.mock.icons.eventCardIcon1.path),
           ),
         ),
         Event(
@@ -38,7 +38,7 @@ class TestEventRepository implements EventRepository {
             await rootBundle.load(Assets.mock.images.eventCardBg2.path),
           ),
           icon: Uint8List.sublistView(
-            await rootBundle.load(Assets.mock.icons.eventCardIcon2),
+            await rootBundle.load(Assets.mock.icons.eventCardIcon2.path),
           ),
         ),
         Event(
@@ -52,7 +52,7 @@ class TestEventRepository implements EventRepository {
             await rootBundle.load(Assets.mock.images.eventCardBg3.path),
           ),
           icon: Uint8List.sublistView(
-            await rootBundle.load(Assets.mock.icons.eventCardIcon3),
+            await rootBundle.load(Assets.mock.icons.eventCardIcon3.path),
           ),
         ),
       ];
@@ -75,7 +75,7 @@ class TestEventRepository implements EventRepository {
           await rootBundle.load(Assets.mock.images.eventCardBg3.path),
         ),
         icon: Uint8List.sublistView(
-          await rootBundle.load(Assets.mock.icons.eventCardIcon3),
+          await rootBundle.load(Assets.mock.icons.eventCardIcon3.path),
         ),
       );
     }
@@ -92,7 +92,7 @@ class TestEventRepository implements EventRepository {
           await rootBundle.load(Assets.mock.images.eventCardBg3.path),
         ),
         icon: Uint8List.sublistView(
-          await rootBundle.load(Assets.mock.icons.eventCardIcon3),
+          await rootBundle.load(Assets.mock.icons.eventCardIcon3.path),
         ),
       );
     }
@@ -109,7 +109,7 @@ class TestEventRepository implements EventRepository {
           await rootBundle.load(Assets.mock.images.eventCardBg3.path),
         ),
         icon: Uint8List.sublistView(
-          await rootBundle.load(Assets.mock.icons.eventCardIcon3),
+          await rootBundle.load(Assets.mock.icons.eventCardIcon3.path),
         ),
       );
     }
