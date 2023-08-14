@@ -1,10 +1,13 @@
 import 'dart:async';
 
+import 'package:injectable/injectable.dart';
+
 import '../events/domain_event.dart';
 import '../events/user_logged_in_domain_event.dart';
 import '../events/user_logged_out_domain_event.dart';
 import '../repositories/auth_repository.dart';
 
+@lazySingleton
 class AuthService {
   AuthService(
     this._authRepository,
