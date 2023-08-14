@@ -6,6 +6,7 @@ import '../../../../themes/extensions/extensions.dart';
 import '../../../common/presentation/widgets/widgets.dart';
 import '../../application/blocs/news_list/news_list_bloc.dart';
 import '../../application/view_models/news_vm.dart';
+import 'news_bottom_sheet.dart';
 
 const _newsImageSize = 96.0;
 
@@ -96,7 +97,19 @@ class _Body extends StatelessWidget {
 
                   final news = state.news[index];
 
-                  return _NewsCard(news);
+                  return _NewsCard(
+                    news: news,
+                    onPressed: () {
+                      showModalBottomSheet(
+                        context: context,
+                        isScrollControlled: true,
+                        builder: (context) {
+                          return NewsBottomSheet(id: news.id);
+                        },
+                      );
+                      bloc.add(NewsListEvent.onCardPressed(id: news.id));
+                    },
+                  );
                 },
               ),
             ),
@@ -178,9 +191,13 @@ class _UnselectedCategory extends StatelessWidget {
 }
 
 class _NewsCard extends StatelessWidget {
-  const _NewsCard(this.news);
+  const _NewsCard({
+    required this.news,
+    required this.onPressed,
+  });
 
   final NewsVM news;
+  final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -188,49 +205,53 @@ class _NewsCard extends StatelessWidget {
 
     return Card(
       elevation: 0,
+      clipBehavior: Clip.hardEdge,
       color: theme.colorScheme.tertiary,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16),
       ),
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: SizedBox(
-          height: _newsImageSize,
-          child: Row(
-            children: [
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      news.title,
-                      maxLines: 3,
-                      overflow: TextOverflow.ellipsis,
-                      style: theme.textTheme.titleSmall,
-                    ),
-                    const Spacer(),
-                    Text(
-                      '${news.publishedAt} • ${news.readTime}',
-                      style: theme.textTheme.labelSmall,
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(
-                width: 20,
-              ),
-              ClipRRect(
-                clipBehavior: Clip.hardEdge,
-                borderRadius: BorderRadius.circular(12),
-                child: SizedBox.square(
-                  dimension: _newsImageSize,
-                  child: Image.memory(
-                    news.image,
-                    fit: BoxFit.cover,
+      child: InkWell(
+        onTap: onPressed,
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: SizedBox(
+            height: _newsImageSize,
+            child: Row(
+              children: [
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        news.title,
+                        maxLines: 3,
+                        overflow: TextOverflow.ellipsis,
+                        style: theme.textTheme.titleSmall,
+                      ),
+                      const Spacer(),
+                      Text(
+                        '${news.publishedAt} • ${news.readTime}',
+                        style: theme.textTheme.labelSmall,
+                      ),
+                    ],
                   ),
                 ),
-              ),
-            ],
+                const SizedBox(
+                  width: 20,
+                ),
+                ClipRRect(
+                  clipBehavior: Clip.hardEdge,
+                  borderRadius: BorderRadius.circular(12),
+                  child: SizedBox.square(
+                    dimension: _newsImageSize,
+                    child: Image.memory(
+                      news.image,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

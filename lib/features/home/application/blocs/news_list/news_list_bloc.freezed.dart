@@ -22,6 +22,7 @@ mixin _$NewsListEvent {
     required TResult Function() loadMore,
     required TResult Function(String id) selectCategory,
     required TResult Function() refresh,
+    required TResult Function(String id) onCardPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +31,7 @@ mixin _$NewsListEvent {
     TResult? Function()? loadMore,
     TResult? Function(String id)? selectCategory,
     TResult? Function()? refresh,
+    TResult? Function(String id)? onCardPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +40,7 @@ mixin _$NewsListEvent {
     TResult Function()? loadMore,
     TResult Function(String id)? selectCategory,
     TResult Function()? refresh,
+    TResult Function(String id)? onCardPressed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +50,7 @@ mixin _$NewsListEvent {
     required TResult Function(_LoadMoreEvent value) loadMore,
     required TResult Function(_SelectCategoryEvent value) selectCategory,
     required TResult Function(_RefreshEvent value) refresh,
+    required TResult Function(_OnCardPressedEvent value) onCardPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +59,7 @@ mixin _$NewsListEvent {
     TResult? Function(_LoadMoreEvent value)? loadMore,
     TResult? Function(_SelectCategoryEvent value)? selectCategory,
     TResult? Function(_RefreshEvent value)? refresh,
+    TResult? Function(_OnCardPressedEvent value)? onCardPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +68,7 @@ mixin _$NewsListEvent {
     TResult Function(_LoadMoreEvent value)? loadMore,
     TResult Function(_SelectCategoryEvent value)? selectCategory,
     TResult Function(_RefreshEvent value)? refresh,
+    TResult Function(_OnCardPressedEvent value)? onCardPressed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -128,6 +134,7 @@ class _$_LoadEvent extends _LoadEvent {
     required TResult Function() loadMore,
     required TResult Function(String id) selectCategory,
     required TResult Function() refresh,
+    required TResult Function(String id) onCardPressed,
   }) {
     return load();
   }
@@ -139,6 +146,7 @@ class _$_LoadEvent extends _LoadEvent {
     TResult? Function()? loadMore,
     TResult? Function(String id)? selectCategory,
     TResult? Function()? refresh,
+    TResult? Function(String id)? onCardPressed,
   }) {
     return load?.call();
   }
@@ -150,6 +158,7 @@ class _$_LoadEvent extends _LoadEvent {
     TResult Function()? loadMore,
     TResult Function(String id)? selectCategory,
     TResult Function()? refresh,
+    TResult Function(String id)? onCardPressed,
     required TResult orElse(),
   }) {
     if (load != null) {
@@ -165,6 +174,7 @@ class _$_LoadEvent extends _LoadEvent {
     required TResult Function(_LoadMoreEvent value) loadMore,
     required TResult Function(_SelectCategoryEvent value) selectCategory,
     required TResult Function(_RefreshEvent value) refresh,
+    required TResult Function(_OnCardPressedEvent value) onCardPressed,
   }) {
     return load(this);
   }
@@ -176,6 +186,7 @@ class _$_LoadEvent extends _LoadEvent {
     TResult? Function(_LoadMoreEvent value)? loadMore,
     TResult? Function(_SelectCategoryEvent value)? selectCategory,
     TResult? Function(_RefreshEvent value)? refresh,
+    TResult? Function(_OnCardPressedEvent value)? onCardPressed,
   }) {
     return load?.call(this);
   }
@@ -187,6 +198,7 @@ class _$_LoadEvent extends _LoadEvent {
     TResult Function(_LoadMoreEvent value)? loadMore,
     TResult Function(_SelectCategoryEvent value)? selectCategory,
     TResult Function(_RefreshEvent value)? refresh,
+    TResult Function(_OnCardPressedEvent value)? onCardPressed,
     required TResult orElse(),
   }) {
     if (load != null) {
@@ -243,6 +255,7 @@ class _$_LoadMoreEvent extends _LoadMoreEvent {
     required TResult Function() loadMore,
     required TResult Function(String id) selectCategory,
     required TResult Function() refresh,
+    required TResult Function(String id) onCardPressed,
   }) {
     return loadMore();
   }
@@ -254,6 +267,7 @@ class _$_LoadMoreEvent extends _LoadMoreEvent {
     TResult? Function()? loadMore,
     TResult? Function(String id)? selectCategory,
     TResult? Function()? refresh,
+    TResult? Function(String id)? onCardPressed,
   }) {
     return loadMore?.call();
   }
@@ -265,6 +279,7 @@ class _$_LoadMoreEvent extends _LoadMoreEvent {
     TResult Function()? loadMore,
     TResult Function(String id)? selectCategory,
     TResult Function()? refresh,
+    TResult Function(String id)? onCardPressed,
     required TResult orElse(),
   }) {
     if (loadMore != null) {
@@ -280,6 +295,7 @@ class _$_LoadMoreEvent extends _LoadMoreEvent {
     required TResult Function(_LoadMoreEvent value) loadMore,
     required TResult Function(_SelectCategoryEvent value) selectCategory,
     required TResult Function(_RefreshEvent value) refresh,
+    required TResult Function(_OnCardPressedEvent value) onCardPressed,
   }) {
     return loadMore(this);
   }
@@ -291,6 +307,7 @@ class _$_LoadMoreEvent extends _LoadMoreEvent {
     TResult? Function(_LoadMoreEvent value)? loadMore,
     TResult? Function(_SelectCategoryEvent value)? selectCategory,
     TResult? Function(_RefreshEvent value)? refresh,
+    TResult? Function(_OnCardPressedEvent value)? onCardPressed,
   }) {
     return loadMore?.call(this);
   }
@@ -302,6 +319,7 @@ class _$_LoadMoreEvent extends _LoadMoreEvent {
     TResult Function(_LoadMoreEvent value)? loadMore,
     TResult Function(_SelectCategoryEvent value)? selectCategory,
     TResult Function(_RefreshEvent value)? refresh,
+    TResult Function(_OnCardPressedEvent value)? onCardPressed,
     required TResult orElse(),
   }) {
     if (loadMore != null) {
@@ -385,6 +403,7 @@ class _$_SelectCategoryEvent extends _SelectCategoryEvent {
     required TResult Function() loadMore,
     required TResult Function(String id) selectCategory,
     required TResult Function() refresh,
+    required TResult Function(String id) onCardPressed,
   }) {
     return selectCategory(id);
   }
@@ -396,6 +415,7 @@ class _$_SelectCategoryEvent extends _SelectCategoryEvent {
     TResult? Function()? loadMore,
     TResult? Function(String id)? selectCategory,
     TResult? Function()? refresh,
+    TResult? Function(String id)? onCardPressed,
   }) {
     return selectCategory?.call(id);
   }
@@ -407,6 +427,7 @@ class _$_SelectCategoryEvent extends _SelectCategoryEvent {
     TResult Function()? loadMore,
     TResult Function(String id)? selectCategory,
     TResult Function()? refresh,
+    TResult Function(String id)? onCardPressed,
     required TResult orElse(),
   }) {
     if (selectCategory != null) {
@@ -422,6 +443,7 @@ class _$_SelectCategoryEvent extends _SelectCategoryEvent {
     required TResult Function(_LoadMoreEvent value) loadMore,
     required TResult Function(_SelectCategoryEvent value) selectCategory,
     required TResult Function(_RefreshEvent value) refresh,
+    required TResult Function(_OnCardPressedEvent value) onCardPressed,
   }) {
     return selectCategory(this);
   }
@@ -433,6 +455,7 @@ class _$_SelectCategoryEvent extends _SelectCategoryEvent {
     TResult? Function(_LoadMoreEvent value)? loadMore,
     TResult? Function(_SelectCategoryEvent value)? selectCategory,
     TResult? Function(_RefreshEvent value)? refresh,
+    TResult? Function(_OnCardPressedEvent value)? onCardPressed,
   }) {
     return selectCategory?.call(this);
   }
@@ -444,6 +467,7 @@ class _$_SelectCategoryEvent extends _SelectCategoryEvent {
     TResult Function(_LoadMoreEvent value)? loadMore,
     TResult Function(_SelectCategoryEvent value)? selectCategory,
     TResult Function(_RefreshEvent value)? refresh,
+    TResult Function(_OnCardPressedEvent value)? onCardPressed,
     required TResult orElse(),
   }) {
     if (selectCategory != null) {
@@ -506,6 +530,7 @@ class _$_RefreshEvent extends _RefreshEvent {
     required TResult Function() loadMore,
     required TResult Function(String id) selectCategory,
     required TResult Function() refresh,
+    required TResult Function(String id) onCardPressed,
   }) {
     return refresh();
   }
@@ -517,6 +542,7 @@ class _$_RefreshEvent extends _RefreshEvent {
     TResult? Function()? loadMore,
     TResult? Function(String id)? selectCategory,
     TResult? Function()? refresh,
+    TResult? Function(String id)? onCardPressed,
   }) {
     return refresh?.call();
   }
@@ -528,6 +554,7 @@ class _$_RefreshEvent extends _RefreshEvent {
     TResult Function()? loadMore,
     TResult Function(String id)? selectCategory,
     TResult Function()? refresh,
+    TResult Function(String id)? onCardPressed,
     required TResult orElse(),
   }) {
     if (refresh != null) {
@@ -543,6 +570,7 @@ class _$_RefreshEvent extends _RefreshEvent {
     required TResult Function(_LoadMoreEvent value) loadMore,
     required TResult Function(_SelectCategoryEvent value) selectCategory,
     required TResult Function(_RefreshEvent value) refresh,
+    required TResult Function(_OnCardPressedEvent value) onCardPressed,
   }) {
     return refresh(this);
   }
@@ -554,6 +582,7 @@ class _$_RefreshEvent extends _RefreshEvent {
     TResult? Function(_LoadMoreEvent value)? loadMore,
     TResult? Function(_SelectCategoryEvent value)? selectCategory,
     TResult? Function(_RefreshEvent value)? refresh,
+    TResult? Function(_OnCardPressedEvent value)? onCardPressed,
   }) {
     return refresh?.call(this);
   }
@@ -565,6 +594,7 @@ class _$_RefreshEvent extends _RefreshEvent {
     TResult Function(_LoadMoreEvent value)? loadMore,
     TResult Function(_SelectCategoryEvent value)? selectCategory,
     TResult Function(_RefreshEvent value)? refresh,
+    TResult Function(_OnCardPressedEvent value)? onCardPressed,
     required TResult orElse(),
   }) {
     if (refresh != null) {
@@ -577,6 +607,160 @@ class _$_RefreshEvent extends _RefreshEvent {
 abstract class _RefreshEvent extends NewsListEvent {
   const factory _RefreshEvent() = _$_RefreshEvent;
   const _RefreshEvent._() : super._();
+}
+
+/// @nodoc
+abstract class _$$_OnCardPressedEventCopyWith<$Res> {
+  factory _$$_OnCardPressedEventCopyWith(_$_OnCardPressedEvent value,
+          $Res Function(_$_OnCardPressedEvent) then) =
+      __$$_OnCardPressedEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String id});
+}
+
+/// @nodoc
+class __$$_OnCardPressedEventCopyWithImpl<$Res>
+    extends _$NewsListEventCopyWithImpl<$Res, _$_OnCardPressedEvent>
+    implements _$$_OnCardPressedEventCopyWith<$Res> {
+  __$$_OnCardPressedEventCopyWithImpl(
+      _$_OnCardPressedEvent _value, $Res Function(_$_OnCardPressedEvent) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+  }) {
+    return _then(_$_OnCardPressedEvent(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_OnCardPressedEvent extends _OnCardPressedEvent {
+  const _$_OnCardPressedEvent({required this.id}) : super._();
+
+  @override
+  final String id;
+
+  @override
+  String toString() {
+    return 'NewsListEvent.onCardPressed(id: $id)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_OnCardPressedEvent &&
+            (identical(other.id, id) || other.id == id));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, id);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_OnCardPressedEventCopyWith<_$_OnCardPressedEvent> get copyWith =>
+      __$$_OnCardPressedEventCopyWithImpl<_$_OnCardPressedEvent>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() load,
+    required TResult Function() loadMore,
+    required TResult Function(String id) selectCategory,
+    required TResult Function() refresh,
+    required TResult Function(String id) onCardPressed,
+  }) {
+    return onCardPressed(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? load,
+    TResult? Function()? loadMore,
+    TResult? Function(String id)? selectCategory,
+    TResult? Function()? refresh,
+    TResult? Function(String id)? onCardPressed,
+  }) {
+    return onCardPressed?.call(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? load,
+    TResult Function()? loadMore,
+    TResult Function(String id)? selectCategory,
+    TResult Function()? refresh,
+    TResult Function(String id)? onCardPressed,
+    required TResult orElse(),
+  }) {
+    if (onCardPressed != null) {
+      return onCardPressed(id);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadEvent value) load,
+    required TResult Function(_LoadMoreEvent value) loadMore,
+    required TResult Function(_SelectCategoryEvent value) selectCategory,
+    required TResult Function(_RefreshEvent value) refresh,
+    required TResult Function(_OnCardPressedEvent value) onCardPressed,
+  }) {
+    return onCardPressed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadEvent value)? load,
+    TResult? Function(_LoadMoreEvent value)? loadMore,
+    TResult? Function(_SelectCategoryEvent value)? selectCategory,
+    TResult? Function(_RefreshEvent value)? refresh,
+    TResult? Function(_OnCardPressedEvent value)? onCardPressed,
+  }) {
+    return onCardPressed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadEvent value)? load,
+    TResult Function(_LoadMoreEvent value)? loadMore,
+    TResult Function(_SelectCategoryEvent value)? selectCategory,
+    TResult Function(_RefreshEvent value)? refresh,
+    TResult Function(_OnCardPressedEvent value)? onCardPressed,
+    required TResult orElse(),
+  }) {
+    if (onCardPressed != null) {
+      return onCardPressed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _OnCardPressedEvent extends NewsListEvent {
+  const factory _OnCardPressedEvent({required final String id}) =
+      _$_OnCardPressedEvent;
+  const _OnCardPressedEvent._() : super._();
+
+  String get id;
+  @JsonKey(ignore: true)
+  _$$_OnCardPressedEventCopyWith<_$_OnCardPressedEvent> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc

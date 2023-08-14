@@ -12,6 +12,9 @@ class NewsListEvent with _$NewsListEvent {
       _SelectCategoryEvent;
 
   const factory NewsListEvent.refresh() = _RefreshEvent;
+
+  const factory NewsListEvent.onCardPressed({required String id}) =
+      _OnCardPressedEvent;
 }
 
 class _LoadNewsListEvent extends NewsListEvent {

@@ -7,6 +7,7 @@ import '../../../../../utils/mapper.dart';
 import '../../../domain/entities/news.dart';
 import '../../../domain/entities/news_category.dart';
 import '../../../domain/repositories/news_repository.dart';
+import '../../coordinators/news_list_coordinator.dart';
 import '../../providers/news_list_string_provider.dart';
 import '../../view_models/news_category_vm.dart';
 import '../../view_models/news_vm.dart';
@@ -24,6 +25,7 @@ class NewsListBloc extends Bloc<NewsListEvent, NewsListState> {
   NewsListBloc(
     this._newsRepository,
     this._stringProvider,
+    this._coordinator,
     this._newsCategoryMapper,
     this._newsMapper,
   ) : super(const NewsListState()) {
@@ -31,6 +33,7 @@ class NewsListBloc extends Bloc<NewsListEvent, NewsListState> {
     on<_LoadMoreEvent>(_loadMore);
     on<_SelectCategoryEvent>(_selectCategory);
     on<_RefreshEvent>(_refresh);
+    on<_OnCardPressedEvent>(_onCardPressed);
 
     // private
     on<_LoadNewsListEvent>(_loadNews);
@@ -38,6 +41,7 @@ class NewsListBloc extends Bloc<NewsListEvent, NewsListState> {
 
   final NewsRepository _newsRepository;
   final NewsListStringProvider _stringProvider;
+  final NewsListCoordinator _coordinator;
   final Mapper<NewsCategory, NewsCategoryVM> _newsCategoryMapper;
   final Mapper<News, NewsVM> _newsMapper;
 
@@ -189,5 +193,12 @@ class NewsListBloc extends Bloc<NewsListEvent, NewsListState> {
     } finally {
       emit(state.copyWith(isLoadingNews: false));
     }
+  }
+
+  void _onCardPressed(
+    _OnCardPressedEvent event,
+    Emitter<NewsListState> emit,
+  ) {
+    _coordinator.onCardPressed(id: event.id);
   }
 }
