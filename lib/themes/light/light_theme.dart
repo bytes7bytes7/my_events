@@ -259,5 +259,8 @@ final lightTheme = ThemeData.light().copyWith(
         color: _Colors.shark,
       ),
     ),
+    const ColorSchemeTX(
+      chevron: _Colors.slateGray,
+    ),
   ],
 );

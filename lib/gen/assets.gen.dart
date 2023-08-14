@@ -20,25 +20,57 @@ class $AssetsIconsGen {
   /// File path: assets/icons/chat.svg
   SvgGenImage get chat => const SvgGenImage('assets/icons/chat.svg');
 
+  /// File path: assets/icons/chevron_next.svg
+  SvgGenImage get chevronNext =>
+      const SvgGenImage('assets/icons/chevron_next.svg');
+
   /// File path: assets/icons/events.svg
   SvgGenImage get events => const SvgGenImage('assets/icons/events.svg');
 
   /// File path: assets/icons/home.svg
   SvgGenImage get home => const SvgGenImage('assets/icons/home.svg');
 
+  /// File path: assets/icons/log_out.svg
+  SvgGenImage get logOut => const SvgGenImage('assets/icons/log_out.svg');
+
   /// File path: assets/icons/my_event.svg
   SvgGenImage get myEvent => const SvgGenImage('assets/icons/my_event.svg');
+
+  /// File path: assets/icons/my_events.svg
+  SvgGenImage get myEvents => const SvgGenImage('assets/icons/my_events.svg');
 
   /// File path: assets/icons/notifications.svg
   SvgGenImage get notifications =>
       const SvgGenImage('assets/icons/notifications.svg');
 
+  /// File path: assets/icons/services.svg
+  SvgGenImage get services => const SvgGenImage('assets/icons/services.svg');
+
+  /// File path: assets/icons/settings.svg
+  SvgGenImage get settings => const SvgGenImage('assets/icons/settings.svg');
+
   /// File path: assets/icons/share.svg
   SvgGenImage get share => const SvgGenImage('assets/icons/share.svg');
 
+  /// File path: assets/icons/status.svg
+  SvgGenImage get status => const SvgGenImage('assets/icons/status.svg');
+
   /// List of all assets
-  List<SvgGenImage> get values =>
-      [account, chat, events, home, myEvent, notifications, share];
+  List<SvgGenImage> get values => [
+        account,
+        chat,
+        chevronNext,
+        events,
+        home,
+        logOut,
+        myEvent,
+        myEvents,
+        notifications,
+        services,
+        settings,
+        share,
+        status
+      ];
 }
 
 class $AssetsImagesGen {
