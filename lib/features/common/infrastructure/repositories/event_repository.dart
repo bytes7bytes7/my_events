@@ -58,4 +58,62 @@ class TestEventRepository implements EventRepository {
       ];
     });
   }
+
+  @override
+  Future<Event> getByID(String id) async {
+    await Future.delayed(const Duration(milliseconds: 800));
+
+    if (id == '4') {
+      return Event(
+        id: '4',
+        title: 'Петербургский юридический форум',
+        city: 'Санкт-Петербург, Россия',
+        place: 'Экспофорум',
+        startsAt: DateTime(2023, 2, 18),
+        endsAt: DateTime(2023, 2, 23),
+        image: Uint8List.sublistView(
+          await rootBundle.load(Assets.mock.images.eventCardBg3.path),
+        ),
+        icon: Uint8List.sublistView(
+          await rootBundle.load(Assets.mock.icons.eventCardIcon3),
+        ),
+      );
+    }
+
+    if (id == '5') {
+      return Event(
+        id: '5',
+        title: 'Петербургский международный экономический форум',
+        city: 'Санкт-Петербург, Россия',
+        place: 'Экспофорум',
+        startsAt: DateTime(2023, 2, 18),
+        endsAt: DateTime(2023, 2, 23),
+        image: Uint8List.sublistView(
+          await rootBundle.load(Assets.mock.images.eventCardBg3.path),
+        ),
+        icon: Uint8List.sublistView(
+          await rootBundle.load(Assets.mock.icons.eventCardIcon3),
+        ),
+      );
+    }
+
+    if (id == '6') {
+      return Event(
+        id: '6',
+        title: 'Восточный экономический форум',
+        city: 'Санкт-Петербург, Россия',
+        place: 'Экспофорум',
+        startsAt: DateTime(2023, 2, 18),
+        endsAt: DateTime(2023, 2, 23),
+        image: Uint8List.sublistView(
+          await rootBundle.load(Assets.mock.images.eventCardBg3.path),
+        ),
+        icon: Uint8List.sublistView(
+          await rootBundle.load(Assets.mock.icons.eventCardIcon3),
+        ),
+      );
+    }
+
+    throw Exception('Event not found');
+  }
 }

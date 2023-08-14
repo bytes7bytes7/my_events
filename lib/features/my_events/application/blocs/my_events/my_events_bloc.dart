@@ -4,8 +4,11 @@ import 'package:injectable/injectable.dart';
 
 import '../../../../../utils/mapper.dart';
 import '../../../../common/application/view_models/ticket_vm.dart';
+import '../../../../common/domain/entities/event.dart';
 import '../../../../common/domain/entities/ticket.dart';
+import '../../../../common/domain/repositories/event_repository.dart';
 import '../../../../common/domain/repositories/ticket_repository.dart';
+import '../../../../home/application/view_models/event_vm.dart';
 import '../../providers/my_events_string_provider.dart';
 
 part 'my_events_event.dart';
@@ -20,8 +23,9 @@ const _limit = 10;
 class MyEventsBloc extends Bloc<MyEventsEvent, MyEventsState> {
   MyEventsBloc(
     this._ticketRepository,
+    this._eventRepository,
     this._stringProvider,
-    this._ticketMapper,
+    this._eventMapper,
   ) : super(const MyEventsState()) {
     on<_LoadEvent>(_load);
     on<_LoadMoreEvent>(_loadMore);
@@ -29,8 +33,9 @@ class MyEventsBloc extends Bloc<MyEventsEvent, MyEventsState> {
   }
 
   final TicketRepository _ticketRepository;
+  final EventRepository _eventRepository;
   final MyEventsStringProvider _stringProvider;
-  final Mapper<Ticket, TicketVM> _ticketMapper;
+  final Mapper<Event, EventVM> _eventMapper;
 
   Future<void> _load(
     _LoadEvent event,
@@ -52,7 +57,7 @@ class MyEventsBloc extends Bloc<MyEventsEvent, MyEventsState> {
         limit: _limit,
       );
 
-      final ticketsVM = _ticketMapper.mapList(tickets.value);
+      final ticketsVM = await _ticketToTicketVM(tickets.value);
 
       emit(
         state.copyWith(
@@ -90,7 +95,7 @@ class MyEventsBloc extends Bloc<MyEventsEvent, MyEventsState> {
         limit: _limit,
       );
 
-      final ticketsVM = _ticketMapper.mapList(tickets.value);
+      final ticketsVM = await _ticketToTicketVM(tickets.value);
 
       emit(
         state.copyWith(
@@ -111,5 +116,22 @@ class MyEventsBloc extends Bloc<MyEventsEvent, MyEventsState> {
     Emitter<MyEventsState> emit,
   ) async {
     add(const MyEventsEvent.load());
+  }
+
+  Future<List<TicketVM>> _ticketToTicketVM(List<Ticket> tickets) async {
+    final ticketsVM = <TicketVM>[];
+    for (final e in tickets) {
+      final event = await _eventRepository.getByID(e.eventID);
+
+      ticketsVM.add(
+        TicketVM(
+          id: e.id,
+          role: e.role,
+          event: _eventMapper.map(event),
+        ),
+      );
+    }
+
+    return ticketsVM;
   }
 }
