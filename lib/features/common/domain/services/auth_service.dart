@@ -4,11 +4,16 @@ import '../events/domain_event.dart';
 import '../events/user_logged_in_domain_event.dart';
 import '../events/user_logged_out_domain_event.dart';
 import '../repositories/auth_repository.dart';
+import '../repositories/user_repository.dart';
 
 class AuthService {
-  AuthService(this._authRepository);
+  AuthService(
+    this._authRepository,
+    this._userRepository,
+  );
 
   final AuthRepository _authRepository;
+  final UserRepository _userRepository;
 
   final _eventController = StreamController<DomainEvent>.broadcast();
 
@@ -16,6 +21,16 @@ class AuthService {
 
   Future<void> dispose() async {
     await _eventController.close();
+  }
+
+  Future<void> checkIfIsLoggedIn() async {
+    try {
+      await _userRepository.getCurrent();
+
+      _eventController.add(const UserLoggedInDomainEvent());
+    } catch (e) {
+      _eventController.add(const UserLoggedOutDomainEvent());
+    }
   }
 
   Future<void> logInToAccount() async {
