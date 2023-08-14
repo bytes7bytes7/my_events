@@ -18,6 +18,7 @@ final lightTheme = ThemeData.light().copyWith(
     onBackground: _Colors.black,
     surface: _Colors.alabaster,
     onSurface: _Colors.shark,
+    tertiary: _Colors.wildSand,
   ),
   scaffoldBackgroundColor: _Colors.white,
   textTheme: const TextTheme(
@@ -124,6 +125,9 @@ final lightTheme = ThemeData.light().copyWith(
         ),
       ),
     ),
+  ),
+  cardTheme: const CardTheme(
+    margin: EdgeInsets.zero,
   ),
   extensions: [
     ElevatedButtonTX(
@@ -244,6 +248,14 @@ final lightTheme = ThemeData.light().copyWith(
           ),
         ),
         minimumSize: MaterialStateProperty.all(Size.zero),
+      ),
+    ),
+    const TextThemeTX(
+      labelBig: TextStyle(
+        fontSize: 14,
+        fontWeight: FontWeight.w400,
+        fontFamily: FontFamily.sansation,
+        color: _Colors.shark,
       ),
     ),
   ],

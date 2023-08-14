@@ -2,14 +2,13 @@ import 'package:badges/badges.dart' as badges;
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get_it/get_it.dart';
 
 import '../../../../gen/assets.gen.dart';
 import '../../../../themes/extensions/extensions.dart';
-import '../../../common/presentation/widgets/widgets.dart';
 import '../../application/blocs/home/home_bloc.dart';
-import '../../application/blocs/upcoming_events/upcoming_events_bloc.dart';
+import '../widgets/news_list.dart';
+import '../widgets/upcoming_events_slider.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -23,7 +22,7 @@ class HomeScreen extends StatelessWidget {
         ..add(const HomeEvent.loadNotificationsAmount()),
       child: Scaffold(
         body: SafeArea(
-          child: BlocConsumer<HomeBloc, HomeState>(
+          child: BlocListener<HomeBloc, HomeState>(
             listener: (context, state) {
               if (state.error.isNotEmpty) {
                 scaffoldMsg.showSnackBar(
@@ -33,22 +32,15 @@ class HomeScreen extends StatelessWidget {
                 );
               }
             },
-            builder: (context, state) {
-              return Column(
-                children: [
-                  const _Actions(),
-                  const _TabBar(),
-                  Expanded(
-                    child: BlocProvider(
-                      create: (context) =>
-                          GetIt.instance.get<UpcomingEventsBloc>()
-                            ..add(const UpcomingEventsEvent.load()),
-                      child: const _UpcomingEvents(),
-                    ),
-                  ),
-                ],
-              );
-            },
+            child: Column(
+              children: const [
+                _Actions(),
+                _TabBar(),
+                Expanded(
+                  child: _Body(),
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -190,6 +182,7 @@ class _SelectedTab extends StatelessWidget {
     final theme = Theme.of(context);
 
     return Card(
+      margin: const EdgeInsets.all(2),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),
       ),
@@ -222,6 +215,7 @@ class _UnselectedTab extends StatelessWidget {
     final theme = Theme.of(context);
 
     return Card(
+      margin: const EdgeInsets.all(2),
       color: Colors.transparent,
       clipBehavior: Clip.hardEdge,
       elevation: 0,
@@ -246,96 +240,31 @@ class _UnselectedTab extends StatelessWidget {
   }
 }
 
-class _UpcomingEvents extends HookWidget {
-  const _UpcomingEvents();
+class _Body extends HookWidget {
+  const _Body();
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final elevatedButtonTX = theme.extension<ElevatedButtonTX>()!;
-    final pageController = usePageController(
-      viewportFraction: 0.9,
-    );
-    final bloc = context.read<UpcomingEventsBloc>();
+    final pageController = usePageController();
 
-    return BlocBuilder<UpcomingEventsBloc, UpcomingEventsState>(
+    return BlocConsumer<HomeBloc, HomeState>(
+      listener: (context, state) {
+        if (pageController.page != null) {
+          if (state.selectedTabIndex != pageController.page?.toInt()) {
+            pageController.animateToPage(
+              state.selectedTabIndex,
+              duration: const Duration(milliseconds: 250),
+              curve: Curves.easeIn,
+            );
+          }
+        }
+      },
       builder: (context, state) {
-        return Column(
-          children: [
-            Expanded(
-              child: PageView.builder(
-                controller: pageController,
-                itemCount: state.events.length,
-                onPageChanged: (index) {
-                  bloc.add(UpcomingEventsEvent.pageChanged(index: index));
-                },
-                clipBehavior: Clip.none,
-                itemBuilder: (context, index) {
-                  final event = state.events[index];
-
-                  return Card(
-                    clipBehavior: Clip.hardEdge,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(24),
-                    ),
-                    child: Stack(
-                      children: [
-                        Positioned.fill(
-                          child: Image.memory(
-                            event.image,
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(24),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Align(
-                                alignment: Alignment.topRight,
-                                child: ElevatedButton(
-                                  style: elevatedButtonTX.fivefold,
-                                  onPressed: () {},
-                                  child: Assets.icons.share.svg(),
-                                ),
-                              ),
-                              const Spacer(),
-                              SvgPicture.memory(event.icon),
-                              const SizedBox(
-                                height: 16,
-                              ),
-                              Text(
-                                '${event.period} | ${event.place}',
-                                style: theme.textTheme.labelLarge,
-                              ),
-                              const SizedBox(
-                                height: 8,
-                              ),
-                              Text(
-                                event.title,
-                                style: theme.textTheme.displaySmall,
-                              ),
-                              const SizedBox(
-                                height: 12,
-                              ),
-                              Text(
-                                event.city,
-                                style: theme.textTheme.labelMedium,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  );
-                },
-              ),
-            ),
-            DotIndicator(
-              currentIndex: state.currentIndex,
-              amount: state.events.length,
-              selectedColor: theme.colorScheme.onSurface,
-            ),
+        return PageView(
+          controller: pageController,
+          children: const [
+            UpcomingEventsSlider(),
+            NewsList(),
           ],
         );
       },
