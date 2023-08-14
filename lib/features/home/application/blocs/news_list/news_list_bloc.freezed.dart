@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'news_bloc.dart';
+part of 'news_list_bloc.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$NewsEvent {
+mixin _$NewsListEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() load,
@@ -69,15 +69,16 @@ mixin _$NewsEvent {
 }
 
 /// @nodoc
-abstract class $NewsEventCopyWith<$Res> {
-  factory $NewsEventCopyWith(NewsEvent value, $Res Function(NewsEvent) then) =
-      _$NewsEventCopyWithImpl<$Res, NewsEvent>;
+abstract class $NewsListEventCopyWith<$Res> {
+  factory $NewsListEventCopyWith(
+          NewsListEvent value, $Res Function(NewsListEvent) then) =
+      _$NewsListEventCopyWithImpl<$Res, NewsListEvent>;
 }
 
 /// @nodoc
-class _$NewsEventCopyWithImpl<$Res, $Val extends NewsEvent>
-    implements $NewsEventCopyWith<$Res> {
-  _$NewsEventCopyWithImpl(this._value, this._then);
+class _$NewsListEventCopyWithImpl<$Res, $Val extends NewsListEvent>
+    implements $NewsListEventCopyWith<$Res> {
+  _$NewsListEventCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -94,7 +95,7 @@ abstract class _$$_LoadEventCopyWith<$Res> {
 
 /// @nodoc
 class __$$_LoadEventCopyWithImpl<$Res>
-    extends _$NewsEventCopyWithImpl<$Res, _$_LoadEvent>
+    extends _$NewsListEventCopyWithImpl<$Res, _$_LoadEvent>
     implements _$$_LoadEventCopyWith<$Res> {
   __$$_LoadEventCopyWithImpl(
       _$_LoadEvent _value, $Res Function(_$_LoadEvent) _then)
@@ -108,7 +109,7 @@ class _$_LoadEvent extends _LoadEvent {
 
   @override
   String toString() {
-    return 'NewsEvent.load()';
+    return 'NewsListEvent.load()';
   }
 
   @override
@@ -195,7 +196,7 @@ class _$_LoadEvent extends _LoadEvent {
   }
 }
 
-abstract class _LoadEvent extends NewsEvent {
+abstract class _LoadEvent extends NewsListEvent {
   const factory _LoadEvent() = _$_LoadEvent;
   const _LoadEvent._() : super._();
 }
@@ -209,7 +210,7 @@ abstract class _$$_LoadMoreEventCopyWith<$Res> {
 
 /// @nodoc
 class __$$_LoadMoreEventCopyWithImpl<$Res>
-    extends _$NewsEventCopyWithImpl<$Res, _$_LoadMoreEvent>
+    extends _$NewsListEventCopyWithImpl<$Res, _$_LoadMoreEvent>
     implements _$$_LoadMoreEventCopyWith<$Res> {
   __$$_LoadMoreEventCopyWithImpl(
       _$_LoadMoreEvent _value, $Res Function(_$_LoadMoreEvent) _then)
@@ -223,7 +224,7 @@ class _$_LoadMoreEvent extends _LoadMoreEvent {
 
   @override
   String toString() {
-    return 'NewsEvent.loadMore()';
+    return 'NewsListEvent.loadMore()';
   }
 
   @override
@@ -310,7 +311,7 @@ class _$_LoadMoreEvent extends _LoadMoreEvent {
   }
 }
 
-abstract class _LoadMoreEvent extends NewsEvent {
+abstract class _LoadMoreEvent extends NewsListEvent {
   const factory _LoadMoreEvent() = _$_LoadMoreEvent;
   const _LoadMoreEvent._() : super._();
 }
@@ -326,7 +327,7 @@ abstract class _$$_SelectCategoryEventCopyWith<$Res> {
 
 /// @nodoc
 class __$$_SelectCategoryEventCopyWithImpl<$Res>
-    extends _$NewsEventCopyWithImpl<$Res, _$_SelectCategoryEvent>
+    extends _$NewsListEventCopyWithImpl<$Res, _$_SelectCategoryEvent>
     implements _$$_SelectCategoryEventCopyWith<$Res> {
   __$$_SelectCategoryEventCopyWithImpl(_$_SelectCategoryEvent _value,
       $Res Function(_$_SelectCategoryEvent) _then)
@@ -356,7 +357,7 @@ class _$_SelectCategoryEvent extends _SelectCategoryEvent {
 
   @override
   String toString() {
-    return 'NewsEvent.selectCategory(id: $id)';
+    return 'NewsListEvent.selectCategory(id: $id)';
   }
 
   @override
@@ -452,7 +453,7 @@ class _$_SelectCategoryEvent extends _SelectCategoryEvent {
   }
 }
 
-abstract class _SelectCategoryEvent extends NewsEvent {
+abstract class _SelectCategoryEvent extends NewsListEvent {
   const factory _SelectCategoryEvent({required final String id}) =
       _$_SelectCategoryEvent;
   const _SelectCategoryEvent._() : super._();
@@ -472,7 +473,7 @@ abstract class _$$_RefreshEventCopyWith<$Res> {
 
 /// @nodoc
 class __$$_RefreshEventCopyWithImpl<$Res>
-    extends _$NewsEventCopyWithImpl<$Res, _$_RefreshEvent>
+    extends _$NewsListEventCopyWithImpl<$Res, _$_RefreshEvent>
     implements _$$_RefreshEventCopyWith<$Res> {
   __$$_RefreshEventCopyWithImpl(
       _$_RefreshEvent _value, $Res Function(_$_RefreshEvent) _then)
@@ -486,7 +487,7 @@ class _$_RefreshEvent extends _RefreshEvent {
 
   @override
   String toString() {
-    return 'NewsEvent.refresh()';
+    return 'NewsListEvent.refresh()';
   }
 
   @override
@@ -573,13 +574,13 @@ class _$_RefreshEvent extends _RefreshEvent {
   }
 }
 
-abstract class _RefreshEvent extends NewsEvent {
+abstract class _RefreshEvent extends NewsListEvent {
   const factory _RefreshEvent() = _$_RefreshEvent;
   const _RefreshEvent._() : super._();
 }
 
 /// @nodoc
-mixin _$NewsState {
+mixin _$NewsListState {
   bool get isLoadingCategories => throw _privateConstructorUsedError;
   bool get isLoadingNews => throw _privateConstructorUsedError;
   bool get isLoadingMore => throw _privateConstructorUsedError;
@@ -591,14 +592,15 @@ mixin _$NewsState {
   List<NewsVM> get news => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $NewsStateCopyWith<NewsState> get copyWith =>
+  $NewsListStateCopyWith<NewsListState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $NewsStateCopyWith<$Res> {
-  factory $NewsStateCopyWith(NewsState value, $Res Function(NewsState) then) =
-      _$NewsStateCopyWithImpl<$Res, NewsState>;
+abstract class $NewsListStateCopyWith<$Res> {
+  factory $NewsListStateCopyWith(
+          NewsListState value, $Res Function(NewsListState) then) =
+      _$NewsListStateCopyWithImpl<$Res, NewsListState>;
   @useResult
   $Res call(
       {bool isLoadingCategories,
@@ -613,9 +615,9 @@ abstract class $NewsStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$NewsStateCopyWithImpl<$Res, $Val extends NewsState>
-    implements $NewsStateCopyWith<$Res> {
-  _$NewsStateCopyWithImpl(this._value, this._then);
+class _$NewsListStateCopyWithImpl<$Res, $Val extends NewsListState>
+    implements $NewsListStateCopyWith<$Res> {
+  _$NewsListStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -677,10 +679,11 @@ class _$NewsStateCopyWithImpl<$Res, $Val extends NewsState>
 }
 
 /// @nodoc
-abstract class _$$_NewsStateCopyWith<$Res> implements $NewsStateCopyWith<$Res> {
-  factory _$$_NewsStateCopyWith(
-          _$_NewsState value, $Res Function(_$_NewsState) then) =
-      __$$_NewsStateCopyWithImpl<$Res>;
+abstract class _$$_NewsListStateCopyWith<$Res>
+    implements $NewsListStateCopyWith<$Res> {
+  factory _$$_NewsListStateCopyWith(
+          _$_NewsListState value, $Res Function(_$_NewsListState) then) =
+      __$$_NewsListStateCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -696,11 +699,11 @@ abstract class _$$_NewsStateCopyWith<$Res> implements $NewsStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_NewsStateCopyWithImpl<$Res>
-    extends _$NewsStateCopyWithImpl<$Res, _$_NewsState>
-    implements _$$_NewsStateCopyWith<$Res> {
-  __$$_NewsStateCopyWithImpl(
-      _$_NewsState _value, $Res Function(_$_NewsState) _then)
+class __$$_NewsListStateCopyWithImpl<$Res>
+    extends _$NewsListStateCopyWithImpl<$Res, _$_NewsListState>
+    implements _$$_NewsListStateCopyWith<$Res> {
+  __$$_NewsListStateCopyWithImpl(
+      _$_NewsListState _value, $Res Function(_$_NewsListState) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -716,7 +719,7 @@ class __$$_NewsStateCopyWithImpl<$Res>
     Object? totalCount = null,
     Object? news = null,
   }) {
-    return _then(_$_NewsState(
+    return _then(_$_NewsListState(
       isLoadingCategories: null == isLoadingCategories
           ? _value.isLoadingCategories
           : isLoadingCategories // ignore: cast_nullable_to_non_nullable
@@ -759,8 +762,8 @@ class __$$_NewsStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_NewsState implements _NewsState {
-  const _$_NewsState(
+class _$_NewsListState implements _NewsListState {
+  const _$_NewsListState(
       {this.isLoadingCategories = false,
       this.isLoadingNews = false,
       this.isLoadingMore = false,
@@ -813,14 +816,14 @@ class _$_NewsState implements _NewsState {
 
   @override
   String toString() {
-    return 'NewsState(isLoadingCategories: $isLoadingCategories, isLoadingNews: $isLoadingNews, isLoadingMore: $isLoadingMore, error: $error, selectedCategoryID: $selectedCategoryID, categories: $categories, offset: $offset, totalCount: $totalCount, news: $news)';
+    return 'NewsListState(isLoadingCategories: $isLoadingCategories, isLoadingNews: $isLoadingNews, isLoadingMore: $isLoadingMore, error: $error, selectedCategoryID: $selectedCategoryID, categories: $categories, offset: $offset, totalCount: $totalCount, news: $news)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_NewsState &&
+            other is _$_NewsListState &&
             (identical(other.isLoadingCategories, isLoadingCategories) ||
                 other.isLoadingCategories == isLoadingCategories) &&
             (identical(other.isLoadingNews, isLoadingNews) ||
@@ -854,12 +857,12 @@ class _$_NewsState implements _NewsState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_NewsStateCopyWith<_$_NewsState> get copyWith =>
-      __$$_NewsStateCopyWithImpl<_$_NewsState>(this, _$identity);
+  _$$_NewsListStateCopyWith<_$_NewsListState> get copyWith =>
+      __$$_NewsListStateCopyWithImpl<_$_NewsListState>(this, _$identity);
 }
 
-abstract class _NewsState implements NewsState {
-  const factory _NewsState(
+abstract class _NewsListState implements NewsListState {
+  const factory _NewsListState(
       {final bool isLoadingCategories,
       final bool isLoadingNews,
       final bool isLoadingMore,
@@ -868,7 +871,7 @@ abstract class _NewsState implements NewsState {
       final List<NewsCategoryVM> categories,
       final int offset,
       final int totalCount,
-      final List<NewsVM> news}) = _$_NewsState;
+      final List<NewsVM> news}) = _$_NewsListState;
 
   @override
   bool get isLoadingCategories;
@@ -890,6 +893,6 @@ abstract class _NewsState implements NewsState {
   List<NewsVM> get news;
   @override
   @JsonKey(ignore: true)
-  _$$_NewsStateCopyWith<_$_NewsState> get copyWith =>
+  _$$_NewsListStateCopyWith<_$_NewsListState> get copyWith =>
       throw _privateConstructorUsedError;
 }

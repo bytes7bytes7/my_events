@@ -10,28 +10,28 @@ import '../../providers/news_string_provider.dart';
 import '../../view_models/news_category_vm.dart';
 import '../../view_models/news_vm.dart';
 
-part 'news_event.dart';
+part 'news_list_event.dart';
 
-part 'news_state.dart';
+part 'news_list_state.dart';
 
-part 'news_bloc.freezed.dart';
+part 'news_list_bloc.freezed.dart';
 
 const _limit = 10;
 
-class NewsBloc extends Bloc<NewsEvent, NewsState> {
-  NewsBloc(
+class NewsListBloc extends Bloc<NewsListEvent, NewsListState> {
+  NewsListBloc(
     this._newsRepository,
     this._stringProvider,
     this._newsCategoryMapper,
     this._newsMapper,
-  ) : super(const NewsState()) {
+  ) : super(const NewsListState()) {
     on<_LoadEvent>(_load);
     on<_LoadMoreEvent>(_loadMore);
     on<_SelectCategoryEvent>(_selectCategory);
     on<_RefreshEvent>(_refresh);
 
     // private
-    on<_LoadNewsEvent>(_loadNews);
+    on<_LoadNewsListEvent>(_loadNews);
   }
 
   final NewsRepository _newsRepository;
@@ -41,7 +41,7 @@ class NewsBloc extends Bloc<NewsEvent, NewsState> {
 
   Future<void> _load(
     _LoadEvent event,
-    Emitter<NewsState> emit,
+    Emitter<NewsListState> emit,
   ) async {
     if (state.isLoadingCategories) {
       return;
@@ -69,7 +69,7 @@ class NewsBloc extends Bloc<NewsEvent, NewsState> {
         ),
       );
 
-      add(const _LoadNewsEvent());
+      add(const _LoadNewsListEvent());
     } catch (e) {
       emit(state.copyWith(error: _stringProvider.cannotLoadCategories));
     } finally {
@@ -79,7 +79,7 @@ class NewsBloc extends Bloc<NewsEvent, NewsState> {
 
   Future<void> _loadMore(
     _LoadMoreEvent event,
-    Emitter<NewsState> emit,
+    Emitter<NewsListState> emit,
   ) async {
     if (state.isLoadingCategories) {
       return;
@@ -127,7 +127,7 @@ class NewsBloc extends Bloc<NewsEvent, NewsState> {
 
   Future<void> _selectCategory(
     _SelectCategoryEvent event,
-    Emitter<NewsState> emit,
+    Emitter<NewsListState> emit,
   ) async {
     final hasCategory =
         state.categories.firstWhereOrNull((e) => e.id == event.id) != null;
@@ -137,19 +137,19 @@ class NewsBloc extends Bloc<NewsEvent, NewsState> {
 
     emit(state.copyWith(selectedCategoryID: event.id));
 
-    add(const _LoadNewsEvent());
+    add(const _LoadNewsListEvent());
   }
 
   Future<void> _refresh(
     _RefreshEvent event,
-    Emitter<NewsState> emit,
+    Emitter<NewsListState> emit,
   ) async {
-    add(const NewsEvent.load());
+    add(const NewsListEvent.load());
   }
 
   Future<void> _loadNews(
-    _LoadNewsEvent event,
-    Emitter<NewsState> emit,
+    _LoadNewsListEvent event,
+    Emitter<NewsListState> emit,
   ) async {
     if (state.isLoadingNews) {
       return;
