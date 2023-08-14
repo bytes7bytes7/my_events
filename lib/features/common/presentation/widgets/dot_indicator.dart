@@ -8,10 +8,12 @@ class DotIndicator extends StatelessWidget {
     super.key,
     required this.currentIndex,
     required this.amount,
+    required this.selectedColor,
   });
 
   final int currentIndex;
   final int amount;
+  final Color selectedColor;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +25,9 @@ class DotIndicator extends StatelessWidget {
           amount,
           (index) {
             if (currentIndex == index) {
-              return const _SelectedDot();
+              return _SelectedDot(
+                color: selectedColor,
+              );
             }
 
             return const _UnselectedDot();
@@ -59,12 +63,14 @@ class _UnselectedDot extends StatelessWidget {
 }
 
 class _SelectedDot extends StatelessWidget {
-  const _SelectedDot();
+  const _SelectedDot({
+    required this.color,
+  });
+
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    
     return Padding(
       padding: const EdgeInsets.symmetric(
         horizontal: _spacing,
@@ -72,7 +78,7 @@ class _SelectedDot extends StatelessWidget {
       child: DecoratedBox(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
-          color: theme.colorScheme.primary,
+          color: color,
         ),
         child: const SizedBox(
           height: _size,

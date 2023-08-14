@@ -38,6 +38,7 @@ final lightTheme = ThemeData.light().copyWith(
       fontWeight: FontWeight.bold,
       fontFamily: FontFamily.sansation,
       color: _Colors.white,
+      height: 1.5,
     ),
     titleLarge: TextStyle(
       fontSize: 18,
@@ -211,6 +212,36 @@ final lightTheme = ThemeData.light().copyWith(
         ),
         overlayColor: MaterialStateProperty.all(
           _Colors.paleSlate.withOpacity(0.3),
+        ),
+        minimumSize: MaterialStateProperty.all(Size.zero),
+      ),
+      fivefold: ButtonStyle(
+        elevation: MaterialStateProperty.all(0),
+        shape: MaterialStateProperty.all(
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8),
+            side: BorderSide.none,
+          ),
+        ),
+        backgroundColor: MaterialStateProperty.all(
+          _Colors.white.withOpacity(0.3),
+        ),
+        foregroundColor: MaterialStateProperty.resolveWith((states) {
+          if (states.contains(MaterialState.disabled)) {
+            return _Colors.white.withOpacity(0.5);
+          }
+
+          return _Colors.white;
+        }),
+        padding: MaterialStateProperty.all(
+          const EdgeInsets.all(12),
+        ),
+        textStyle: MaterialStateProperty.all(
+          const TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+            fontFamily: FontFamily.sansation,
+          ),
         ),
         minimumSize: MaterialStateProperty.all(Size.zero),
       ),

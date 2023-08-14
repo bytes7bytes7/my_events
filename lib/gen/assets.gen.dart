@@ -33,9 +33,12 @@ class $AssetsIconsGen {
   SvgGenImage get notifications =>
       const SvgGenImage('assets/icons/notifications.svg');
 
+  /// File path: assets/icons/share.svg
+  SvgGenImage get share => const SvgGenImage('assets/icons/share.svg');
+
   /// List of all assets
   List<SvgGenImage> get values =>
-      [account, chat, events, home, myEvent, notifications];
+      [account, chat, events, home, myEvent, notifications, share];
 }
 
 class $AssetsImagesGen {

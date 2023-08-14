@@ -168,6 +168,7 @@ class _Body extends StatelessWidget {
             DotIndicator(
               currentIndex: state.currentIndex,
               amount: state.tips.length,
+              selectedColor: theme.colorScheme.primary,
             ),
           ],
         );

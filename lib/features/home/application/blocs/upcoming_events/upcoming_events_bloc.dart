@@ -23,6 +23,7 @@ class UpcomingEventsBloc
     this._stringProvider,
   ) : super(const UpcomingEventsState()) {
     on<_LoadEvent>(_load);
+    on<_PageChangedEvent>(_pageChanged);
   }
 
   final EventRepository _eventRepository;
@@ -46,5 +47,12 @@ class UpcomingEventsBloc
     } finally {
       emit(state.copyWith(isLoading: false));
     }
+  }
+
+  void _pageChanged(
+    _PageChangedEvent event,
+    Emitter<UpcomingEventsState> emit,
+  ) {
+    emit(state.copyWith(currentIndex: event.index));
   }
 }

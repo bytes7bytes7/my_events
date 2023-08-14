@@ -19,32 +19,38 @@ mixin _$UpcomingEventsEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() load,
+    required TResult Function(int index) pageChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? load,
+    TResult? Function(int index)? pageChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? load,
+    TResult Function(int index)? pageChanged,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadEvent value) load,
+    required TResult Function(_PageChangedEvent value) pageChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadEvent value)? load,
+    TResult? Function(_PageChangedEvent value)? pageChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadEvent value)? load,
+    TResult Function(_PageChangedEvent value)? pageChanged,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -107,6 +113,7 @@ class _$_LoadEvent implements _LoadEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() load,
+    required TResult Function(int index) pageChanged,
   }) {
     return load();
   }
@@ -115,6 +122,7 @@ class _$_LoadEvent implements _LoadEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? load,
+    TResult? Function(int index)? pageChanged,
   }) {
     return load?.call();
   }
@@ -123,6 +131,7 @@ class _$_LoadEvent implements _LoadEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? load,
+    TResult Function(int index)? pageChanged,
     required TResult orElse(),
   }) {
     if (load != null) {
@@ -135,6 +144,7 @@ class _$_LoadEvent implements _LoadEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadEvent value) load,
+    required TResult Function(_PageChangedEvent value) pageChanged,
   }) {
     return load(this);
   }
@@ -143,6 +153,7 @@ class _$_LoadEvent implements _LoadEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadEvent value)? load,
+    TResult? Function(_PageChangedEvent value)? pageChanged,
   }) {
     return load?.call(this);
   }
@@ -151,6 +162,7 @@ class _$_LoadEvent implements _LoadEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadEvent value)? load,
+    TResult Function(_PageChangedEvent value)? pageChanged,
     required TResult orElse(),
   }) {
     if (load != null) {
@@ -162,6 +174,140 @@ class _$_LoadEvent implements _LoadEvent {
 
 abstract class _LoadEvent implements UpcomingEventsEvent {
   const factory _LoadEvent() = _$_LoadEvent;
+}
+
+/// @nodoc
+abstract class _$$_PageChangedEventCopyWith<$Res> {
+  factory _$$_PageChangedEventCopyWith(
+          _$_PageChangedEvent value, $Res Function(_$_PageChangedEvent) then) =
+      __$$_PageChangedEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int index});
+}
+
+/// @nodoc
+class __$$_PageChangedEventCopyWithImpl<$Res>
+    extends _$UpcomingEventsEventCopyWithImpl<$Res, _$_PageChangedEvent>
+    implements _$$_PageChangedEventCopyWith<$Res> {
+  __$$_PageChangedEventCopyWithImpl(
+      _$_PageChangedEvent _value, $Res Function(_$_PageChangedEvent) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? index = null,
+  }) {
+    return _then(_$_PageChangedEvent(
+      index: null == index
+          ? _value.index
+          : index // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_PageChangedEvent implements _PageChangedEvent {
+  const _$_PageChangedEvent({required this.index});
+
+  @override
+  final int index;
+
+  @override
+  String toString() {
+    return 'UpcomingEventsEvent.pageChanged(index: $index)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_PageChangedEvent &&
+            (identical(other.index, index) || other.index == index));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, index);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_PageChangedEventCopyWith<_$_PageChangedEvent> get copyWith =>
+      __$$_PageChangedEventCopyWithImpl<_$_PageChangedEvent>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() load,
+    required TResult Function(int index) pageChanged,
+  }) {
+    return pageChanged(index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? load,
+    TResult? Function(int index)? pageChanged,
+  }) {
+    return pageChanged?.call(index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? load,
+    TResult Function(int index)? pageChanged,
+    required TResult orElse(),
+  }) {
+    if (pageChanged != null) {
+      return pageChanged(index);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadEvent value) load,
+    required TResult Function(_PageChangedEvent value) pageChanged,
+  }) {
+    return pageChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadEvent value)? load,
+    TResult? Function(_PageChangedEvent value)? pageChanged,
+  }) {
+    return pageChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadEvent value)? load,
+    TResult Function(_PageChangedEvent value)? pageChanged,
+    required TResult orElse(),
+  }) {
+    if (pageChanged != null) {
+      return pageChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _PageChangedEvent implements UpcomingEventsEvent {
+  const factory _PageChangedEvent({required final int index}) =
+      _$_PageChangedEvent;
+
+  int get index;
+  @JsonKey(ignore: true)
+  _$$_PageChangedEventCopyWith<_$_PageChangedEvent> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
