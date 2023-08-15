@@ -63,15 +63,14 @@ class _Body extends StatelessWidget {
           );
         }
 
-        return ListView(
-          controller: controller,
-          padding: const EdgeInsets.symmetric(
-            horizontal: 24,
-          ),
-          children: [
-            Padding(
+        return Scaffold(
+          backgroundColor: Colors.transparent,
+          appBar: PreferredSize(
+            preferredSize: const Size.fromHeight(80),
+            child: Padding(
               padding: const EdgeInsets.symmetric(
-                vertical: 16,
+                horizontal: 24,
+                vertical: 10,
               ),
               child: AppBar(
                 backgroundColor: Colors.transparent,
@@ -103,66 +102,74 @@ class _Body extends StatelessWidget {
                 ],
               ),
             ),
-            AspectRatio(
-              aspectRatio: 2 / 1,
-              child: DecoratedBox(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
-                  image: DecorationImage(
-                    image: MemoryImage(
-                      news.image,
+          ),
+          body: ListView(
+            controller: controller,
+            padding: const EdgeInsets.symmetric(
+              horizontal: 24,
+            ),
+            children: [
+              AspectRatio(
+                aspectRatio: 2 / 1,
+                child: DecoratedBox(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                    image: DecorationImage(
+                      image: MemoryImage(
+                        news.image,
+                      ),
+                      fit: BoxFit.cover,
                     ),
-                    fit: BoxFit.cover,
                   ),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(16),
-                  child: Align(
-                    alignment: Alignment.topRight,
-                    child: Theme(
-                      data: theme.copyWith(
-                        elevatedButtonTheme: ElevatedButtonThemeData(
-                          style: elevatedButtonTX.fivefold.copyWith(
-                            padding: const MaterialStatePropertyAll(
-                              EdgeInsets.all(8),
+                  child: Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: Align(
+                      alignment: Alignment.topRight,
+                      child: Theme(
+                        data: theme.copyWith(
+                          elevatedButtonTheme: ElevatedButtonThemeData(
+                            style: elevatedButtonTX.fivefold.copyWith(
+                              padding: const MaterialStatePropertyAll(
+                                EdgeInsets.all(8),
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                      child: ElevatedButton(
-                        onPressed: () {},
-                        child: Assets.icons.share.svg(
-                          width: 20,
-                          height: 20,
+                        child: ElevatedButton(
+                          onPressed: () {},
+                          child: Assets.icons.share.svg(
+                            width: 20,
+                            height: 20,
+                          ),
                         ),
                       ),
                     ),
                   ),
                 ),
               ),
-            ),
-            const SizedBox(
-              height: 16,
-            ),
-            Text(
-              news.title,
-              style: theme.textTheme.titleLarge,
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Text(
-              '${news.publishedAt} • ${news.readTime}',
-              style: theme.textTheme.bodySmall,
-            ),
-            const SizedBox(
-              height: 16,
-            ),
-            Text(
-              news.content,
-              style: theme.textTheme.bodyLarge,
-            ),
-          ],
+              const SizedBox(
+                height: 16,
+              ),
+              Text(
+                news.title,
+                style: theme.textTheme.titleLarge,
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Text(
+                '${news.publishedAt} • ${news.readTime}',
+                style: theme.textTheme.bodySmall,
+              ),
+              const SizedBox(
+                height: 16,
+              ),
+              Text(
+                news.content,
+                style: theme.textTheme.bodyLarge,
+              ),
+            ],
+          ),
         );
       },
     );
