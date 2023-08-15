@@ -61,7 +61,7 @@ class MyEventsBloc extends Bloc<MyEventsEvent, MyEventsState> {
 
       emit(
         state.copyWith(
-          offset: tickets.offset,
+          offset: tickets.offset + tickets.count,
           totalCount: tickets.totalCount,
           tickets: ticketsVM,
         ),
@@ -99,7 +99,7 @@ class MyEventsBloc extends Bloc<MyEventsEvent, MyEventsState> {
 
       emit(
         state.copyWith(
-          offset: tickets.offset,
+          offset: tickets.count + tickets.offset,
           totalCount: tickets.totalCount,
           tickets: oldTickets..addAll(ticketsVM),
         ),

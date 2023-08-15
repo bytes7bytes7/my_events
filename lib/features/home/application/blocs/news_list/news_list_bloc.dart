@@ -119,7 +119,7 @@ class NewsListBloc extends Bloc<NewsListEvent, NewsListState> {
 
       emit(
         state.copyWith(
-          offset: news.offset,
+          offset: news.offset + news.count,
           totalCount: news.totalCount,
           news: oldNews..addAll(newsVM),
         ),
@@ -183,7 +183,7 @@ class NewsListBloc extends Bloc<NewsListEvent, NewsListState> {
 
       emit(
         state.copyWith(
-          offset: news.offset,
+          offset: news.offset + news.count,
           totalCount: news.totalCount,
           news: newsVM,
         ),

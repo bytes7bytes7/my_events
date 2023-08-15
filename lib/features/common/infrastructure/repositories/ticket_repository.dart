@@ -14,6 +14,15 @@ class TestTicketRepository implements TicketRepository {
     required int limit,
   }) {
     return Future.delayed(const Duration(milliseconds: 800), () {
+      if (offset != 0) {
+        return Paginated(
+          value: [],
+          offset: offset,
+          count: 0,
+          totalCount: 1,
+        );
+      }
+
       return const Paginated(
         offset: 0,
         count: 1,
@@ -35,6 +44,15 @@ class TestTicketRepository implements TicketRepository {
     required int limit,
   }) {
     return Future.delayed(const Duration(milliseconds: 800), () {
+      if (offset != 0) {
+        return Paginated(
+          value: [],
+          offset: offset,
+          count: 0,
+          totalCount: 2,
+        );
+      }
+
       return const Paginated(
         offset: 0,
         count: 1,

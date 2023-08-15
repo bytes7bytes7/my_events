@@ -17,6 +17,12 @@ class $AssetsIconsGen {
   /// File path: assets/icons/account.svg
   SvgGenImage get account => const SvgGenImage('assets/icons/account.svg');
 
+  /// File path: assets/icons/archive.svg
+  SvgGenImage get archive => const SvgGenImage('assets/icons/archive.svg');
+
+  /// File path: assets/icons/back.svg
+  SvgGenImage get back => const SvgGenImage('assets/icons/back.svg');
+
   /// File path: assets/icons/chat.svg
   SvgGenImage get chat => const SvgGenImage('assets/icons/chat.svg');
 
@@ -58,6 +64,8 @@ class $AssetsIconsGen {
   /// List of all assets
   List<SvgGenImage> get values => [
         account,
+        archive,
+        back,
         chat,
         chevronNext,
         events,
