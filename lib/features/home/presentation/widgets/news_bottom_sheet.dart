@@ -104,7 +104,7 @@ class _Body extends StatelessWidget {
               ),
             ),
             AspectRatio(
-              aspectRatio: 3 / 1,
+              aspectRatio: 2 / 1,
               child: DecoratedBox(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12),
@@ -119,10 +119,23 @@ class _Body extends StatelessWidget {
                   padding: const EdgeInsets.all(16),
                   child: Align(
                     alignment: Alignment.topRight,
-                    child: ElevatedButton(
-                      style: elevatedButtonTX.fivefold,
-                      onPressed: () {},
-                      child: Assets.icons.share.svg(),
+                    child: Theme(
+                      data: theme.copyWith(
+                        elevatedButtonTheme: ElevatedButtonThemeData(
+                          style: elevatedButtonTX.fivefold.copyWith(
+                            padding: const MaterialStatePropertyAll(
+                              EdgeInsets.all(8),
+                            ),
+                          ),
+                        ),
+                      ),
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        child: Assets.icons.share.svg(
+                          width: 20,
+                          height: 20,
+                        ),
+                      ),
                     ),
                   ),
                 ),
@@ -140,6 +153,7 @@ class _Body extends StatelessWidget {
             ),
             Text(
               '${news.publishedAt} • ${news.readTime}',
+              style: theme.textTheme.bodySmall,
             ),
             const SizedBox(
               height: 16,
