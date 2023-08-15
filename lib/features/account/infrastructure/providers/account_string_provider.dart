@@ -8,4 +8,7 @@ class ProdAccountStringProvider implements AccountStringProvider {
 
   @override
   String get cannotLoad => 'Не удалось загрузить информацию о пользователе';
+
+  @override
+  String get cannotLogOut => 'Не удалось выйти';
 }

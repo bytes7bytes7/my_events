@@ -9,8 +9,6 @@ class AuthEvent with _$AuthEvent {
   const factory AuthEvent.logInToAccount() = _LogInToAccountEvent;
 
   const factory AuthEvent.logInAnonymously() = _LogInAnonymouslyEvent;
-
-  const factory AuthEvent.logOut() = _LogOutEvent;
 }
 
 class _LoggedInEvent extends AuthEvent {

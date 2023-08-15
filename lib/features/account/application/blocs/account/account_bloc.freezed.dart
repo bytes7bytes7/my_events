@@ -20,18 +20,21 @@ mixin _$AccountEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() loadUser,
     required TResult Function() openMyEvents,
+    required TResult Function() logOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loadUser,
     TResult? Function()? openMyEvents,
+    TResult? Function()? logOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loadUser,
     TResult Function()? openMyEvents,
+    TResult Function()? logOut,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +42,21 @@ mixin _$AccountEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadUserEvent value) loadUser,
     required TResult Function(_OpenMyEventsEvent value) openMyEvents,
+    required TResult Function(_LogOutEvent value) logOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadUserEvent value)? loadUser,
     TResult? Function(_OpenMyEventsEvent value)? openMyEvents,
+    TResult? Function(_LogOutEvent value)? logOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadUserEvent value)? loadUser,
     TResult Function(_OpenMyEventsEvent value)? openMyEvents,
+    TResult Function(_LogOutEvent value)? logOut,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -114,6 +120,7 @@ class _$_LoadUserEvent implements _LoadUserEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() loadUser,
     required TResult Function() openMyEvents,
+    required TResult Function() logOut,
   }) {
     return loadUser();
   }
@@ -123,6 +130,7 @@ class _$_LoadUserEvent implements _LoadUserEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loadUser,
     TResult? Function()? openMyEvents,
+    TResult? Function()? logOut,
   }) {
     return loadUser?.call();
   }
@@ -132,6 +140,7 @@ class _$_LoadUserEvent implements _LoadUserEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loadUser,
     TResult Function()? openMyEvents,
+    TResult Function()? logOut,
     required TResult orElse(),
   }) {
     if (loadUser != null) {
@@ -145,6 +154,7 @@ class _$_LoadUserEvent implements _LoadUserEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadUserEvent value) loadUser,
     required TResult Function(_OpenMyEventsEvent value) openMyEvents,
+    required TResult Function(_LogOutEvent value) logOut,
   }) {
     return loadUser(this);
   }
@@ -154,6 +164,7 @@ class _$_LoadUserEvent implements _LoadUserEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadUserEvent value)? loadUser,
     TResult? Function(_OpenMyEventsEvent value)? openMyEvents,
+    TResult? Function(_LogOutEvent value)? logOut,
   }) {
     return loadUser?.call(this);
   }
@@ -163,6 +174,7 @@ class _$_LoadUserEvent implements _LoadUserEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadUserEvent value)? loadUser,
     TResult Function(_OpenMyEventsEvent value)? openMyEvents,
+    TResult Function(_LogOutEvent value)? logOut,
     required TResult orElse(),
   }) {
     if (loadUser != null) {
@@ -216,6 +228,7 @@ class _$_OpenMyEventsEvent implements _OpenMyEventsEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() loadUser,
     required TResult Function() openMyEvents,
+    required TResult Function() logOut,
   }) {
     return openMyEvents();
   }
@@ -225,6 +238,7 @@ class _$_OpenMyEventsEvent implements _OpenMyEventsEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loadUser,
     TResult? Function()? openMyEvents,
+    TResult? Function()? logOut,
   }) {
     return openMyEvents?.call();
   }
@@ -234,6 +248,7 @@ class _$_OpenMyEventsEvent implements _OpenMyEventsEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loadUser,
     TResult Function()? openMyEvents,
+    TResult Function()? logOut,
     required TResult orElse(),
   }) {
     if (openMyEvents != null) {
@@ -247,6 +262,7 @@ class _$_OpenMyEventsEvent implements _OpenMyEventsEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadUserEvent value) loadUser,
     required TResult Function(_OpenMyEventsEvent value) openMyEvents,
+    required TResult Function(_LogOutEvent value) logOut,
   }) {
     return openMyEvents(this);
   }
@@ -256,6 +272,7 @@ class _$_OpenMyEventsEvent implements _OpenMyEventsEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadUserEvent value)? loadUser,
     TResult? Function(_OpenMyEventsEvent value)? openMyEvents,
+    TResult? Function(_LogOutEvent value)? logOut,
   }) {
     return openMyEvents?.call(this);
   }
@@ -265,6 +282,7 @@ class _$_OpenMyEventsEvent implements _OpenMyEventsEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadUserEvent value)? loadUser,
     TResult Function(_OpenMyEventsEvent value)? openMyEvents,
+    TResult Function(_LogOutEvent value)? logOut,
     required TResult orElse(),
   }) {
     if (openMyEvents != null) {
@@ -276,6 +294,114 @@ class _$_OpenMyEventsEvent implements _OpenMyEventsEvent {
 
 abstract class _OpenMyEventsEvent implements AccountEvent {
   const factory _OpenMyEventsEvent() = _$_OpenMyEventsEvent;
+}
+
+/// @nodoc
+abstract class _$$_LogOutEventCopyWith<$Res> {
+  factory _$$_LogOutEventCopyWith(
+          _$_LogOutEvent value, $Res Function(_$_LogOutEvent) then) =
+      __$$_LogOutEventCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_LogOutEventCopyWithImpl<$Res>
+    extends _$AccountEventCopyWithImpl<$Res, _$_LogOutEvent>
+    implements _$$_LogOutEventCopyWith<$Res> {
+  __$$_LogOutEventCopyWithImpl(
+      _$_LogOutEvent _value, $Res Function(_$_LogOutEvent) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_LogOutEvent implements _LogOutEvent {
+  const _$_LogOutEvent();
+
+  @override
+  String toString() {
+    return 'AccountEvent.logOut()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_LogOutEvent);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadUser,
+    required TResult Function() openMyEvents,
+    required TResult Function() logOut,
+  }) {
+    return logOut();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loadUser,
+    TResult? Function()? openMyEvents,
+    TResult? Function()? logOut,
+  }) {
+    return logOut?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadUser,
+    TResult Function()? openMyEvents,
+    TResult Function()? logOut,
+    required TResult orElse(),
+  }) {
+    if (logOut != null) {
+      return logOut();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadUserEvent value) loadUser,
+    required TResult Function(_OpenMyEventsEvent value) openMyEvents,
+    required TResult Function(_LogOutEvent value) logOut,
+  }) {
+    return logOut(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadUserEvent value)? loadUser,
+    TResult? Function(_OpenMyEventsEvent value)? openMyEvents,
+    TResult? Function(_LogOutEvent value)? logOut,
+  }) {
+    return logOut?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadUserEvent value)? loadUser,
+    TResult Function(_OpenMyEventsEvent value)? openMyEvents,
+    TResult Function(_LogOutEvent value)? logOut,
+    required TResult orElse(),
+  }) {
+    if (logOut != null) {
+      return logOut(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LogOutEvent implements AccountEvent {
+  const factory _LogOutEvent() = _$_LogOutEvent;
 }
 
 /// @nodoc

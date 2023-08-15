@@ -27,17 +27,17 @@ import '../../../features/common/application/blocs/auth/auth_bloc.dart' as _i88;
 import '../../../features/common/application/coordinators/auth_coordinator.dart'
     as _i70;
 import '../../../features/common/application/mappers/user_to_user_vm_mapper.dart'
-    as _i34;
+    as _i22;
 import '../../../features/common/application/providers/auth_string_provider.dart'
     as _i5;
 import '../../../features/common/application/providers/date_time_beautify_provider.dart'
     as _i7;
 import '../../../features/common/application/providers/duration_beautify_provider.dart'
     as _i9;
-import '../../../features/common/application/view_models/user_vm.dart' as _i33;
+import '../../../features/common/application/view_models/user_vm.dart' as _i21;
 import '../../../features/common/domain/domain.dart' as _i89;
-import '../../../features/common/domain/entities/event.dart' as _i20;
-import '../../../features/common/domain/entities/user.dart' as _i32;
+import '../../../features/common/domain/entities/event.dart' as _i23;
+import '../../../features/common/domain/entities/user.dart' as _i20;
 import '../../../features/common/domain/repositories/auth_repository.dart'
     as _i72;
 import '../../../features/common/domain/repositories/event_repository.dart'
@@ -77,13 +77,13 @@ import '../../../features/home/application/coordinators/news_list_coordinator.da
 import '../../../features/home/application/coordinators/onboarding_coordinator.dart'
     as _i55;
 import '../../../features/home/application/mappers/event_to_event_vm_mapper.dart'
-    as _i22;
-import '../../../features/home/application/mappers/news_category_to_news_category_vm_mapper.dart'
     as _i25;
-import '../../../features/home/application/mappers/news_to_news_vm_mapper.dart'
+import '../../../features/home/application/mappers/news_category_to_news_category_vm_mapper.dart'
     as _i28;
-import '../../../features/home/application/mappers/onboarding_tip_to_onboarding_tip_vm_mapper.dart'
+import '../../../features/home/application/mappers/news_to_news_vm_mapper.dart'
     as _i31;
+import '../../../features/home/application/mappers/onboarding_tip_to_onboarding_tip_vm_mapper.dart'
+    as _i34;
 import '../../../features/home/application/providers/home_string_provider.dart'
     as _i15;
 import '../../../features/home/application/providers/news_list_string_provider.dart'
@@ -94,14 +94,14 @@ import '../../../features/home/application/providers/onboarding_string_provider.
     as _i59;
 import '../../../features/home/application/providers/upcoming_events_string_provider.dart'
     as _i64;
-import '../../../features/home/application/view_models/event_vm.dart' as _i21;
+import '../../../features/home/application/view_models/event_vm.dart' as _i24;
 import '../../../features/home/application/view_models/news_category_vm.dart'
-    as _i24;
-import '../../../features/home/application/view_models/news_vm.dart' as _i27;
+    as _i27;
+import '../../../features/home/application/view_models/news_vm.dart' as _i30;
 import '../../../features/home/application/view_models/onboarding_tip_vm.dart'
-    as _i30;
-import '../../../features/home/domain/entities/news.dart' as _i26;
-import '../../../features/home/domain/entities/news_category.dart' as _i23;
+    as _i33;
+import '../../../features/home/domain/entities/news.dart' as _i29;
+import '../../../features/home/domain/entities/news_category.dart' as _i26;
 import '../../../features/home/domain/repositories/news_repository.dart'
     as _i49;
 import '../../../features/home/domain/repositories/notification_repository.dart'
@@ -110,7 +110,7 @@ import '../../../features/home/domain/repositories/onboarding_repository.dart'
     as _i57;
 import '../../../features/home/domain/value_objects/onboarding_tip.dart'
     as _i85;
-import '../../../features/home/domain/value_objects/value_objects.dart' as _i29;
+import '../../../features/home/domain/value_objects/value_objects.dart' as _i32;
 import '../../../features/home/infrastructure/providers/home_string_provider.dart'
     as _i16;
 import '../../../features/home/infrastructure/providers/news_list_string_provider.dart'
@@ -190,19 +190,19 @@ Future<_i1.GetIt> init(
       () => _i16.ProdHomeStringProvider());
   gh.lazySingleton<_i17.MainCoordinator>(
       () => _i18.ProdMainCoordinator(goRouter: gh<_i14.GoRouter>()));
-  gh.lazySingleton<_i19.Mapper<_i20.Event, _i21.EventVM>>(
-      () => _i22.EventToEventVMMapper(gh<_i7.DateTimeBeautifyProvider>()));
-  gh.lazySingleton<_i19.Mapper<_i23.NewsCategory, _i24.NewsCategoryVM>>(
-      () => _i25.NewsCategoryToNewsCategoryVMMapper());
-  gh.lazySingleton<_i19.Mapper<_i26.News, _i27.NewsVM>>(
-      () => _i28.NewsToNewsVMMapper(
+  gh.lazySingleton<_i19.Mapper<_i20.User, _i21.UserVM>>(
+      () => _i22.UserToUserVMMapper());
+  gh.lazySingleton<_i19.Mapper<_i23.Event, _i24.EventVM>>(
+      () => _i25.EventToEventVMMapper(gh<_i7.DateTimeBeautifyProvider>()));
+  gh.lazySingleton<_i19.Mapper<_i26.NewsCategory, _i27.NewsCategoryVM>>(
+      () => _i28.NewsCategoryToNewsCategoryVMMapper());
+  gh.lazySingleton<_i19.Mapper<_i29.News, _i30.NewsVM>>(
+      () => _i31.NewsToNewsVMMapper(
             gh<_i7.DateTimeBeautifyProvider>(),
             gh<_i9.DurationBeautifyProvider>(),
           ));
-  gh.lazySingleton<_i19.Mapper<_i29.OnboardingTip, _i30.OnboardingTipVM>>(
-      () => _i31.OnboardingTipToOnboardingTipVMMapper());
-  gh.lazySingleton<_i19.Mapper<_i32.User, _i33.UserVM>>(
-      () => _i34.UserToUserVMMapper());
+  gh.lazySingleton<_i19.Mapper<_i32.OnboardingTip, _i33.OnboardingTipVM>>(
+      () => _i34.OnboardingTipToOnboardingTipVMMapper());
   gh.lazySingleton<_i35.MyArchivedEventsCoordinator>(() =>
       _i36.ProdMyArchivedEventsCoordinator(goRouter: gh<_i14.GoRouter>()));
   gh.lazySingleton<_i37.MyArchivedEventsStringProvider>(
@@ -254,44 +254,45 @@ Future<_i1.GetIt> init(
         gh<_i11.EventRepository>(),
         gh<_i37.MyArchivedEventsStringProvider>(),
         gh<_i79.MyArchivedEventsCoordinator>(),
-        gh<_i19.Mapper<_i20.Event, _i21.EventVM>>(),
+        gh<_i19.Mapper<_i23.Event, _i24.EventVM>>(),
       ));
   gh.factory<_i80.MyEventsBloc>(() => _i80.MyEventsBloc(
         gh<_i62.TicketRepository>(),
         gh<_i11.EventRepository>(),
         gh<_i41.MyEventsStringProvider>(),
         gh<_i39.MyEventsCoordinator>(),
-        gh<_i19.Mapper<_i20.Event, _i21.EventVM>>(),
+        gh<_i19.Mapper<_i23.Event, _i24.EventVM>>(),
       ));
   gh.factory<_i81.NewsBloc>(() => _i81.NewsBloc(
         gh<_i49.NewsRepository>(),
         gh<_i51.NewsStringProvider>(),
         gh<_i43.NewsCoordinator>(),
-        gh<_i19.Mapper<_i26.News, _i27.NewsVM>>(),
+        gh<_i19.Mapper<_i29.News, _i30.NewsVM>>(),
       ));
   gh.factory<_i82.NewsListBloc>(() => _i82.NewsListBloc(
         gh<_i49.NewsRepository>(),
         gh<_i83.NewsListStringProvider>(),
         gh<_i45.NewsListCoordinator>(),
-        gh<_i19.Mapper<_i23.NewsCategory, _i24.NewsCategoryVM>>(),
-        gh<_i19.Mapper<_i26.News, _i27.NewsVM>>(),
+        gh<_i19.Mapper<_i26.NewsCategory, _i27.NewsCategoryVM>>(),
+        gh<_i19.Mapper<_i29.News, _i30.NewsVM>>(),
       ));
   gh.factory<_i84.OnboardingBloc>(() => _i84.OnboardingBloc(
         gh<_i57.OnboardingRepository>(),
-        gh<_i19.Mapper<_i85.OnboardingTip, _i30.OnboardingTipVM>>(),
+        gh<_i19.Mapper<_i85.OnboardingTip, _i33.OnboardingTipVM>>(),
         gh<_i59.OnboardingStringProvider>(),
         gh<_i55.OnboardingCoordinator>(),
       ));
   gh.factory<_i86.UpcomingEventsBloc>(() => _i86.UpcomingEventsBloc(
         gh<_i11.EventRepository>(),
-        gh<_i19.Mapper<_i20.Event, _i21.EventVM>>(),
+        gh<_i19.Mapper<_i23.Event, _i24.EventVM>>(),
         gh<_i64.UpcomingEventsStringProvider>(),
       ));
   gh.factory<_i87.AccountBloc>(() => _i87.AccountBloc(
+        gh<_i74.AuthService>(),
         gh<_i66.UserRepository>(),
         gh<_i3.AccountStringProvider>(),
         gh<_i68.AccountCoordinator>(),
-        gh<_i19.Mapper<_i32.User, _i33.UserVM>>(),
+        gh<_i19.Mapper<_i20.User, _i21.UserVM>>(),
       ));
   gh.factory<_i88.AuthBloc>(() => _i88.AuthBloc(
         gh<_i89.AuthService>(),

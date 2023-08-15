@@ -42,7 +42,6 @@ class _Body extends StatelessWidget {
     final textThemeTX = theme.extension<TextThemeTX>()!;
     final scaffoldMsg = ScaffoldMessenger.of(context);
     final bloc = context.read<AccountBloc>();
-    final authBloc = context.read<AuthBloc>();
 
     return BlocConsumer<AccountBloc, AccountState>(
       listener: (context, state) {
@@ -122,7 +121,7 @@ class _Body extends StatelessWidget {
             const Spacer(),
             LogOutButton(
               onPressed: () {
-                authBloc.add(const AuthEvent.logOut());
+                bloc.add(const AccountEvent.logOut());
               },
             ),
           ],
