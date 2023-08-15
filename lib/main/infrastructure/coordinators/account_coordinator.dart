@@ -1,7 +1,7 @@
 import 'package:injectable/injectable.dart';
 
-import '../../features/account/application/coordinators/account_coordinator.dart';
-import '../infrastructure/router/router.dart';
+import '../../../features/account/application/coordinators/account_coordinator.dart';
+import '../router/router.dart';
 import 'coordinator.dart';
 
 @LazySingleton(as: AccountCoordinator)

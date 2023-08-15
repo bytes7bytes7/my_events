@@ -149,6 +149,11 @@ final lightTheme = ThemeData.light().copyWith(
       padding: MaterialStateProperty.all(const EdgeInsets.all(8)),
     ),
   ),
+  tabBarTheme: const TabBarTheme(
+    unselectedLabelColor: _Colors.paleSlate,
+    labelColor: _Colors.shark,
+    indicator: BoxDecoration(),
+  ),
   extensions: [
     ElevatedButtonTX(
       secondary: ButtonStyle(

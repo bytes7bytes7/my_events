@@ -1,7 +1,7 @@
 import 'package:injectable/injectable.dart';
 
-import '../../features/home/application/coordinators/onboarding_coordinator.dart';
-import '../infrastructure/infrastructure.dart';
+import '../../../features/home/application/coordinators/onboarding_coordinator.dart';
+import '../router/router.dart';
 import 'coordinator.dart';
 
 @LazySingleton(as: OnboardingCoordinator)

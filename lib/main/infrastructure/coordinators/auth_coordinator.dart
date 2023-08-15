@@ -1,7 +1,7 @@
 import 'package:injectable/injectable.dart';
 
-import '../../features/common/application/application.dart';
-import '../infrastructure/infrastructure.dart';
+import '../../../features/common/application/coordinators/auth_coordinator.dart';
+import '../router/router.dart';
 import 'coordinator.dart';
 
 @LazySingleton(as: AuthCoordinator)
