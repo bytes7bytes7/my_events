@@ -49,7 +49,9 @@ class _Body extends StatelessWidget {
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: CustomIconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    bloc.add(const MyEventsEvent.back());
+                  },
                   icon: Assets.icons.back.svg(
                     colorFilter: ColorFilter.mode(
                       theme.colorScheme.onSurface,
@@ -60,6 +62,7 @@ class _Body extends StatelessWidget {
               ),
             ),
             Expanded(
+              flex: 2,
               child: Text(
                 'мои мероприятия',
                 style: theme.textTheme.titleLarge,
@@ -69,7 +72,9 @@ class _Body extends StatelessWidget {
               child: Align(
                 alignment: Alignment.centerRight,
                 child: CustomIconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    bloc.add(const MyEventsEvent.openArchive());
+                  },
                   icon: Assets.icons.archive.svg(
                     colorFilter: ColorFilter.mode(
                       theme.colorScheme.onSurface,

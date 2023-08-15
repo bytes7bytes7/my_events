@@ -21,6 +21,8 @@ mixin _$MyEventsEvent {
     required TResult Function() load,
     required TResult Function() loadMore,
     required TResult Function() refresh,
+    required TResult Function() back,
+    required TResult Function() openArchive,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +30,8 @@ mixin _$MyEventsEvent {
     TResult? Function()? load,
     TResult? Function()? loadMore,
     TResult? Function()? refresh,
+    TResult? Function()? back,
+    TResult? Function()? openArchive,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +39,8 @@ mixin _$MyEventsEvent {
     TResult Function()? load,
     TResult Function()? loadMore,
     TResult Function()? refresh,
+    TResult Function()? back,
+    TResult Function()? openArchive,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +49,8 @@ mixin _$MyEventsEvent {
     required TResult Function(_LoadEvent value) load,
     required TResult Function(_LoadMoreEvent value) loadMore,
     required TResult Function(_RefreshEvent value) refresh,
+    required TResult Function(_BackEvent value) back,
+    required TResult Function(_OpenArchiveEvent value) openArchive,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +58,8 @@ mixin _$MyEventsEvent {
     TResult? Function(_LoadEvent value)? load,
     TResult? Function(_LoadMoreEvent value)? loadMore,
     TResult? Function(_RefreshEvent value)? refresh,
+    TResult? Function(_BackEvent value)? back,
+    TResult? Function(_OpenArchiveEvent value)? openArchive,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +67,8 @@ mixin _$MyEventsEvent {
     TResult Function(_LoadEvent value)? load,
     TResult Function(_LoadMoreEvent value)? loadMore,
     TResult Function(_RefreshEvent value)? refresh,
+    TResult Function(_BackEvent value)? back,
+    TResult Function(_OpenArchiveEvent value)? openArchive,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -121,6 +133,8 @@ class _$_LoadEvent implements _LoadEvent {
     required TResult Function() load,
     required TResult Function() loadMore,
     required TResult Function() refresh,
+    required TResult Function() back,
+    required TResult Function() openArchive,
   }) {
     return load();
   }
@@ -131,6 +145,8 @@ class _$_LoadEvent implements _LoadEvent {
     TResult? Function()? load,
     TResult? Function()? loadMore,
     TResult? Function()? refresh,
+    TResult? Function()? back,
+    TResult? Function()? openArchive,
   }) {
     return load?.call();
   }
@@ -141,6 +157,8 @@ class _$_LoadEvent implements _LoadEvent {
     TResult Function()? load,
     TResult Function()? loadMore,
     TResult Function()? refresh,
+    TResult Function()? back,
+    TResult Function()? openArchive,
     required TResult orElse(),
   }) {
     if (load != null) {
@@ -155,6 +173,8 @@ class _$_LoadEvent implements _LoadEvent {
     required TResult Function(_LoadEvent value) load,
     required TResult Function(_LoadMoreEvent value) loadMore,
     required TResult Function(_RefreshEvent value) refresh,
+    required TResult Function(_BackEvent value) back,
+    required TResult Function(_OpenArchiveEvent value) openArchive,
   }) {
     return load(this);
   }
@@ -165,6 +185,8 @@ class _$_LoadEvent implements _LoadEvent {
     TResult? Function(_LoadEvent value)? load,
     TResult? Function(_LoadMoreEvent value)? loadMore,
     TResult? Function(_RefreshEvent value)? refresh,
+    TResult? Function(_BackEvent value)? back,
+    TResult? Function(_OpenArchiveEvent value)? openArchive,
   }) {
     return load?.call(this);
   }
@@ -175,6 +197,8 @@ class _$_LoadEvent implements _LoadEvent {
     TResult Function(_LoadEvent value)? load,
     TResult Function(_LoadMoreEvent value)? loadMore,
     TResult Function(_RefreshEvent value)? refresh,
+    TResult Function(_BackEvent value)? back,
+    TResult Function(_OpenArchiveEvent value)? openArchive,
     required TResult orElse(),
   }) {
     if (load != null) {
@@ -229,6 +253,8 @@ class _$_LoadMoreEvent implements _LoadMoreEvent {
     required TResult Function() load,
     required TResult Function() loadMore,
     required TResult Function() refresh,
+    required TResult Function() back,
+    required TResult Function() openArchive,
   }) {
     return loadMore();
   }
@@ -239,6 +265,8 @@ class _$_LoadMoreEvent implements _LoadMoreEvent {
     TResult? Function()? load,
     TResult? Function()? loadMore,
     TResult? Function()? refresh,
+    TResult? Function()? back,
+    TResult? Function()? openArchive,
   }) {
     return loadMore?.call();
   }
@@ -249,6 +277,8 @@ class _$_LoadMoreEvent implements _LoadMoreEvent {
     TResult Function()? load,
     TResult Function()? loadMore,
     TResult Function()? refresh,
+    TResult Function()? back,
+    TResult Function()? openArchive,
     required TResult orElse(),
   }) {
     if (loadMore != null) {
@@ -263,6 +293,8 @@ class _$_LoadMoreEvent implements _LoadMoreEvent {
     required TResult Function(_LoadEvent value) load,
     required TResult Function(_LoadMoreEvent value) loadMore,
     required TResult Function(_RefreshEvent value) refresh,
+    required TResult Function(_BackEvent value) back,
+    required TResult Function(_OpenArchiveEvent value) openArchive,
   }) {
     return loadMore(this);
   }
@@ -273,6 +305,8 @@ class _$_LoadMoreEvent implements _LoadMoreEvent {
     TResult? Function(_LoadEvent value)? load,
     TResult? Function(_LoadMoreEvent value)? loadMore,
     TResult? Function(_RefreshEvent value)? refresh,
+    TResult? Function(_BackEvent value)? back,
+    TResult? Function(_OpenArchiveEvent value)? openArchive,
   }) {
     return loadMore?.call(this);
   }
@@ -283,6 +317,8 @@ class _$_LoadMoreEvent implements _LoadMoreEvent {
     TResult Function(_LoadEvent value)? load,
     TResult Function(_LoadMoreEvent value)? loadMore,
     TResult Function(_RefreshEvent value)? refresh,
+    TResult Function(_BackEvent value)? back,
+    TResult Function(_OpenArchiveEvent value)? openArchive,
     required TResult orElse(),
   }) {
     if (loadMore != null) {
@@ -337,6 +373,8 @@ class _$_RefreshEvent implements _RefreshEvent {
     required TResult Function() load,
     required TResult Function() loadMore,
     required TResult Function() refresh,
+    required TResult Function() back,
+    required TResult Function() openArchive,
   }) {
     return refresh();
   }
@@ -347,6 +385,8 @@ class _$_RefreshEvent implements _RefreshEvent {
     TResult? Function()? load,
     TResult? Function()? loadMore,
     TResult? Function()? refresh,
+    TResult? Function()? back,
+    TResult? Function()? openArchive,
   }) {
     return refresh?.call();
   }
@@ -357,6 +397,8 @@ class _$_RefreshEvent implements _RefreshEvent {
     TResult Function()? load,
     TResult Function()? loadMore,
     TResult Function()? refresh,
+    TResult Function()? back,
+    TResult Function()? openArchive,
     required TResult orElse(),
   }) {
     if (refresh != null) {
@@ -371,6 +413,8 @@ class _$_RefreshEvent implements _RefreshEvent {
     required TResult Function(_LoadEvent value) load,
     required TResult Function(_LoadMoreEvent value) loadMore,
     required TResult Function(_RefreshEvent value) refresh,
+    required TResult Function(_BackEvent value) back,
+    required TResult Function(_OpenArchiveEvent value) openArchive,
   }) {
     return refresh(this);
   }
@@ -381,6 +425,8 @@ class _$_RefreshEvent implements _RefreshEvent {
     TResult? Function(_LoadEvent value)? load,
     TResult? Function(_LoadMoreEvent value)? loadMore,
     TResult? Function(_RefreshEvent value)? refresh,
+    TResult? Function(_BackEvent value)? back,
+    TResult? Function(_OpenArchiveEvent value)? openArchive,
   }) {
     return refresh?.call(this);
   }
@@ -391,6 +437,8 @@ class _$_RefreshEvent implements _RefreshEvent {
     TResult Function(_LoadEvent value)? load,
     TResult Function(_LoadMoreEvent value)? loadMore,
     TResult Function(_RefreshEvent value)? refresh,
+    TResult Function(_BackEvent value)? back,
+    TResult Function(_OpenArchiveEvent value)? openArchive,
     required TResult orElse(),
   }) {
     if (refresh != null) {
@@ -402,6 +450,246 @@ class _$_RefreshEvent implements _RefreshEvent {
 
 abstract class _RefreshEvent implements MyEventsEvent {
   const factory _RefreshEvent() = _$_RefreshEvent;
+}
+
+/// @nodoc
+abstract class _$$_BackEventCopyWith<$Res> {
+  factory _$$_BackEventCopyWith(
+          _$_BackEvent value, $Res Function(_$_BackEvent) then) =
+      __$$_BackEventCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_BackEventCopyWithImpl<$Res>
+    extends _$MyEventsEventCopyWithImpl<$Res, _$_BackEvent>
+    implements _$$_BackEventCopyWith<$Res> {
+  __$$_BackEventCopyWithImpl(
+      _$_BackEvent _value, $Res Function(_$_BackEvent) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_BackEvent implements _BackEvent {
+  const _$_BackEvent();
+
+  @override
+  String toString() {
+    return 'MyEventsEvent.back()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_BackEvent);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() load,
+    required TResult Function() loadMore,
+    required TResult Function() refresh,
+    required TResult Function() back,
+    required TResult Function() openArchive,
+  }) {
+    return back();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? load,
+    TResult? Function()? loadMore,
+    TResult? Function()? refresh,
+    TResult? Function()? back,
+    TResult? Function()? openArchive,
+  }) {
+    return back?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? load,
+    TResult Function()? loadMore,
+    TResult Function()? refresh,
+    TResult Function()? back,
+    TResult Function()? openArchive,
+    required TResult orElse(),
+  }) {
+    if (back != null) {
+      return back();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadEvent value) load,
+    required TResult Function(_LoadMoreEvent value) loadMore,
+    required TResult Function(_RefreshEvent value) refresh,
+    required TResult Function(_BackEvent value) back,
+    required TResult Function(_OpenArchiveEvent value) openArchive,
+  }) {
+    return back(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadEvent value)? load,
+    TResult? Function(_LoadMoreEvent value)? loadMore,
+    TResult? Function(_RefreshEvent value)? refresh,
+    TResult? Function(_BackEvent value)? back,
+    TResult? Function(_OpenArchiveEvent value)? openArchive,
+  }) {
+    return back?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadEvent value)? load,
+    TResult Function(_LoadMoreEvent value)? loadMore,
+    TResult Function(_RefreshEvent value)? refresh,
+    TResult Function(_BackEvent value)? back,
+    TResult Function(_OpenArchiveEvent value)? openArchive,
+    required TResult orElse(),
+  }) {
+    if (back != null) {
+      return back(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _BackEvent implements MyEventsEvent {
+  const factory _BackEvent() = _$_BackEvent;
+}
+
+/// @nodoc
+abstract class _$$_OpenArchiveEventCopyWith<$Res> {
+  factory _$$_OpenArchiveEventCopyWith(
+          _$_OpenArchiveEvent value, $Res Function(_$_OpenArchiveEvent) then) =
+      __$$_OpenArchiveEventCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_OpenArchiveEventCopyWithImpl<$Res>
+    extends _$MyEventsEventCopyWithImpl<$Res, _$_OpenArchiveEvent>
+    implements _$$_OpenArchiveEventCopyWith<$Res> {
+  __$$_OpenArchiveEventCopyWithImpl(
+      _$_OpenArchiveEvent _value, $Res Function(_$_OpenArchiveEvent) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_OpenArchiveEvent implements _OpenArchiveEvent {
+  const _$_OpenArchiveEvent();
+
+  @override
+  String toString() {
+    return 'MyEventsEvent.openArchive()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_OpenArchiveEvent);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() load,
+    required TResult Function() loadMore,
+    required TResult Function() refresh,
+    required TResult Function() back,
+    required TResult Function() openArchive,
+  }) {
+    return openArchive();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? load,
+    TResult? Function()? loadMore,
+    TResult? Function()? refresh,
+    TResult? Function()? back,
+    TResult? Function()? openArchive,
+  }) {
+    return openArchive?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? load,
+    TResult Function()? loadMore,
+    TResult Function()? refresh,
+    TResult Function()? back,
+    TResult Function()? openArchive,
+    required TResult orElse(),
+  }) {
+    if (openArchive != null) {
+      return openArchive();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadEvent value) load,
+    required TResult Function(_LoadMoreEvent value) loadMore,
+    required TResult Function(_RefreshEvent value) refresh,
+    required TResult Function(_BackEvent value) back,
+    required TResult Function(_OpenArchiveEvent value) openArchive,
+  }) {
+    return openArchive(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadEvent value)? load,
+    TResult? Function(_LoadMoreEvent value)? loadMore,
+    TResult? Function(_RefreshEvent value)? refresh,
+    TResult? Function(_BackEvent value)? back,
+    TResult? Function(_OpenArchiveEvent value)? openArchive,
+  }) {
+    return openArchive?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadEvent value)? load,
+    TResult Function(_LoadMoreEvent value)? loadMore,
+    TResult Function(_RefreshEvent value)? refresh,
+    TResult Function(_BackEvent value)? back,
+    TResult Function(_OpenArchiveEvent value)? openArchive,
+    required TResult orElse(),
+  }) {
+    if (openArchive != null) {
+      return openArchive(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _OpenArchiveEvent implements MyEventsEvent {
+  const factory _OpenArchiveEvent() = _$_OpenArchiveEvent;
 }
 
 /// @nodoc

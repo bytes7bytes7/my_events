@@ -78,8 +78,8 @@ class MyEventsRoute extends CosyRoute {
   GoRoute get route => _AppRoutes.myEvents;
 }
 
-class MyArchivedRoute extends CosyRoute {
-  const MyArchivedRoute();
+class MyArchivedEventsRoute extends CosyRoute {
+  const MyArchivedEventsRoute();
 
   @override
   GoRoute get route => _AppRoutes.myArchivedEvents;

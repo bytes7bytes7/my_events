@@ -49,7 +49,9 @@ class _Body extends StatelessWidget {
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: CustomIconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    bloc.add(const MyArchivedEventsEvent.back());
+                  },
                   icon: Assets.icons.back.svg(
                     colorFilter: ColorFilter.mode(
                       theme.colorScheme.onSurface,

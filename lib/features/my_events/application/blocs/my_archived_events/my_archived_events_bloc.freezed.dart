@@ -21,6 +21,7 @@ mixin _$MyArchivedEventsEvent {
     required TResult Function() load,
     required TResult Function() loadMore,
     required TResult Function() refresh,
+    required TResult Function() back,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +29,7 @@ mixin _$MyArchivedEventsEvent {
     TResult? Function()? load,
     TResult? Function()? loadMore,
     TResult? Function()? refresh,
+    TResult? Function()? back,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +37,7 @@ mixin _$MyArchivedEventsEvent {
     TResult Function()? load,
     TResult Function()? loadMore,
     TResult Function()? refresh,
+    TResult Function()? back,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +46,7 @@ mixin _$MyArchivedEventsEvent {
     required TResult Function(_LoadEvent value) load,
     required TResult Function(_LoadMoreEvent value) loadMore,
     required TResult Function(_RefreshEvent value) refresh,
+    required TResult Function(_BackEvent value) back,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +54,7 @@ mixin _$MyArchivedEventsEvent {
     TResult? Function(_LoadEvent value)? load,
     TResult? Function(_LoadMoreEvent value)? loadMore,
     TResult? Function(_RefreshEvent value)? refresh,
+    TResult? Function(_BackEvent value)? back,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +62,7 @@ mixin _$MyArchivedEventsEvent {
     TResult Function(_LoadEvent value)? load,
     TResult Function(_LoadMoreEvent value)? loadMore,
     TResult Function(_RefreshEvent value)? refresh,
+    TResult Function(_BackEvent value)? back,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -122,6 +128,7 @@ class _$_LoadEvent implements _LoadEvent {
     required TResult Function() load,
     required TResult Function() loadMore,
     required TResult Function() refresh,
+    required TResult Function() back,
   }) {
     return load();
   }
@@ -132,6 +139,7 @@ class _$_LoadEvent implements _LoadEvent {
     TResult? Function()? load,
     TResult? Function()? loadMore,
     TResult? Function()? refresh,
+    TResult? Function()? back,
   }) {
     return load?.call();
   }
@@ -142,6 +150,7 @@ class _$_LoadEvent implements _LoadEvent {
     TResult Function()? load,
     TResult Function()? loadMore,
     TResult Function()? refresh,
+    TResult Function()? back,
     required TResult orElse(),
   }) {
     if (load != null) {
@@ -156,6 +165,7 @@ class _$_LoadEvent implements _LoadEvent {
     required TResult Function(_LoadEvent value) load,
     required TResult Function(_LoadMoreEvent value) loadMore,
     required TResult Function(_RefreshEvent value) refresh,
+    required TResult Function(_BackEvent value) back,
   }) {
     return load(this);
   }
@@ -166,6 +176,7 @@ class _$_LoadEvent implements _LoadEvent {
     TResult? Function(_LoadEvent value)? load,
     TResult? Function(_LoadMoreEvent value)? loadMore,
     TResult? Function(_RefreshEvent value)? refresh,
+    TResult? Function(_BackEvent value)? back,
   }) {
     return load?.call(this);
   }
@@ -176,6 +187,7 @@ class _$_LoadEvent implements _LoadEvent {
     TResult Function(_LoadEvent value)? load,
     TResult Function(_LoadMoreEvent value)? loadMore,
     TResult Function(_RefreshEvent value)? refresh,
+    TResult Function(_BackEvent value)? back,
     required TResult orElse(),
   }) {
     if (load != null) {
@@ -230,6 +242,7 @@ class _$_LoadMoreEvent implements _LoadMoreEvent {
     required TResult Function() load,
     required TResult Function() loadMore,
     required TResult Function() refresh,
+    required TResult Function() back,
   }) {
     return loadMore();
   }
@@ -240,6 +253,7 @@ class _$_LoadMoreEvent implements _LoadMoreEvent {
     TResult? Function()? load,
     TResult? Function()? loadMore,
     TResult? Function()? refresh,
+    TResult? Function()? back,
   }) {
     return loadMore?.call();
   }
@@ -250,6 +264,7 @@ class _$_LoadMoreEvent implements _LoadMoreEvent {
     TResult Function()? load,
     TResult Function()? loadMore,
     TResult Function()? refresh,
+    TResult Function()? back,
     required TResult orElse(),
   }) {
     if (loadMore != null) {
@@ -264,6 +279,7 @@ class _$_LoadMoreEvent implements _LoadMoreEvent {
     required TResult Function(_LoadEvent value) load,
     required TResult Function(_LoadMoreEvent value) loadMore,
     required TResult Function(_RefreshEvent value) refresh,
+    required TResult Function(_BackEvent value) back,
   }) {
     return loadMore(this);
   }
@@ -274,6 +290,7 @@ class _$_LoadMoreEvent implements _LoadMoreEvent {
     TResult? Function(_LoadEvent value)? load,
     TResult? Function(_LoadMoreEvent value)? loadMore,
     TResult? Function(_RefreshEvent value)? refresh,
+    TResult? Function(_BackEvent value)? back,
   }) {
     return loadMore?.call(this);
   }
@@ -284,6 +301,7 @@ class _$_LoadMoreEvent implements _LoadMoreEvent {
     TResult Function(_LoadEvent value)? load,
     TResult Function(_LoadMoreEvent value)? loadMore,
     TResult Function(_RefreshEvent value)? refresh,
+    TResult Function(_BackEvent value)? back,
     required TResult orElse(),
   }) {
     if (loadMore != null) {
@@ -338,6 +356,7 @@ class _$_RefreshEvent implements _RefreshEvent {
     required TResult Function() load,
     required TResult Function() loadMore,
     required TResult Function() refresh,
+    required TResult Function() back,
   }) {
     return refresh();
   }
@@ -348,6 +367,7 @@ class _$_RefreshEvent implements _RefreshEvent {
     TResult? Function()? load,
     TResult? Function()? loadMore,
     TResult? Function()? refresh,
+    TResult? Function()? back,
   }) {
     return refresh?.call();
   }
@@ -358,6 +378,7 @@ class _$_RefreshEvent implements _RefreshEvent {
     TResult Function()? load,
     TResult Function()? loadMore,
     TResult Function()? refresh,
+    TResult Function()? back,
     required TResult orElse(),
   }) {
     if (refresh != null) {
@@ -372,6 +393,7 @@ class _$_RefreshEvent implements _RefreshEvent {
     required TResult Function(_LoadEvent value) load,
     required TResult Function(_LoadMoreEvent value) loadMore,
     required TResult Function(_RefreshEvent value) refresh,
+    required TResult Function(_BackEvent value) back,
   }) {
     return refresh(this);
   }
@@ -382,6 +404,7 @@ class _$_RefreshEvent implements _RefreshEvent {
     TResult? Function(_LoadEvent value)? load,
     TResult? Function(_LoadMoreEvent value)? loadMore,
     TResult? Function(_RefreshEvent value)? refresh,
+    TResult? Function(_BackEvent value)? back,
   }) {
     return refresh?.call(this);
   }
@@ -392,6 +415,7 @@ class _$_RefreshEvent implements _RefreshEvent {
     TResult Function(_LoadEvent value)? load,
     TResult Function(_LoadMoreEvent value)? loadMore,
     TResult Function(_RefreshEvent value)? refresh,
+    TResult Function(_BackEvent value)? back,
     required TResult orElse(),
   }) {
     if (refresh != null) {
@@ -403,6 +427,120 @@ class _$_RefreshEvent implements _RefreshEvent {
 
 abstract class _RefreshEvent implements MyArchivedEventsEvent {
   const factory _RefreshEvent() = _$_RefreshEvent;
+}
+
+/// @nodoc
+abstract class _$$_BackEventCopyWith<$Res> {
+  factory _$$_BackEventCopyWith(
+          _$_BackEvent value, $Res Function(_$_BackEvent) then) =
+      __$$_BackEventCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_BackEventCopyWithImpl<$Res>
+    extends _$MyArchivedEventsEventCopyWithImpl<$Res, _$_BackEvent>
+    implements _$$_BackEventCopyWith<$Res> {
+  __$$_BackEventCopyWithImpl(
+      _$_BackEvent _value, $Res Function(_$_BackEvent) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_BackEvent implements _BackEvent {
+  const _$_BackEvent();
+
+  @override
+  String toString() {
+    return 'MyArchivedEventsEvent.back()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_BackEvent);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() load,
+    required TResult Function() loadMore,
+    required TResult Function() refresh,
+    required TResult Function() back,
+  }) {
+    return back();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? load,
+    TResult? Function()? loadMore,
+    TResult? Function()? refresh,
+    TResult? Function()? back,
+  }) {
+    return back?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? load,
+    TResult Function()? loadMore,
+    TResult Function()? refresh,
+    TResult Function()? back,
+    required TResult orElse(),
+  }) {
+    if (back != null) {
+      return back();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadEvent value) load,
+    required TResult Function(_LoadMoreEvent value) loadMore,
+    required TResult Function(_RefreshEvent value) refresh,
+    required TResult Function(_BackEvent value) back,
+  }) {
+    return back(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadEvent value)? load,
+    TResult? Function(_LoadMoreEvent value)? loadMore,
+    TResult? Function(_RefreshEvent value)? refresh,
+    TResult? Function(_BackEvent value)? back,
+  }) {
+    return back?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadEvent value)? load,
+    TResult Function(_LoadMoreEvent value)? loadMore,
+    TResult Function(_RefreshEvent value)? refresh,
+    TResult Function(_BackEvent value)? back,
+    required TResult orElse(),
+  }) {
+    if (back != null) {
+      return back(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _BackEvent implements MyArchivedEventsEvent {
+  const factory _BackEvent() = _$_BackEvent;
 }
 
 /// @nodoc

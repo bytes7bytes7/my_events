@@ -7,4 +7,8 @@ class MyEventsEvent with _$MyEventsEvent {
   const factory MyEventsEvent.loadMore() = _LoadMoreEvent;
 
   const factory MyEventsEvent.refresh() = _RefreshEvent;
+
+  const factory MyEventsEvent.back() = _BackEvent;
+
+  const factory MyEventsEvent.openArchive() = _OpenArchiveEvent;
 }

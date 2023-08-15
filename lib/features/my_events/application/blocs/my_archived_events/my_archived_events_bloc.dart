@@ -9,6 +9,7 @@ import '../../../../common/domain/entities/ticket.dart';
 import '../../../../common/domain/repositories/event_repository.dart';
 import '../../../../common/domain/repositories/ticket_repository.dart';
 import '../../../../home/application/view_models/event_vm.dart';
+import '../../coordinators/coordinators.dart';
 import '../../providers/my_archived_events_string_provider.dart';
 
 part 'my_archived_events_event.dart';
@@ -26,16 +27,19 @@ class MyArchivedEventsBloc
     this._ticketRepository,
     this._eventRepository,
     this._stringProvider,
+    this._coordinator,
     this._eventMapper,
   ) : super(const MyArchivedEventsState()) {
     on<_LoadEvent>(_load);
     on<_LoadMoreEvent>(_loadMore);
     on<_RefreshEvent>(_refresh);
+    on<_BackEvent>(_back);
   }
 
   final TicketRepository _ticketRepository;
   final EventRepository _eventRepository;
   final MyArchivedEventsStringProvider _stringProvider;
+  final MyArchivedEventsCoordinator _coordinator;
   final Mapper<Event, EventVM> _eventMapper;
 
   Future<void> _load(
@@ -134,5 +138,12 @@ class MyArchivedEventsBloc
     }
 
     return ticketsVM;
+  }
+
+  void _back(
+    _BackEvent event,
+    Emitter<MyArchivedEventsState> emit,
+  ) {
+    _coordinator.back();
   }
 }

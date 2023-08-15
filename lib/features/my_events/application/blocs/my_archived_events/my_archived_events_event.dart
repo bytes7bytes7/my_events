@@ -7,4 +7,6 @@ class MyArchivedEventsEvent with _$MyArchivedEventsEvent {
   const factory MyArchivedEventsEvent.loadMore() = _LoadMoreEvent;
 
   const factory MyArchivedEventsEvent.refresh() = _RefreshEvent;
+
+  const factory MyArchivedEventsEvent.back() = _BackEvent;
 }

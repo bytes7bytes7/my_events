@@ -9,6 +9,7 @@ import '../../../../common/domain/entities/ticket.dart';
 import '../../../../common/domain/repositories/event_repository.dart';
 import '../../../../common/domain/repositories/ticket_repository.dart';
 import '../../../../home/application/view_models/event_vm.dart';
+import '../../coordinators/my_events_coordinator.dart';
 import '../../providers/my_events_string_provider.dart';
 
 part 'my_events_event.dart';
@@ -25,16 +26,20 @@ class MyEventsBloc extends Bloc<MyEventsEvent, MyEventsState> {
     this._ticketRepository,
     this._eventRepository,
     this._stringProvider,
+    this._coordinator,
     this._eventMapper,
   ) : super(const MyEventsState()) {
     on<_LoadEvent>(_load);
     on<_LoadMoreEvent>(_loadMore);
     on<_RefreshEvent>(_refresh);
+    on<_BackEvent>(_back);
+    on<_OpenArchiveEvent>(_openArchive);
   }
 
   final TicketRepository _ticketRepository;
   final EventRepository _eventRepository;
   final MyEventsStringProvider _stringProvider;
+  final MyEventsCoordinator _coordinator;
   final Mapper<Event, EventVM> _eventMapper;
 
   Future<void> _load(
@@ -133,5 +138,19 @@ class MyEventsBloc extends Bloc<MyEventsEvent, MyEventsState> {
     }
 
     return ticketsVM;
+  }
+
+  void _back(
+    _BackEvent event,
+    Emitter<MyEventsState> emit,
+  ) {
+    _coordinator.back();
+  }
+
+  void _openArchive(
+    _OpenArchiveEvent event,
+    Emitter<MyEventsState> emit,
+  ) {
+    _coordinator.openArchive();
   }
 }

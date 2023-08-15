@@ -2,6 +2,8 @@ export 'account_coordinator.dart';
 export 'auth_coordinator.dart';
 export 'coordinator.dart';
 export 'main_coordinator.dart';
+export 'my_archived_events_coordinator.dart';
+export 'my_events_coordinator.dart';
 export 'news_coordinator.dart';
 export 'news_list_coordinator.dart';
 export 'onboarding_coordinator.dart';
