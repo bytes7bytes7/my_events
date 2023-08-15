@@ -57,7 +57,7 @@ class _AppRoutes {
   );
 
   static final news = GoRoute(
-    path: '/news',
+    path: '/news:$_newsIDParam',
     name: 'news',
     parentNavigatorKey: _rootKey,
     pageBuilder: (context, state) {

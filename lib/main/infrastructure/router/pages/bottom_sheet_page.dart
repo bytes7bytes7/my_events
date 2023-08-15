@@ -13,12 +13,14 @@ class BottomSheetPage<T> extends Page<T> {
     return ModalBottomSheetRoute<T>(
       isScrollControlled: true,
       settings: this,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(20),
+          topRight: Radius.circular(20),
+        ),
+      ),
       builder: (context) {
-        return DraggableScrollableSheet(
-          builder: (context, controller) {
-            return child;
-          },
-        );
+        return child;
       },
     );
   }

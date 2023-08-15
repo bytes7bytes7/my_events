@@ -7,7 +7,6 @@ import '../../../../themes/extensions/extensions.dart';
 import '../../../common/presentation/widgets/widgets.dart';
 import '../../application/blocs/news_list/news_list_bloc.dart';
 import '../../application/view_models/news_vm.dart';
-import 'news_bottom_sheet.dart';
 
 const _newsImageSize = 96.0;
 
@@ -112,13 +111,6 @@ class _Body extends StatelessWidget {
                         return _NewsCard(
                           news: news,
                           onPressed: () {
-                            showModalBottomSheet(
-                              context: context,
-                              isScrollControlled: true,
-                              builder: (context) {
-                                return NewsBottomSheet(id: news.id);
-                              },
-                            );
                             bloc.add(NewsListEvent.onCardPressed(id: news.id));
                           },
                         );

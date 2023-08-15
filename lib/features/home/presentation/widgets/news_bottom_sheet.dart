@@ -17,16 +17,32 @@ class NewsBottomSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) =>
-          GetIt.instance.get<NewsBloc>()..add(NewsEvent.load(newsID: id)),
-      child: const _Body(),
+    return FractionallySizedBox(
+      heightFactor: 0.95,
+      child: DraggableScrollableSheet(
+        initialChildSize: 1,
+        maxChildSize: 1,
+        minChildSize: 1,
+        builder: (context, controller) {
+          return BlocProvider(
+            create: (context) =>
+                GetIt.instance.get<NewsBloc>()..add(NewsEvent.load(newsID: id)),
+            child: _Body(
+              controller: controller,
+            ),
+          );
+        },
+      ),
     );
   }
 }
 
 class _Body extends StatelessWidget {
-  const _Body();
+  const _Body({
+    required this.controller,
+  });
+
+  final ScrollController controller;
 
   @override
   Widget build(BuildContext context) {
@@ -43,41 +59,43 @@ class _Body extends StatelessWidget {
         final news = state.news;
         if (news == null) {
           return Center(
-            child:
-                Text(state.error.isNotEmpty ? state.error : 'Нет данных'),
+            child: Text(state.error.isNotEmpty ? state.error : 'Нет данных'),
           );
         }
 
         return ListView(
+          controller: controller,
+          padding: const EdgeInsets.symmetric(
+            horizontal: 24,
+          ),
           children: [
             Padding(
               padding: const EdgeInsets.symmetric(
                 vertical: 16,
-                horizontal: 24,
               ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  const SizedBox.shrink(),
-                  Text(
-                    'Новость',
-                    style: theme.textTheme.titleLarge,
-                  ),
-                  InkWell(
-                    onTap: () {
-                      bloc.add(const NewsEvent.close());
-                    },
-                    child: DecoratedBox(
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: theme.colorScheme.background,
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(4),
-                        child: Icon(
-                          Icons.close,
-                          color: theme.colorScheme.onSurface,
+              child: AppBar(
+                backgroundColor: Colors.transparent,
+                centerTitle: true,
+                title: Text(
+                  'Новость',
+                  style: theme.textTheme.titleLarge,
+                ),
+                actions: [
+                  Center(
+                    child: Material(
+                      color: theme.colorScheme.background,
+                      borderRadius: BorderRadius.circular(20),
+                      clipBehavior: Clip.hardEdge,
+                      child: InkWell(
+                        onTap: () {
+                          bloc.add(const NewsEvent.close());
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.all(4),
+                          child: Icon(
+                            Icons.close,
+                            color: theme.colorScheme.onSurface,
+                          ),
                         ),
                       ),
                     ),
@@ -85,31 +103,30 @@ class _Body extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(
-              height: 16,
-            ),
-            Stack(
-              children: [
-                Positioned.fill(
-                  child: ClipRRect(
-                    clipBehavior: Clip.hardEdge,
-                    borderRadius: BorderRadius.circular(12),
-                    child: Image.memory(
+            AspectRatio(
+              aspectRatio: 3 / 1,
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                  image: DecorationImage(
+                    image: MemoryImage(
                       news.image,
-                      fit: BoxFit.cover,
+                    ),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: Align(
+                    alignment: Alignment.topRight,
+                    child: ElevatedButton(
+                      style: elevatedButtonTX.fivefold,
+                      onPressed: () {},
+                      child: Assets.icons.share.svg(),
                     ),
                   ),
                 ),
-                Positioned(
-                  top: 16,
-                  left: 16,
-                  child: ElevatedButton(
-                    style: elevatedButtonTX.fivefold,
-                    onPressed: () {},
-                    child: Assets.icons.share.svg(),
-                  ),
-                ),
-              ],
+              ),
             ),
             const SizedBox(
               height: 16,
