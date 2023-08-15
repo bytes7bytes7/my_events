@@ -11,6 +11,7 @@ class ProdAuthCoordinator extends Coordinator implements AuthCoordinator {
   @override
   void onLoggedIn() {
     const HomeRoute().go(goRouter);
+    const OnboardingRoute().push(goRouter);
   }
 
   @override
