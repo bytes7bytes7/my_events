@@ -13,18 +13,76 @@ class MyEventsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 24,
-          ),
-          child: BlocProvider(
-            create: (context) => GetIt.instance.get<MyEventsBloc>()
-              ..add(const MyEventsEvent.load()),
-            child: const _Body(),
+    return BlocProvider(
+      create: (context) =>
+          GetIt.instance.get<MyEventsBloc>()..add(const MyEventsEvent.load()),
+      child: const Scaffold(
+        appBar: PreferredSize(
+          preferredSize: Size.fromHeight(80),
+          child: _AppBar(),
+        ),
+        body: SafeArea(
+          child: Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: 24,
+            ),
+            child: _Body(),
           ),
         ),
+      ),
+    );
+  }
+}
+
+class _AppBar extends StatelessWidget {
+  const _AppBar();
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final bloc = context.read<MyEventsBloc>();
+
+    return Padding(
+      padding: const EdgeInsets.only(
+        right: 24,
+        left: 12,
+        top: 10,
+        bottom: 10,
+      ),
+      child: AppBar(
+        leading: Center(
+          child: CustomIconButton(
+            onPressed: () {
+              bloc.add(const MyEventsEvent.back());
+            },
+            icon: Assets.icons.back.svg(
+              colorFilter: ColorFilter.mode(
+                theme.colorScheme.onSurface,
+                BlendMode.srcIn,
+              ),
+            ),
+          ),
+        ),
+        centerTitle: true,
+        title: Text(
+          'мои мероприятия',
+          style: theme.textTheme.titleLarge,
+        ),
+        actions: [
+          Center(
+            child: CustomIconButton(
+              onPressed: () {
+                bloc.add(const MyEventsEvent.openArchive());
+              },
+              icon: Assets.icons.archive.svg(
+                colorFilter: ColorFilter.mode(
+                  theme.colorScheme.onSurface,
+                  BlendMode.srcIn,
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -35,61 +93,10 @@ class _Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     final bloc = context.read<MyEventsBloc>();
 
     return Column(
       children: [
-        const SizedBox(
-          height: 20,
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Expanded(
-              child: Align(
-                alignment: Alignment.centerLeft,
-                child: CustomIconButton(
-                  onPressed: () {
-                    bloc.add(const MyEventsEvent.back());
-                  },
-                  icon: Assets.icons.back.svg(
-                    colorFilter: ColorFilter.mode(
-                      theme.colorScheme.onSurface,
-                      BlendMode.srcIn,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            Expanded(
-              flex: 2,
-              child: Text(
-                'мои мероприятия',
-                style: theme.textTheme.titleLarge,
-              ),
-            ),
-            Expanded(
-              child: Align(
-                alignment: Alignment.centerRight,
-                child: CustomIconButton(
-                  onPressed: () {
-                    bloc.add(const MyEventsEvent.openArchive());
-                  },
-                  icon: Assets.icons.archive.svg(
-                    colorFilter: ColorFilter.mode(
-                      theme.colorScheme.onSurface,
-                      BlendMode.srcIn,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
-        const SizedBox(
-          height: 24,
-        ),
         Expanded(
           child: BlocBuilder<MyEventsBloc, MyEventsState>(
             builder: (context, state) {
