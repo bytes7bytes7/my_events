@@ -16,75 +16,77 @@ class TestNewsRepository implements NewsRepository {
     required String categoryID,
     required int offset,
     required int limit,
-  }) async {
-    if (offset != 0) {
-      return Paginated(
-        offset: offset,
-        totalCount: 5,
-        count: 0,
-        value: [],
-      );
-    }
+  }) {
+    return Future.delayed(const Duration(milliseconds: 800), () async {
+      if (offset != 0) {
+        return Paginated(
+          offset: offset,
+          totalCount: 5,
+          count: 0,
+          value: [],
+        );
+      }
 
-    return Paginated(
-      offset: 0,
-      count: 5,
-      totalCount: 5,
-      value: [
-        News(
-          id: '1',
-          title:
-              'Последние разработки в области энергоэффективности, инженерных систем, архитектуры и дизайна: что покажет Россия на выставке UzBuild',
-          content: _content,
-          publishedAt: DateTime(2023, 2, 28),
-          image: Uint8List.sublistView(
-            await rootBundle.load(Assets.mock.images.news1.path),
+      return Paginated(
+        offset: 0,
+        count: 5,
+        totalCount: 5,
+        value: [
+          News(
+            id: '1',
+            title:
+                'Последние разработки в области энергоэффективности, инженерных систем, архитектуры и дизайна: что покажет Россия на выставке UzBuild',
+            content: _content,
+            publishedAt: DateTime(2023, 2, 28),
+            image: Uint8List.sublistView(
+              await rootBundle.load(Assets.mock.images.news1.path),
+            ),
+            readTime: const Duration(minutes: 5),
           ),
-          readTime: const Duration(minutes: 5),
-        ),
-        News(
-          id: '2',
-          title:
-              'Стратегии поддержки и новые горизонты: в преддверии Российского форума дизайна и моды',
-          content: _content,
-          publishedAt: DateTime(2023, 2, 28),
-          image: Uint8List.sublistView(
-            await rootBundle.load(Assets.mock.images.news2.path),
+          News(
+            id: '2',
+            title:
+                'Стратегии поддержки и новые горизонты: в преддверии Российского форума дизайна и моды',
+            content: _content,
+            publishedAt: DateTime(2023, 2, 28),
+            image: Uint8List.sublistView(
+              await rootBundle.load(Assets.mock.images.news2.path),
+            ),
+            readTime: const Duration(minutes: 5),
           ),
-          readTime: const Duration(minutes: 5),
-        ),
-        News(
-          id: '3',
-          title: 'Почему нет санкций на производство титана?',
-          content: _content,
-          publishedAt: DateTime(2023, 2, 27),
-          image: Uint8List.sublistView(
-            await rootBundle.load(Assets.mock.images.news1.path),
+          News(
+            id: '3',
+            title: 'Почему нет санкций на производство титана?',
+            content: _content,
+            publishedAt: DateTime(2023, 2, 27),
+            image: Uint8List.sublistView(
+              await rootBundle.load(Assets.mock.images.news1.path),
+            ),
+            readTime: const Duration(minutes: 5),
           ),
-          readTime: const Duration(minutes: 5),
-        ),
-        News(
-          id: '4',
-          title: 'Почему нет санкций на производство титана?',
-          content: _content,
-          publishedAt: DateTime(2023, 2, 27),
-          image: Uint8List.sublistView(
-            await rootBundle.load(Assets.mock.images.news1.path),
+          News(
+            id: '4',
+            title: 'Почему нет санкций на производство титана?',
+            content: _content,
+            publishedAt: DateTime(2023, 2, 27),
+            image: Uint8List.sublistView(
+              await rootBundle.load(Assets.mock.images.news1.path),
+            ),
+            readTime: const Duration(minutes: 5),
           ),
-          readTime: const Duration(minutes: 5),
-        ),
-        News(
-          id: '5',
-          title: 'Почему нет санкций на производство титана?',
-          content: _content,
-          publishedAt: DateTime(2023, 2, 27),
-          image: Uint8List.sublistView(
-            await rootBundle.load(Assets.mock.images.news1.path),
+          News(
+            id: '5',
+            title: 'Почему нет санкций на производство титана?',
+            content: _content,
+            publishedAt: DateTime(2023, 2, 27),
+            image: Uint8List.sublistView(
+              await rootBundle.load(Assets.mock.images.news1.path),
+            ),
+            readTime: const Duration(minutes: 5),
           ),
-          readTime: const Duration(minutes: 5),
-        ),
-      ],
-    );
+        ],
+      );
+    });
   }
 
   @override

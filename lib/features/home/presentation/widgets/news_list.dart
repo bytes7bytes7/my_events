@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
+import 'package:lazy_load_scrollview/lazy_load_scrollview.dart';
 
 import '../../../../themes/extensions/extensions.dart';
 import '../../../common/presentation/widgets/widgets.dart';
@@ -32,11 +33,11 @@ class _Body extends StatelessWidget {
 
     return BlocBuilder<NewsListBloc, NewsListState>(
       builder: (context, state) {
-        final itemCount = state.news.length + 1;
-
-        if (state.news.isEmpty) {
+        if (state.isLoadingCategories) {
           return const LoadingIndicator();
         }
+
+        final itemCount = state.news.length + 1;
 
         return Column(
           children: [
@@ -75,44 +76,57 @@ class _Body extends StatelessWidget {
                 },
               ),
             ),
-            Expanded(
-              child: ListView.separated(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 24,
-                ),
-                itemCount: itemCount,
-                separatorBuilder: (context, index) {
-                  return const SizedBox(
-                    height: 8,
-                  );
-                },
-                itemBuilder: (context, index) {
-                  if (index == itemCount - 1) {
-                    if (state.isLoadingMore) {
-                      return const LoadingIndicator();
-                    }
-
-                    return const SizedBox.shrink();
-                  }
-
-                  final news = state.news[index];
-
-                  return _NewsCard(
-                    news: news,
-                    onPressed: () {
-                      showModalBottomSheet(
-                        context: context,
-                        isScrollControlled: true,
-                        builder: (context) {
-                          return NewsBottomSheet(id: news.id);
-                        },
-                      );
-                      bloc.add(NewsListEvent.onCardPressed(id: news.id));
+            if (state.isLoadingNews)
+              const LoadingIndicator()
+            else
+              Expanded(
+                child: LazyLoadScrollView(
+                  onEndOfPage: () {
+                    bloc.add(const NewsListEvent.loadMore());
+                  },
+                  child: RefreshIndicator(
+                    onRefresh: () async {
+                      bloc.add(const NewsListEvent.refresh());
                     },
-                  );
-                },
+                    child: ListView.separated(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 24,
+                      ),
+                      itemCount: itemCount,
+                      separatorBuilder: (context, index) {
+                        return const SizedBox(
+                          height: 8,
+                        );
+                      },
+                      itemBuilder: (context, index) {
+                        if (index == itemCount - 1) {
+                          if (state.isLoadingMore) {
+                            return const LoadingIndicator();
+                          }
+
+                          return const SizedBox.shrink();
+                        }
+
+                        final news = state.news[index];
+
+                        return _NewsCard(
+                          news: news,
+                          onPressed: () {
+                            showModalBottomSheet(
+                              context: context,
+                              isScrollControlled: true,
+                              builder: (context) {
+                                return NewsBottomSheet(id: news.id);
+                              },
+                            );
+                            bloc.add(NewsListEvent.onCardPressed(id: news.id));
+                          },
+                        );
+                      },
+                    ),
+                  ),
+                ),
               ),
-            ),
           ],
         );
       },
