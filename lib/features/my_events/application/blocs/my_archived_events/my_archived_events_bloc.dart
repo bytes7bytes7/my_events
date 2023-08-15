@@ -53,7 +53,7 @@ class MyArchivedEventsBloc
     emit(state.copyWith(isLoading: true));
 
     try {
-      final tickets = await _ticketRepository.getMy(
+      final tickets = await _ticketRepository.getArchived(
         offset: 0,
         limit: _limit,
       );
@@ -91,7 +91,7 @@ class MyArchivedEventsBloc
     try {
       final oldTickets = List.of(state.tickets);
 
-      final tickets = await _ticketRepository.getMy(
+      final tickets = await _ticketRepository.getArchived(
         offset: state.offset,
         limit: _limit,
       );

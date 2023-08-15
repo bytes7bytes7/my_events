@@ -4,11 +4,11 @@ import 'package:get_it/get_it.dart';
 
 import '../../../../gen/assets.gen.dart';
 import '../../../common/presentation/widgets/widgets.dart';
-import '../../application/blocs/my_events/my_events_bloc.dart';
+import '../../application/blocs/my_archived_events/my_archived_events_bloc.dart';
 import '../widgets/ticket_card.dart';
 
-class MyEventsScreen extends StatelessWidget {
-  const MyEventsScreen({super.key});
+class MyArchivedEventsScreen extends StatelessWidget {
+  const MyArchivedEventsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,8 +19,8 @@ class MyEventsScreen extends StatelessWidget {
             horizontal: 24,
           ),
           child: BlocProvider(
-            create: (context) => GetIt.instance.get<MyEventsBloc>()
-              ..add(const MyEventsEvent.load()),
+            create: (context) => GetIt.instance.get<MyArchivedEventsBloc>()
+              ..add(const MyArchivedEventsEvent.load()),
             child: const _Body(),
           ),
         ),
@@ -35,7 +35,7 @@ class _Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final bloc = context.read<MyEventsBloc>();
+    final bloc = context.read<MyArchivedEventsBloc>();
 
     return Column(
       children: [
@@ -60,22 +60,18 @@ class _Body extends StatelessWidget {
               ),
             ),
             Expanded(
+              flex: 2,
               child: Text(
-                'мои мероприятия',
+                'архив мероприятий',
                 style: theme.textTheme.titleLarge,
               ),
             ),
             Expanded(
               child: Align(
                 alignment: Alignment.centerRight,
-                child: CustomIconButton(
+                child: TextButton(
                   onPressed: () {},
-                  icon: Assets.icons.archive.svg(
-                    colorFilter: ColorFilter.mode(
-                      theme.colorScheme.onSurface,
-                      BlendMode.srcIn,
-                    ),
-                  ),
+                  child: const Text('очистить'),
                 ),
               ),
             ),
@@ -85,7 +81,7 @@ class _Body extends StatelessWidget {
           height: 24,
         ),
         Expanded(
-          child: BlocBuilder<MyEventsBloc, MyEventsState>(
+          child: BlocBuilder<MyArchivedEventsBloc, MyArchivedEventsState>(
             builder: (context, state) {
               final itemCount = state.tickets.length + 1;
 
@@ -96,7 +92,7 @@ class _Body extends StatelessWidget {
               if (state.tickets.isEmpty) {
                 return RefreshIndicator(
                   onRefresh: () async {
-                    bloc.add(const MyEventsEvent.refresh());
+                    bloc.add(const MyArchivedEventsEvent.refresh());
                   },
                   child: ListView(
                     children: const [
@@ -110,13 +106,13 @@ class _Body extends StatelessWidget {
 
               return RefreshIndicator(
                 onRefresh: () async {
-                  bloc.add(const MyEventsEvent.refresh());
+                  bloc.add(const MyArchivedEventsEvent.refresh());
                 },
                 child: NotificationListener(
                   onNotification: (n) {
                     if (n is ScrollNotification) {
                       if (n.metrics.pixels > n.metrics.maxScrollExtent - 50) {
-                        bloc.add(const MyEventsEvent.loadMore());
+                        bloc.add(const MyArchivedEventsEvent.loadMore());
                       }
                     }
 

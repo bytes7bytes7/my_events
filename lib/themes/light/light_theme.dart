@@ -130,6 +130,25 @@ final lightTheme = ThemeData.light().copyWith(
   cardTheme: const CardTheme(
     margin: EdgeInsets.zero,
   ),
+  textButtonTheme: TextButtonThemeData(
+    style: ButtonStyle(
+      foregroundColor: MaterialStateProperty.resolveWith((states) {
+        if (states.contains(MaterialState.disabled)) {
+          return _Colors.shark.withOpacity(0.3);
+        }
+
+        return _Colors.shark;
+      }),
+      textStyle: MaterialStateProperty.all(
+        const TextStyle(
+          fontSize: 14,
+          fontWeight: FontWeight.bold,
+          fontFamily: FontFamily.sansation,
+        ),
+      ),
+      padding: MaterialStateProperty.all(const EdgeInsets.all(8)),
+    ),
+  ),
   extensions: [
     ElevatedButtonTX(
       secondary: ButtonStyle(

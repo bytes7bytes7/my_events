@@ -16,7 +16,7 @@ class App extends StatelessWidget {
       child: MaterialApp(
         theme: lightTheme,
         debugShowCheckedModeBanner: false,
-        home: const MyEventsScreen(),
+        home: const MyArchivedEventsScreen(),
       ),
     );
   }
