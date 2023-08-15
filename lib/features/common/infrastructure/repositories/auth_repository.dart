@@ -1,39 +1,37 @@
 import 'package:injectable/injectable.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../domain/repositories/auth_repository.dart';
 
-const _isLoggedInKey = 'is_logged_in';
 const _delay = Duration(milliseconds: 800);
 
 @LazySingleton(as: AuthRepository)
 class TestAuthRepository implements AuthRepository {
-  const TestAuthRepository(this._sharedPreferences);
+  TestAuthRepository();
 
-  final SharedPreferences _sharedPreferences;
+  var _isLoggedIn = false;
 
   @override
-  Future<bool> isLoggedIn() async {
-    return _sharedPreferences.getBool(_isLoggedInKey) ?? false;
+  Future<bool> isLoggedIn() {
+    return Future.delayed(_delay, () => _isLoggedIn);
   }
 
   @override
   Future<void> logInAnonymously() async {
-    await _sharedPreferences.setBool(_isLoggedInKey, true);
+    _isLoggedIn = true;
 
     return Future.delayed(_delay);
   }
 
   @override
   Future<void> logInToAccount() async {
-    await _sharedPreferences.setBool(_isLoggedInKey, true);
+    _isLoggedIn = true;
 
     return Future.delayed(_delay);
   }
 
   @override
   Future<void> logOut() async {
-    await _sharedPreferences.setBool(_isLoggedInKey, false);
+    _isLoggedIn = false;
 
     return Future.delayed(_delay);
   }

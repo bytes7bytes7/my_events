@@ -69,6 +69,10 @@ class _TabBar extends HookWidget {
             (index, icon) {
               final selected = state.currentIndex == index;
               final defaultColor = theme.colorScheme.surface;
+              final color = (selected
+                      ? theme.tabBarTheme.labelColor
+                      : theme.tabBarTheme.unselectedLabelColor) ??
+                  defaultColor;
 
               return Padding(
                 padding: const EdgeInsets.symmetric(
@@ -82,10 +86,7 @@ class _TabBar extends HookWidget {
                       child: SvgPicture.asset(
                         icon,
                         colorFilter: ColorFilter.mode(
-                          (selected
-                                  ? theme.tabBarTheme.labelColor
-                                  : theme.tabBarTheme.unselectedLabelColor) ??
-                              defaultColor,
+                          color,
                           BlendMode.srcIn,
                         ),
                       ),
@@ -95,7 +96,9 @@ class _TabBar extends HookWidget {
                         _labels[index],
                         maxLines: 1,
                         overflow: TextOverflow.visible,
-                        style: theme.textTheme.titleSmall,
+                        style: theme.textTheme.titleSmall?.copyWith(
+                          color: color,
+                        ),
                       ),
                     ),
                     DecoratedBox(
