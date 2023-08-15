@@ -19,32 +19,38 @@ mixin _$AccountEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loadUser,
+    required TResult Function() openMyEvents,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loadUser,
+    TResult? Function()? openMyEvents,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loadUser,
+    TResult Function()? openMyEvents,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadUserEvent value) loadUser,
+    required TResult Function(_OpenMyEventsEvent value) openMyEvents,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadUserEvent value)? loadUser,
+    TResult? Function(_OpenMyEventsEvent value)? openMyEvents,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadUserEvent value)? loadUser,
+    TResult Function(_OpenMyEventsEvent value)? openMyEvents,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -107,6 +113,7 @@ class _$_LoadUserEvent implements _LoadUserEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loadUser,
+    required TResult Function() openMyEvents,
   }) {
     return loadUser();
   }
@@ -115,6 +122,7 @@ class _$_LoadUserEvent implements _LoadUserEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loadUser,
+    TResult? Function()? openMyEvents,
   }) {
     return loadUser?.call();
   }
@@ -123,6 +131,7 @@ class _$_LoadUserEvent implements _LoadUserEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loadUser,
+    TResult Function()? openMyEvents,
     required TResult orElse(),
   }) {
     if (loadUser != null) {
@@ -135,6 +144,7 @@ class _$_LoadUserEvent implements _LoadUserEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadUserEvent value) loadUser,
+    required TResult Function(_OpenMyEventsEvent value) openMyEvents,
   }) {
     return loadUser(this);
   }
@@ -143,6 +153,7 @@ class _$_LoadUserEvent implements _LoadUserEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadUserEvent value)? loadUser,
+    TResult? Function(_OpenMyEventsEvent value)? openMyEvents,
   }) {
     return loadUser?.call(this);
   }
@@ -151,6 +162,7 @@ class _$_LoadUserEvent implements _LoadUserEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadUserEvent value)? loadUser,
+    TResult Function(_OpenMyEventsEvent value)? openMyEvents,
     required TResult orElse(),
   }) {
     if (loadUser != null) {
@@ -162,6 +174,108 @@ class _$_LoadUserEvent implements _LoadUserEvent {
 
 abstract class _LoadUserEvent implements AccountEvent {
   const factory _LoadUserEvent() = _$_LoadUserEvent;
+}
+
+/// @nodoc
+abstract class _$$_OpenMyEventsEventCopyWith<$Res> {
+  factory _$$_OpenMyEventsEventCopyWith(_$_OpenMyEventsEvent value,
+          $Res Function(_$_OpenMyEventsEvent) then) =
+      __$$_OpenMyEventsEventCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_OpenMyEventsEventCopyWithImpl<$Res>
+    extends _$AccountEventCopyWithImpl<$Res, _$_OpenMyEventsEvent>
+    implements _$$_OpenMyEventsEventCopyWith<$Res> {
+  __$$_OpenMyEventsEventCopyWithImpl(
+      _$_OpenMyEventsEvent _value, $Res Function(_$_OpenMyEventsEvent) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_OpenMyEventsEvent implements _OpenMyEventsEvent {
+  const _$_OpenMyEventsEvent();
+
+  @override
+  String toString() {
+    return 'AccountEvent.openMyEvents()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_OpenMyEventsEvent);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadUser,
+    required TResult Function() openMyEvents,
+  }) {
+    return openMyEvents();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loadUser,
+    TResult? Function()? openMyEvents,
+  }) {
+    return openMyEvents?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadUser,
+    TResult Function()? openMyEvents,
+    required TResult orElse(),
+  }) {
+    if (openMyEvents != null) {
+      return openMyEvents();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadUserEvent value) loadUser,
+    required TResult Function(_OpenMyEventsEvent value) openMyEvents,
+  }) {
+    return openMyEvents(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadUserEvent value)? loadUser,
+    TResult? Function(_OpenMyEventsEvent value)? openMyEvents,
+  }) {
+    return openMyEvents?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadUserEvent value)? loadUser,
+    TResult Function(_OpenMyEventsEvent value)? openMyEvents,
+    required TResult orElse(),
+  }) {
+    if (openMyEvents != null) {
+      return openMyEvents(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _OpenMyEventsEvent implements AccountEvent {
+  const factory _OpenMyEventsEvent() = _$_OpenMyEventsEvent;
 }
 
 /// @nodoc

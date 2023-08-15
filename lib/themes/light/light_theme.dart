@@ -258,6 +258,12 @@ final lightTheme = ThemeData.light().copyWith(
         fontFamily: FontFamily.sansation,
         color: _Colors.shark,
       ),
+      labelThin: TextStyle(
+        fontSize: 14,
+        fontWeight: FontWeight.w400,
+        fontFamily: FontFamily.sansation,
+        color: _Colors.slateGray,
+      ),
     ),
     const ColorSchemeTX(
       chevron: _Colors.slateGray,

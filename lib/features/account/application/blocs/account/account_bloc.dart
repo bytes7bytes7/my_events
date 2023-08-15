@@ -6,6 +6,7 @@ import '../../../../../utils/mapper.dart';
 import '../../../../common/application/view_models/user_vm.dart';
 import '../../../../common/domain/entities/user.dart';
 import '../../../../common/domain/repositories/user_repository.dart';
+import '../../coordinators/account_coordinator.dart';
 import '../../providers/account_string_provider.dart';
 
 part 'account_event.dart';
@@ -19,13 +20,16 @@ class AccountBloc extends Bloc<AccountEvent, AccountState> {
   AccountBloc(
     this._userRepository,
     this._stringProvider,
+    this._coordinator,
     this._userMapper,
   ) : super(const AccountState()) {
     on<_LoadUserEvent>(_loadUser);
+    on<_OpenMyEventsEvent>(_openMyEvents);
   }
 
   final UserRepository _userRepository;
   final AccountStringProvider _stringProvider;
+  final AccountCoordinator _coordinator;
   final Mapper<User, UserVM> _userMapper;
 
   Future<void> _loadUser(
@@ -45,5 +49,12 @@ class AccountBloc extends Bloc<AccountEvent, AccountState> {
     } finally {
       emit(state.copyWith(isLoading: false));
     }
+  }
+
+  void _openMyEvents(
+    _OpenMyEventsEvent event,
+    Emitter<AccountState> emit,
+  ) {
+    _coordinator.openMyEvents();
   }
 }

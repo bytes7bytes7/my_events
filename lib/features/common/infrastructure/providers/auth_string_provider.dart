@@ -8,4 +8,7 @@ class ProdAuthStringProvider implements AuthStringProvider {
 
   @override
   String get cannotLogIn => 'Не удалось войти';
+
+  @override
+  String get cannotLogOut => 'Не удалось выйти';
 }

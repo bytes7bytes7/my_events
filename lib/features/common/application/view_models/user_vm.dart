@@ -14,4 +14,10 @@ class UserVM {
   final String lastName;
   final String? middleName;
   final Uint8List? avatar;
+
+  String get fullName {
+    final parts = [firstName, middleName, lastName].where((e) => e != null);
+
+    return parts.join(' ');
+  }
 }

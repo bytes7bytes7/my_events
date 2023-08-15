@@ -3,16 +3,20 @@ import 'package:flutter/material.dart';
 class TextThemeTX extends ThemeExtension<TextThemeTX> {
   const TextThemeTX({
     required this.labelBig,
+    required this.labelThin,
   });
 
   final TextStyle labelBig;
+  final TextStyle labelThin;
 
   @override
   ThemeExtension<TextThemeTX> copyWith({
     TextStyle? labelBig,
+    TextStyle? labelThin,
   }) {
     return TextThemeTX(
       labelBig: labelBig ?? this.labelBig,
+      labelThin: labelThin ?? this.labelThin,
     );
   }
 
@@ -29,6 +33,11 @@ class TextThemeTX extends ThemeExtension<TextThemeTX> {
       labelBig: TextStyle.lerp(
         labelBig,
         other.labelBig,
+        t,
+      )!,
+      labelThin: TextStyle.lerp(
+        labelThin,
+        other.labelThin,
         t,
       )!,
     );

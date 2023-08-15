@@ -22,6 +22,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<_CheckIfIsLoggedInEvent>(_checkIfIsLoggedIn);
     on<_LogInToAccountEvent>(_logInToAccount);
     on<_LogInAnonymouslyEvent>(_logInAnonymously);
+    on<_LogOutEvent>(_logOut);
 
     // private
     on<_LoggedInEvent>(_onLoggedIn);
@@ -43,10 +44,18 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     _LogInToAccountEvent event,
     Emitter<AuthState> emit,
   ) async {
+    if (state.isLoading) {
+      return;
+    }
+
+    emit(state.copyWith(isLoading: true));
+
     try {
       await _authService.logInToAccount();
     } catch (e) {
       emit(state.copyWith(error: _authStringProvider.cannotLogIn));
+    } finally {
+      emit(state.copyWith(isLoading: false));
     }
   }
 
@@ -54,10 +63,37 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     _LogInAnonymouslyEvent event,
     Emitter<AuthState> emit,
   ) async {
+    if (state.isLoading) {
+      return;
+    }
+
+    emit(state.copyWith(isLoading: true));
+
     try {
       await _authService.logInAnonymously();
     } catch (e) {
       emit(state.copyWith(error: _authStringProvider.cannotLogIn));
+    } finally {
+      emit(state.copyWith(isLoading: false));
+    }
+  }
+
+  Future<void> _logOut(
+    _LogOutEvent event,
+    Emitter<AuthState> emit,
+  ) async {
+    if (state.isLoading) {
+      return;
+    }
+
+    emit(state.copyWith(isLoading: true));
+
+    try {
+      await _authService.logOut();
+    } catch (e) {
+      emit(state.copyWith(error: _authStringProvider.cannotLogOut));
+    } finally {
+      emit(state.copyWith(isLoading: false));
     }
   }
 

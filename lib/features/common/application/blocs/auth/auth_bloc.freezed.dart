@@ -21,6 +21,7 @@ mixin _$AuthEvent {
     required TResult Function() checkIfIsLoggedIn,
     required TResult Function() logInToAccount,
     required TResult Function() logInAnonymously,
+    required TResult Function() logOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +29,7 @@ mixin _$AuthEvent {
     TResult? Function()? checkIfIsLoggedIn,
     TResult? Function()? logInToAccount,
     TResult? Function()? logInAnonymously,
+    TResult? Function()? logOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +37,7 @@ mixin _$AuthEvent {
     TResult Function()? checkIfIsLoggedIn,
     TResult Function()? logInToAccount,
     TResult Function()? logInAnonymously,
+    TResult Function()? logOut,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +46,7 @@ mixin _$AuthEvent {
     required TResult Function(_CheckIfIsLoggedInEvent value) checkIfIsLoggedIn,
     required TResult Function(_LogInToAccountEvent value) logInToAccount,
     required TResult Function(_LogInAnonymouslyEvent value) logInAnonymously,
+    required TResult Function(_LogOutEvent value) logOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +54,7 @@ mixin _$AuthEvent {
     TResult? Function(_CheckIfIsLoggedInEvent value)? checkIfIsLoggedIn,
     TResult? Function(_LogInToAccountEvent value)? logInToAccount,
     TResult? Function(_LogInAnonymouslyEvent value)? logInAnonymously,
+    TResult? Function(_LogOutEvent value)? logOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +62,7 @@ mixin _$AuthEvent {
     TResult Function(_CheckIfIsLoggedInEvent value)? checkIfIsLoggedIn,
     TResult Function(_LogInToAccountEvent value)? logInToAccount,
     TResult Function(_LogInAnonymouslyEvent value)? logInAnonymously,
+    TResult Function(_LogOutEvent value)? logOut,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -121,6 +127,7 @@ class _$_CheckIfIsLoggedInEvent extends _CheckIfIsLoggedInEvent {
     required TResult Function() checkIfIsLoggedIn,
     required TResult Function() logInToAccount,
     required TResult Function() logInAnonymously,
+    required TResult Function() logOut,
   }) {
     return checkIfIsLoggedIn();
   }
@@ -131,6 +138,7 @@ class _$_CheckIfIsLoggedInEvent extends _CheckIfIsLoggedInEvent {
     TResult? Function()? checkIfIsLoggedIn,
     TResult? Function()? logInToAccount,
     TResult? Function()? logInAnonymously,
+    TResult? Function()? logOut,
   }) {
     return checkIfIsLoggedIn?.call();
   }
@@ -141,6 +149,7 @@ class _$_CheckIfIsLoggedInEvent extends _CheckIfIsLoggedInEvent {
     TResult Function()? checkIfIsLoggedIn,
     TResult Function()? logInToAccount,
     TResult Function()? logInAnonymously,
+    TResult Function()? logOut,
     required TResult orElse(),
   }) {
     if (checkIfIsLoggedIn != null) {
@@ -155,6 +164,7 @@ class _$_CheckIfIsLoggedInEvent extends _CheckIfIsLoggedInEvent {
     required TResult Function(_CheckIfIsLoggedInEvent value) checkIfIsLoggedIn,
     required TResult Function(_LogInToAccountEvent value) logInToAccount,
     required TResult Function(_LogInAnonymouslyEvent value) logInAnonymously,
+    required TResult Function(_LogOutEvent value) logOut,
   }) {
     return checkIfIsLoggedIn(this);
   }
@@ -165,6 +175,7 @@ class _$_CheckIfIsLoggedInEvent extends _CheckIfIsLoggedInEvent {
     TResult? Function(_CheckIfIsLoggedInEvent value)? checkIfIsLoggedIn,
     TResult? Function(_LogInToAccountEvent value)? logInToAccount,
     TResult? Function(_LogInAnonymouslyEvent value)? logInAnonymously,
+    TResult? Function(_LogOutEvent value)? logOut,
   }) {
     return checkIfIsLoggedIn?.call(this);
   }
@@ -175,6 +186,7 @@ class _$_CheckIfIsLoggedInEvent extends _CheckIfIsLoggedInEvent {
     TResult Function(_CheckIfIsLoggedInEvent value)? checkIfIsLoggedIn,
     TResult Function(_LogInToAccountEvent value)? logInToAccount,
     TResult Function(_LogInAnonymouslyEvent value)? logInAnonymously,
+    TResult Function(_LogOutEvent value)? logOut,
     required TResult orElse(),
   }) {
     if (checkIfIsLoggedIn != null) {
@@ -230,6 +242,7 @@ class _$_LogInToAccountEvent extends _LogInToAccountEvent {
     required TResult Function() checkIfIsLoggedIn,
     required TResult Function() logInToAccount,
     required TResult Function() logInAnonymously,
+    required TResult Function() logOut,
   }) {
     return logInToAccount();
   }
@@ -240,6 +253,7 @@ class _$_LogInToAccountEvent extends _LogInToAccountEvent {
     TResult? Function()? checkIfIsLoggedIn,
     TResult? Function()? logInToAccount,
     TResult? Function()? logInAnonymously,
+    TResult? Function()? logOut,
   }) {
     return logInToAccount?.call();
   }
@@ -250,6 +264,7 @@ class _$_LogInToAccountEvent extends _LogInToAccountEvent {
     TResult Function()? checkIfIsLoggedIn,
     TResult Function()? logInToAccount,
     TResult Function()? logInAnonymously,
+    TResult Function()? logOut,
     required TResult orElse(),
   }) {
     if (logInToAccount != null) {
@@ -264,6 +279,7 @@ class _$_LogInToAccountEvent extends _LogInToAccountEvent {
     required TResult Function(_CheckIfIsLoggedInEvent value) checkIfIsLoggedIn,
     required TResult Function(_LogInToAccountEvent value) logInToAccount,
     required TResult Function(_LogInAnonymouslyEvent value) logInAnonymously,
+    required TResult Function(_LogOutEvent value) logOut,
   }) {
     return logInToAccount(this);
   }
@@ -274,6 +290,7 @@ class _$_LogInToAccountEvent extends _LogInToAccountEvent {
     TResult? Function(_CheckIfIsLoggedInEvent value)? checkIfIsLoggedIn,
     TResult? Function(_LogInToAccountEvent value)? logInToAccount,
     TResult? Function(_LogInAnonymouslyEvent value)? logInAnonymously,
+    TResult? Function(_LogOutEvent value)? logOut,
   }) {
     return logInToAccount?.call(this);
   }
@@ -284,6 +301,7 @@ class _$_LogInToAccountEvent extends _LogInToAccountEvent {
     TResult Function(_CheckIfIsLoggedInEvent value)? checkIfIsLoggedIn,
     TResult Function(_LogInToAccountEvent value)? logInToAccount,
     TResult Function(_LogInAnonymouslyEvent value)? logInAnonymously,
+    TResult Function(_LogOutEvent value)? logOut,
     required TResult orElse(),
   }) {
     if (logInToAccount != null) {
@@ -339,6 +357,7 @@ class _$_LogInAnonymouslyEvent extends _LogInAnonymouslyEvent {
     required TResult Function() checkIfIsLoggedIn,
     required TResult Function() logInToAccount,
     required TResult Function() logInAnonymously,
+    required TResult Function() logOut,
   }) {
     return logInAnonymously();
   }
@@ -349,6 +368,7 @@ class _$_LogInAnonymouslyEvent extends _LogInAnonymouslyEvent {
     TResult? Function()? checkIfIsLoggedIn,
     TResult? Function()? logInToAccount,
     TResult? Function()? logInAnonymously,
+    TResult? Function()? logOut,
   }) {
     return logInAnonymously?.call();
   }
@@ -359,6 +379,7 @@ class _$_LogInAnonymouslyEvent extends _LogInAnonymouslyEvent {
     TResult Function()? checkIfIsLoggedIn,
     TResult Function()? logInToAccount,
     TResult Function()? logInAnonymously,
+    TResult Function()? logOut,
     required TResult orElse(),
   }) {
     if (logInAnonymously != null) {
@@ -373,6 +394,7 @@ class _$_LogInAnonymouslyEvent extends _LogInAnonymouslyEvent {
     required TResult Function(_CheckIfIsLoggedInEvent value) checkIfIsLoggedIn,
     required TResult Function(_LogInToAccountEvent value) logInToAccount,
     required TResult Function(_LogInAnonymouslyEvent value) logInAnonymously,
+    required TResult Function(_LogOutEvent value) logOut,
   }) {
     return logInAnonymously(this);
   }
@@ -383,6 +405,7 @@ class _$_LogInAnonymouslyEvent extends _LogInAnonymouslyEvent {
     TResult? Function(_CheckIfIsLoggedInEvent value)? checkIfIsLoggedIn,
     TResult? Function(_LogInToAccountEvent value)? logInToAccount,
     TResult? Function(_LogInAnonymouslyEvent value)? logInAnonymously,
+    TResult? Function(_LogOutEvent value)? logOut,
   }) {
     return logInAnonymously?.call(this);
   }
@@ -393,6 +416,7 @@ class _$_LogInAnonymouslyEvent extends _LogInAnonymouslyEvent {
     TResult Function(_CheckIfIsLoggedInEvent value)? checkIfIsLoggedIn,
     TResult Function(_LogInToAccountEvent value)? logInToAccount,
     TResult Function(_LogInAnonymouslyEvent value)? logInAnonymously,
+    TResult Function(_LogOutEvent value)? logOut,
     required TResult orElse(),
   }) {
     if (logInAnonymously != null) {
@@ -405,6 +429,121 @@ class _$_LogInAnonymouslyEvent extends _LogInAnonymouslyEvent {
 abstract class _LogInAnonymouslyEvent extends AuthEvent {
   const factory _LogInAnonymouslyEvent() = _$_LogInAnonymouslyEvent;
   const _LogInAnonymouslyEvent._() : super._();
+}
+
+/// @nodoc
+abstract class _$$_LogOutEventCopyWith<$Res> {
+  factory _$$_LogOutEventCopyWith(
+          _$_LogOutEvent value, $Res Function(_$_LogOutEvent) then) =
+      __$$_LogOutEventCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_LogOutEventCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$_LogOutEvent>
+    implements _$$_LogOutEventCopyWith<$Res> {
+  __$$_LogOutEventCopyWithImpl(
+      _$_LogOutEvent _value, $Res Function(_$_LogOutEvent) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_LogOutEvent extends _LogOutEvent {
+  const _$_LogOutEvent() : super._();
+
+  @override
+  String toString() {
+    return 'AuthEvent.logOut()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_LogOutEvent);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() checkIfIsLoggedIn,
+    required TResult Function() logInToAccount,
+    required TResult Function() logInAnonymously,
+    required TResult Function() logOut,
+  }) {
+    return logOut();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? checkIfIsLoggedIn,
+    TResult? Function()? logInToAccount,
+    TResult? Function()? logInAnonymously,
+    TResult? Function()? logOut,
+  }) {
+    return logOut?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? checkIfIsLoggedIn,
+    TResult Function()? logInToAccount,
+    TResult Function()? logInAnonymously,
+    TResult Function()? logOut,
+    required TResult orElse(),
+  }) {
+    if (logOut != null) {
+      return logOut();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_CheckIfIsLoggedInEvent value) checkIfIsLoggedIn,
+    required TResult Function(_LogInToAccountEvent value) logInToAccount,
+    required TResult Function(_LogInAnonymouslyEvent value) logInAnonymously,
+    required TResult Function(_LogOutEvent value) logOut,
+  }) {
+    return logOut(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_CheckIfIsLoggedInEvent value)? checkIfIsLoggedIn,
+    TResult? Function(_LogInToAccountEvent value)? logInToAccount,
+    TResult? Function(_LogInAnonymouslyEvent value)? logInAnonymously,
+    TResult? Function(_LogOutEvent value)? logOut,
+  }) {
+    return logOut?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_CheckIfIsLoggedInEvent value)? checkIfIsLoggedIn,
+    TResult Function(_LogInToAccountEvent value)? logInToAccount,
+    TResult Function(_LogInAnonymouslyEvent value)? logInAnonymously,
+    TResult Function(_LogOutEvent value)? logOut,
+    required TResult orElse(),
+  }) {
+    if (logOut != null) {
+      return logOut(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LogOutEvent extends AuthEvent {
+  const factory _LogOutEvent() = _$_LogOutEvent;
+  const _LogOutEvent._() : super._();
 }
 
 /// @nodoc
