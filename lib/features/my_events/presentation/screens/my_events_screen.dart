@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
+import 'package:lazy_load_scrollview/lazy_load_scrollview.dart';
 
 import '../../../../gen/assets.gen.dart';
 import '../../../common/presentation/widgets/widgets.dart';
@@ -113,19 +114,13 @@ class _Body extends StatelessWidget {
                 );
               }
 
-              return RefreshIndicator(
-                onRefresh: () async {
-                  bloc.add(const MyEventsEvent.refresh());
+              return LazyLoadScrollView(
+                onEndOfPage: () {
+                  bloc.add(const MyEventsEvent.loadMore());
                 },
-                child: NotificationListener(
-                  onNotification: (n) {
-                    if (n is ScrollNotification) {
-                      if (n.metrics.pixels > n.metrics.maxScrollExtent - 50) {
-                        bloc.add(const MyEventsEvent.loadMore());
-                      }
-                    }
-
-                    return false;
+                child: RefreshIndicator(
+                  onRefresh: () async {
+                    bloc.add(const MyEventsEvent.refresh());
                   },
                   child: ListView.builder(
                     itemCount: itemCount,
