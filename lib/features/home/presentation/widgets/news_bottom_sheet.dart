@@ -17,40 +17,22 @@ class NewsBottomSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-
-    return Column(
-      children: [
-        DecoratedBox(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(2),
-            color: theme.colorScheme.onPrimary,
-          ),
-          child: const SizedBox(
-            height: 4,
-            width: 32,
-          ),
-        ),
-        Expanded(
-          child: FractionallySizedBox(
-            heightFactor: 0.95,
-            child: DraggableScrollableSheet(
-              initialChildSize: 1,
-              maxChildSize: 1,
-              minChildSize: 1,
-              builder: (context, controller) {
-                return BlocProvider(
-                  create: (context) => GetIt.instance.get<NewsBloc>()
-                    ..add(NewsEvent.load(newsID: id)),
-                  child: _Body(
-                    controller: controller,
-                  ),
-                );
-              },
+    return FractionallySizedBox(
+      heightFactor: 0.95,
+      child: DraggableScrollableSheet(
+        initialChildSize: 1,
+        maxChildSize: 1,
+        minChildSize: 1,
+        builder: (context, controller) {
+          return BlocProvider(
+            create: (context) => GetIt.instance.get<NewsBloc>()
+              ..add(NewsEvent.load(newsID: id)),
+            child: _Body(
+              controller: controller,
             ),
-          ),
-        ),
-      ],
+          );
+        },
+      ),
     );
   }
 }
