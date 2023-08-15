@@ -1,13 +1,15 @@
 import 'package:injectable/injectable.dart';
 
 import '../../features/account/application/coordinators/account_coordinator.dart';
+import '../infrastructure/router/router.dart';
+import 'coordinator.dart';
 
 @LazySingleton(as: AccountCoordinator)
-class ProdAccountCoordinator implements AccountCoordinator {
-  const ProdAccountCoordinator();
+class ProdAccountCoordinator extends Coordinator implements AccountCoordinator {
+  const ProdAccountCoordinator({required super.goRouter});
 
   @override
   void openMyEvents() {
-    // TODO: implement openMyEvents
+    const MyEventsRoute().push(goRouter);
   }
 }

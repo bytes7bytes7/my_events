@@ -1,8 +1,10 @@
+import 'dart:async';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../../domain/services/auth_service.dart';
+import '../../../domain/domain.dart';
 import '../../coordinators/auth_coordinator.dart';
 import '../../providers/auth_string_provider.dart';
 
@@ -27,11 +29,27 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     // private
     on<_LoggedInEvent>(_onLoggedIn);
     on<_LoggedOutEvent>(_onLoggedOut);
+
+    _eventSub = _authService.events.listen((event) {
+      if (event is UserLoggedInDomainEvent) {
+        add(const _LoggedInEvent());
+      } else if (event is UserLoggedOutDomainEvent) {
+        add(const _LoggedOutEvent());
+      }
+    });
   }
 
   final AuthService _authService;
   final AuthStringProvider _authStringProvider;
   final AuthCoordinator _coordinator;
+  StreamSubscription? _eventSub;
+
+  @override
+  Future<void> close() async {
+    await _eventSub?.cancel();
+
+    await super.close();
+  }
 
   Future<void> _checkIfIsLoggedIn(
     _CheckIfIsLoggedInEvent event,

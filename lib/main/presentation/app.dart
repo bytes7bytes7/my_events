@@ -14,10 +14,14 @@ class App extends StatelessWidget {
     return BlocProvider<AuthBloc>(
       create: (context) => GetIt.instance.get<AuthBloc>()
         ..add(const AuthEvent.checkIfIsLoggedIn()),
-      child: MaterialApp.router(
-        routerConfig: GetIt.instance.get<GoRouter>(),
-        theme: lightTheme,
-        debugShowCheckedModeBanner: false,
+      child: BlocBuilder<AuthBloc, AuthState>(
+        builder: (context, state) {
+          return MaterialApp.router(
+            routerConfig: GetIt.instance.get<GoRouter>(),
+            theme: lightTheme,
+            debugShowCheckedModeBanner: false,
+          );
+        },
       ),
     );
   }
